@@ -2,6 +2,9 @@ $white-bg: rgb(250,250,250)
 $dark-color: #333333
 $light-green: hsl(149, 89%, 89%)
 
+$footer-green: hsl(148, 23%, 29%)
+$footer-gray: hsl(140, 3%, 17%)
+
 html
   font-size: 62.5%
   box-sizing: border-box
@@ -232,3 +235,97 @@ body
 .plant-team__text-content
   width: 70%
   text-align: justify
+
+/*          footer          */
+.site-footer
+  position: relative
+  width: 100%
+  color: white
+
+.main-footer
+  background: $footer-green
+  width: 100%
+  height: 30vh
+  display: flex
+  flex-direction: column
+  justify-content: center
+  position: relative
+
+.main-footer__mention
+  width: 100%
+  height: auto
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+
+.mention-paragraf
+  margin: 0
+  font-weight: 300
+  font-size: 16px
+
+.mention-paragraf__link
+  text-decoration: none
+  color: white
+  font-weight: 500
+
+.main-footer__social
+  width: 100%
+  height: auto
+
+.title--right
+  display: none
+
+.social-list
+  margin: 30px 0 0 0
+  padding: 0
+  display: flex
+  justify-content: center
+  align-items: center
+
+.social-icon
+  list-style: none
+  margin: 0px 8px
+
+.sub-footer
+  background: $footer-gray
+  padding: 10px
+
+.sub-footer__rights, .sub-footer__author
+  margin: 0
+  text-align: center
+  font-size: 12px
+  font-weight: 300
+
+
+@media (min-width: 600px)
+  .main-footer
+    height: 120px
+    flex-direction: row
+    justify-content: space-between
+
+  .main-footer__mention
+    width: calc(20vw + 290px)
+    position: relative
+
+  .mention-paragraf
+    font-size: 16px
+
+  .main-footer__social
+    width: calc(20vw + 315px)
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+
+  .title--right
+    display: block
+
+  .social-list
+    margin: 0
+
+  .social-icon
+    margin: 10px
+
+  .sub-footer
+    padding: 5px
