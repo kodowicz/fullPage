@@ -1,7 +1,7 @@
 $white-bg: rgb(250,250,250)
 $dark-color: #333333
 $light-green: hsl(149, 89%, 89%)
-
+$text-color: rgb(25,25,25)
 $footer-green: hsl(148, 23%, 29%)
 $footer-gray: hsl(140, 3%, 17%)
 
@@ -22,7 +22,7 @@ body
 *::after
   box-sizing: inherit
 
-/* header */
+/*      header      */
 .site-header
   position: fixed
   top: 0
@@ -55,7 +55,7 @@ body
   height: 50px
 
 
-/* navigation */
+/*      navigation      */
 .nav-button
   position: absolute
   top: 30px
@@ -197,6 +197,36 @@ body
     padding: 0 15px
 
 
+/*      title      */
+.title
+  position: absolute
+  margin: 0
+  top: -26px
+  font-size: 35px
+  font-family: 'Abril Fatface', cursive
+  font-weight: 500
+  line-height: 1
+  color: $text-color
+
+.title-line
+  display: inline
+
+.title--left
+  left: 0
+  width: 100%
+  text-align: center
+
+.title--right
+  display: none
+
+.title--footer
+  top: -33px
+  font-size: 45px
+
+
+
+
+/*      header      */
 .header
   position: relative
   height: 100vh
