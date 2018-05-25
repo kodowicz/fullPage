@@ -348,7 +348,7 @@ body
 .main-footer
   background: $footer-green
   width: 100%
-  height: 30vh
+  height: 28vh
   display: flex
   flex-direction: column
   justify-content: center
@@ -379,8 +379,11 @@ body
 .title--right
   display: none
 
+.social-text
+  display: none
+
 .social-list
-  margin: 30px 0 0 0
+  margin: 20px 0 0 0
   padding: 0
   display: flex
   justify-content: center
@@ -388,7 +391,6 @@ body
 
 .social-icon
   list-style: none
-  margin: 0px 8px
 
 .sub-footer
   background: $footer-gray
@@ -403,7 +405,7 @@ body
 
 @media (min-width: 600px)
   .main-footer
-    height: 120px
+    height: 130px
     flex-direction: row
     justify-content: space-between
 
@@ -418,8 +420,13 @@ body
     width: calc(20vw + 315px)
     position: relative
     display: flex
+    flex-direction: column
     align-items: center
     justify-content: center
+
+  .social-text
+    display: block
+    margin: 10px 0
 
   .title--right
     display: block
@@ -428,7 +435,7 @@ body
     margin: 0
 
   .social-icon
-    margin: 10px
+    margin: 0
 
   .sub-footer
     padding: 5px
