@@ -227,43 +227,43 @@ body
 
 
 /*      header      */
+$header-margin-top: 20vh
+$image: 32vh
+$header-padding-top: 15vh
+$text: 35vh
+$text-margin: 7vh
+$header-height: $image + $text
+
 .header
   position: relative
-  height: 100vh
-  margin-top: 20vh
+  height: $header-height
+  margin-top: $header-margin-top
+  padding-top: $header-padding-top
+  box-sizing: content-box
+  background: $light-green
 
 .header__right-picture
-  position: absolute
-  top: -10vh
-  right: 0
+  display: none
 
 .right-picture__img
   height: 60vh
   width: 52vw
   object-fit: cover
 
-.header__left-picture
-  position: absolute
-  top: 175px
-  left: 0
-
 .left-picture__img
-  height: 60vh
-  width: 52vw
+  height: $image
+  width: 100%
   object-fit: cover
 
 .header__text
-  position: absolute
-  bottom: 0
-  right: 0
-  width: calc(100% - 52vw)
-  height: 50vh
+  height: $text
   display: flex
   justify-content: center
   align-items: center
 
 .header__text-content
-  width: 70%
+  margin: 0
+  padding: 0 10vw
   text-align: justify
 
 
