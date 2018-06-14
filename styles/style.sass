@@ -17,10 +17,6 @@ body
   font-weight: 300
   color: $dark-color
 
-*,
-*::before,
-*::after
-  box-sizing: inherit
 
 /*      header      */
 .site-header
@@ -231,43 +227,32 @@ body
 
 /*      header      */
 $header-margin-top: 20vh
-$image: 32vh
-$header-padding-top: 15vh
-$text: 35vh
-$text-margin: 7vh
-$header-height: $image + $text
+$image: 30vh
 
 .header
   position: relative
-  height: $header-height
   margin-top: $header-margin-top
-  padding-top: $header-padding-top
-  box-sizing: content-box
-  background: $light-green
 
-.header__right-picture
-  display: none
-
-.right-picture__img
-  height: 60vh
-  width: 52vw
-  object-fit: cover
-
-.left-picture__img
+.header__picture
   height: $image
+
+.header__picture-img
+  height: 100%
   width: 100%
   object-fit: cover
 
 .header__text
-  height: $text
-  display: flex
-  justify-content: center
-  align-items: center
+  padding: 60px 0
 
-.header__text-content
+.header__text-wrapper
+  width: 270px
+  margin: 0 auto 80px auto
+
+.header__text-header
+  text-align: center
+  font-size: 16px
   margin: 0
-  padding: 0 10vw
-  text-align: justify
+  margin-bottom: 20px
 
 
 /*      plant team      */
