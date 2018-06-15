@@ -1,7 +1,7 @@
 $white-bg: rgb(250,250,250)
 $dark-color: #333333
 $light-green: hsl(149, 89%, 89%)
-$text-color: rgb(25,25,25)
+$header-color: #2E282A
 $footer-green: hsl(148, 23%, 29%)
 $footer-gray: hsl(140, 3%, 17%)
 
@@ -197,12 +197,12 @@ body
 .title
   position: absolute
   margin: 0
-  top: -26px
-  font-size: 38px
+  top: -29px
+  font-size: 33px
   font-family: 'Abril Fatface', cursive
   font-weight: 500
   line-height: 1
-  color: $text-color
+  color: $header-color
 
 .title-line
   display: inline
@@ -215,14 +215,21 @@ body
 .title--right
   display: none
 
+.title--header
+  top: -22px
+  font-size: 26px
+
 .title--footer
   top: -33px
   font-size: 46px
 
 @media (min-width: 360px)
   .title
-    top: -32px
-    font-size: 43px
+    top: -29px
+    font-size: 33px
+  .title--header
+    top: -27px
+    font-size: 30px
 
 
 /*      header      */
