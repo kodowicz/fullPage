@@ -1,6 +1,8 @@
 $pink-background: #FFF2F2
+$black-background: #1C1B20
 $dark-color: #333333
-$light-green: hsl(149, 89%, 89%)
+$light-gray-color: #D8D8D8
+$gray-color: #4C4A57
 $header-color: #2E282A
 $footer-green: hsl(148, 23%, 29%)
 $footer-gray: hsl(140, 3%, 17%)
@@ -225,9 +227,9 @@ body
 
 @media (min-width: 360px)
   .title
-    top: -33px
-    font-size: 38px
-    
+    top: -35px
+    font-size: 40px
+
   .title--header
     top: -27px
     font-size: 30px
@@ -295,36 +297,38 @@ $image: 30vh
 /*      benefits      */
 .benefits
   position: relative
-  height: 1020px
   display: flex
-  align-items: center
-  justify-content: center
   flex-direction: column
-  background: $light-green
 
-.benefits__paragraf
-  margin: 0 10vw 70px 10vw
-  text-align: justify
+.benefits__text-wrapper
+  margin: 120px 10vw 100px 10vw
+
+.benefits__text--bold
+  font-weight: 600
+  margin-top: 35px
 
 .benefits__points
   display: grid
-  padding: 0 17vw
-  grid-template: repeat(4, auto) / 1fr
-  grid-gap: 5vw
+  padding: 50px 0
+  grid-template: repeat(4, auto) / 1fr 250px 1fr
+  grid-row-gap: 50px
+  background: $black-background
 
 .benefit
-  font-weight: 500
+  grid-column: 2 / 3
+  font-weight: 600
+  color: $light-gray-color
+  text-align: center
 
-.benefit-number
-  display: inline
-
-.benefit-title
-  display: inline
+.benefit__title
+  font-size: 18px
 
 .benefit__text
-  font-weight: 300
-  text-align: justify
+  color: $gray-color
 
+@media (min-width: 360px)
+  .benefits__text-wrapper
+    margin: 120px 15vw 100px 15vw
 
 /*      inspiration      */
 $size: 10vw
