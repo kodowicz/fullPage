@@ -216,17 +216,18 @@ body
   display: none
 
 .title--header
-  top: -22px
-  font-size: 26px
+  position: static
+  margin-top: 30px
 
 .title--footer
-  top: -33px
-  font-size: 46px
+  top: -26px
+  font-size: 36px
 
 @media (min-width: 360px)
   .title
-    top: -29px
-    font-size: 33px
+    top: -33px
+    font-size: 38px
+    
   .title--header
     top: -27px
     font-size: 30px
@@ -242,6 +243,7 @@ $image: 30vh
 
 .header__picture
   height: $image
+  min-height: 150px
 
 .header__picture-img
   height: 100%
