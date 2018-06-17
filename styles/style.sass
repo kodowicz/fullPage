@@ -22,123 +22,113 @@ body
 
 /*      header      */
 .site-header
+  z-index: 3
   position: fixed
   top: 0
   left: 0
   width: 100%
-  height: 60px
-  background: white
-  box-shadow: 0px 20px 10px -15px rgba(0,0,0,0.2)
-
-.site-header::before
-  content: ''
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 0.5px
-  background: hsl(148, 21%, 31%)
-
-.header-logo
+  height: 70px
+.topbar
   display: flex
   justify-content: space-between
   align-items: center
   height: 100%
-  margin: 0 25px
-
-.header__logo
-  height: 50px
-
-.logo-image
-  height: 50px
-
-
-/*      navigation      */
+  width: auto
+  margin: 0 75px 0 25px
+.topbar__logo
+  //height: 45px
+  //width: 66px
+  margin: 0
+.topbar__logo-icon
+  //height: 45px
+  width: 75px
+.topbar__logo-icon-path
+  fill: rgba(20,20,20,.9)
+.topbar__social-list
+  //height: 35px
+  margin: 0
+  padding: 0
+  display: flex
+.topbar-social-list__item
+  list-style: none
+  margin: 0 7px
+.topbar-social-icon
+  stroke: #000
+  stroke-width: 3px
+  fill: none
+  width: 20px
+  height: 20px
+/* navigation */
+.overlay
+  position: fixed
+  top: 0
+  left: 0
+  width: 0
+  height: 100%
+  z-index: 2
+  transition: all 0.2s ease-in
+.overlay--expanded
+  background: rgba(162, 222, 195, 0.5)
+  width: 100%
+.nav-wrapper
+  height: 0
+  width: 50%
+  margin-left: 50%
+  display: flex
+  flex-direction: column
+  justify-content: center
+  background: rgba(250,250,250,.8)
+  z-index: 2
+  transform: translate3d(50vw, 0, 0)
+  transition: transform .2s ease-in-out
+  transition-delay: 0s
+.nav-wrapper--expanded
+  height: calc(100vh - 70px)
+  transform: translate3d(0, 0, 0)
 .nav-button
   position: absolute
-  top: 30px
+  top: 33px
   right: 25px
+  height: 28px
+  width: 28px
   transform: translateY(-50%)
-  height: 30px
-  width: 30px
   background: none
   border: none
   padding: 0
-
+  z-index: 3
+.button-icon
+  width: 100%
+  height: 100%
 .button-icon[aria-hidden='true']
   display: none
 .button-icon[aria-hidden='false']
   display: block
-
 .nav-list
-  height: 100%
   display: flex
   flex-direction: column
   align-items: center
   margin: 0
-  padding: 20px 0 0 0
-  background: white
-  opacity: 0
-  visibility: hidden
-  transition: opacity .2s ease-in-out,  visibility .2s ease-in-out
-  transition-delay: 0s
-
-.nav-list--expanded
-  opacity: 1
-  visibility: visible
-
+  padding: 20px 0
 .nav-list[aria-hidden="true"]
   visibility: hidden
 .nav-list[aria-hidden="false"]
   visibility: visible
-
 .nav-list__item
   display: flex
   align-items: center
   list-style: none
-  padding: 0px 0 20px 0
+  padding: 15px
   opacity: 0
   transform: translateY(-15px)
   transition: opacity .4s ease, transform .5s ease-out
-
 .nav-list__item--expanded
   opacity: 1
   transform: translateY(0)
-
-.nav-list__item--logo
-  display: none
-
 .nav-link
   text-decoration: none
-  text-transform: uppercase
   font-weight: 500
   color: #222b24
-  font-size: 12px
-
-.nav-list--social
-  padding: 0
-  flex-direction: row
-  align-items: center
-  justify-content: center
-  transform: translateY(-5px)
-  box-shadow: 0px 20px 10px -15px rgba(0,0,0,0.2)
-
-.nav-social[aria-hidden="true"]
-  visibility: hidden
-.nav-social[aria-hidden="false"]
-  visibility: visible
-
-.nav-list__item--social
-  list-style: none
-  margin: 20px 10px
-
-/*  navigation opened  */
-.site-header--nav-opened
-  box-shadow: none
-
-.topbar--nav-opened
-  height: 60%
-
+  font-size: 16px
 .navigation[aria-expanded="true"]
   background: white
   width: 100%
@@ -147,52 +137,11 @@ body
 
 @media (min-width: 600px)
   .site-header
-    height: 65px
+    height: 70px
     width: 100%
-    box-shadow: 0px 20px 10px -15px rgba(0,0,0,0.2)
 
-    &::before
-      content: none
-
-  .header-logo
-    display: none
-
-  .nav-button
-    display: none
-
-  .nav-list
-    height: 65px
-    margin: 0
-    padding: 0
-    display: flex
-    flex-direction: row
-    justify-content: center
-    align-items: center
-    opacity: 1
-
-  .nav-list[aria-hidden="true"]
-    visibility: visible
-
-  .nav-list__item
-    padding: 0 10px
-    opacity: 1
-    transform: none
-
-  .nav-list__item--logo
-    display: block
-    padding: 0 20px
-    list-style: none
-    align-self: flex-end
-
-  .nav-link-logo
-    height: 55px
-
-  .nav-list--social
-    display: none
-
-@media (min-width: 1200px)
-  .nav-list__item
-    padding: 0 15px
+  .topbar
+    margin-right: 100px
 
 
 /*      title      */
