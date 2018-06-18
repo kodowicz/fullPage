@@ -251,7 +251,6 @@ $image: 30vh
   background: $pink-background
   padding: 120px 12vw
 
-
 .plant-team__text--bold
   width: 60%
   margin: 30px 0
@@ -260,16 +259,52 @@ $image: 30vh
 .plant-team__image-wrapper
   display: none
 
-.plant-team__image
-  height: 100%
-  width: 100%
-  object-fit: cover
-
 @media(min-width: 360px)
   .plant-team__text-wrapper
     padding: 120px 15vw
 
+@media (min-width: 600px)
+  .plant-team
+    display: grid
+    grid-template: minmax(400px, 450px) 130px / 1fr 1.5fr
 
+  .plant-team__pink-background
+    grid-column: 1 / 2
+    grid-row: 2 / 3
+    background: $pink-background
+
+  .plant-team__text-wrapper
+    grid-column: 2 / 3
+    grid-row: 1 / 3
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 0
+    background: $pink-background
+
+  .plant-team__text
+    width: 35vw
+    height: auto
+    margin: 0 auto
+    display: flex
+
+  .plant-team__text--bold
+    margin-top: 30px
+
+  .plant-team__image-wrapper
+    width: 100%
+    height: 100%
+    background: $pink-background
+
+  .plant-team__image-wrapper--left
+    display: block
+    grid-column: 1 / 2
+    grid-row: 1 / 2
+
+  .plant-team__image
+    height: 100%
+    width: 100%
+    object-fit: cover
 
 /*      benefits      */
 .benefits
