@@ -153,7 +153,7 @@ body
   font-size: 33px
   font-family: 'Abril Fatface', cursive
   font-weight: 500
-  line-height: 1
+  line-height: 1.1
   color: $header-color
   width: 100%
   text-align: center
@@ -213,8 +213,8 @@ body
 
 
 /*      header      */
-$header-margin-top: 20vh
-$image: 30vh
+$header-margin-top: 15vh
+$image: 28vh
 
 .header
   position: relative
@@ -230,7 +230,7 @@ $image: 30vh
   object-fit: cover
 
 .header__text
-  padding: 60px 0
+  padding: 70px 0
 
 .header__text-wrapper
   width: 70vw
@@ -241,6 +241,36 @@ $image: 30vh
   font-size: 16px
   margin: 0
   margin-bottom: 20px
+
+@media (min-width: 600px)
+  $header-margin-top: 15vh
+  $image: 28vh
+
+  .header__picture
+    min-height: 350px
+    max-height: 450px
+
+  .header__text
+    display: flex
+    justify-content: space-evenly
+    padding-top: 100px
+    padding-bottom: 200px
+
+  .header__text-wrapper
+    width: 37vw
+    margin: 0
+
+  .header__text-header-wrapper
+    height: 3em
+    display: flex
+    align-items: center
+    justify-content: center
+    margin-bottom: 30px
+
+  .header__text-header
+    text-align: center
+    font-size: 18px
+    margin: 0
 
 
 /*      plant team      */
@@ -322,12 +352,13 @@ $image: 30vh
 .benefits__points
   display: grid
   padding: 50px 0
-  grid-template: repeat(4, auto) / 1fr 250px 1fr
+  grid-template: repeat(4, auto) / 1fr
   grid-row-gap: 50px
   background: $black-background
 
 .benefit
-  grid-column: 2 / 3
+  width: 250px
+  justify-self: center
   font-weight: 600
   color: $light-gray-color
   text-align: center
