@@ -8,13 +8,16 @@ $footer-green: hsl(148, 23%, 29%)
 $footer-gray: hsl(140, 3%, 17%)
 
 html
-  font-size: 62.5%
+  font-size: 16px
   box-sizing: border-box
   height: 100%
 
+@media (min-width: 1000px)
+  html
+    font-size: 18px
+
 body
   margin: 0
-  font-size: 16px
   font-family: 'Quicksand', Sans-Serif
   font-weight: 400
   color: $dark-color
@@ -166,15 +169,14 @@ body
   margin-top: 30px
 
 .title--footer
-  top: -26px
-  font-size: 36px
+  top: -31px
 
 .title--hidden
   display: none
 
 @media (min-width: 360px)
   .title
-    top: -35px
+    top: -36px
     font-size: 40px
 
 @media (min-width: 600px)
@@ -198,13 +200,9 @@ body
   .title--header
     position: absolute
     margin-top: 0
-    //top: -56px
-    //left: 0
-    //width: 100%
-    //text-align: center
-    top: -98px
+    top: -90px
     left: 10vw
-    width: 50%
+    width: auto
 
     .title-line
       display: inline
@@ -222,14 +220,35 @@ body
   .title--right
     top: -100px
 
-  //.title--header
-    top: -56px
   .title--header
-    top: -113px
-    width: 45%
+    top: -90px
 
   .title--footer
     top: -46px
+
+@media (min-width: 1024px)
+  .title--hidden
+    display: block
+
+@media (min-width: 1200px)
+  .title
+    top: -59px
+    font-size: 60px
+    line-height: 1.2
+
+  .title--right
+    text-align: left
+
+  .title--header
+    top: -98px
+    left: 10vw
+    width: 50%
+
+    .title-line
+      display: block
+
+  .title--hidden
+    text-align: center
 
 
 /*      header      */
@@ -263,17 +282,20 @@ $image: 28vh
   margin-bottom: 20px
 
 @media (min-width: 600px)
-  $header-margin-top: 15vh
+  $header-margin-top: 21vh
   $image: 28vh
+  .header
+    margin-top: 21vh
 
   .header__picture
+    height: 32vh
     min-height: 350px
     max-height: 450px
 
   .header__text
     display: flex
     justify-content: space-evenly
-    padding-top: 100px
+    padding-top: 150px
     padding-bottom: 200px
 
   .header__text-wrapper
@@ -291,6 +313,33 @@ $image: 28vh
     text-align: center
     font-size: 18px
     margin: 0
+
+@media (min-width: 800px)
+  .header__picture
+    height: 28vh
+    min-height: 350px
+    max-height: 450px
+
+@media (min-width: 1000px)
+  .header
+    margin-top: 20vh
+
+@media (min-width: 1200px)
+  .header
+    margin-top: 25vh
+
+  .header__picture
+    height: 50vh
+    width: 60vw
+    margin: 0 auto
+
+  .header__text
+    padding-top: 25vh
+    margin: 0 10vw
+
+  .header__text-wrapper
+    width: 30vw
+    max-width: 450px
 
 
 /*      plant team      */
@@ -504,6 +553,13 @@ $size: 10vw
   list-style: none
   margin: 0 7px
 
+.social-icon-svg
+  stroke: #FBFBFB
+  stroke-width: 3px
+  fill: none
+  width: 23px
+  height: 23px
+
 .sub-footer
   background: $footer-gray
   padding: 10px
@@ -520,6 +576,10 @@ $size: 10vw
 
 @media (min-width: 600px)
   .main-footer
+    height: 17vh
+
+@media (min-width: 1024px)
+  .main-footer
     height: 130px
     flex-direction: row
     justify-content: space-between
@@ -528,7 +588,7 @@ $size: 10vw
     width: calc(20vw + 290px)
     position: relative
 
-  .mention-paragraf
+  //.mention-paragraf
     font-size: 16px
 
   .main-footer__social
@@ -543,13 +603,10 @@ $size: 10vw
     display: block
     margin: 10px 0
 
-  .title--right
-    display: block
-
   .social-list
-    margin: 0
+    margin: 10px
 
-  .social-icon
+  //.social-icon
     margin: 0
 
   .sub-footer
