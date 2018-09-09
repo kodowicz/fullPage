@@ -486,6 +486,46 @@ body
   .benefits__text-wrapper
     margin: 120px 15vw 100px 15vw
 
+@media (min-width: 600px)
+
+  .benefits__text-wrapper
+    margin-top: 180px
+
+  .benefits__points
+    width: 80vw
+    min-width: 600px
+    margin: 0 auto
+    padding: 70px 5vw
+    box-sizing: border-box
+    grid-template: repeat(2, auto) / repeat(2, 1fr)
+    grid-gap: 30px
+
+@media (min-width: 1024px)
+  .benefits__text-wrapper
+    margin: 180px 17vw 100px 17vw
+
+@media (min-width: 1200px)
+  .benefits
+    flex-direction: row
+
+  .benefits__text-wrapper
+    width: 50%
+    margin: 0
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+  .benefits__text
+    width: 450px
+    margin: 20px auto
+
+  .benefits__points
+    width: 50%
+    height: 700px
+    padding: 100px 7vw
+    grid-gap: 50px
+
 /*      inspiration      */
 $size: 10vw
 
