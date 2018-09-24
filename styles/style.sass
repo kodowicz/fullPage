@@ -3,6 +3,7 @@ $black-background: #1C1B20
 $dark-color: #333333
 $light-gray-color: #D8D8D8
 $gray-color: #4C4A57
+$text-color: #4F4F4F
 $header-color: #2E282A
 $footer-green: hsl(148, 23%, 29%)
 $footer-gray: hsl(140, 3%, 17%)
@@ -12,15 +13,19 @@ html
   box-sizing: border-box
   height: 100%
 
-@media (min-width: 1000px)
-  html
-    font-size: 18px
-
 body
   margin: 0
   font-family: 'Quicksand', Sans-Serif
   font-weight: 400
   color: $dark-color
+
+@media (min-width: 1000px)
+  html
+    font-size: 18px
+
+  body
+    line-height: 1.5rem
+
 
 
 /*      header      */
@@ -149,106 +154,30 @@ body
 
 /*      title      */
 .title
-  position: absolute
   margin: 0
-  top: -29px
-  left: 0
   font-size: 33px
   font-family: 'Abril Fatface', cursive
   font-weight: 500
   line-height: 1.1
   color: $header-color
-  width: 100%
   text-align: center
-
-.title-line
-  display: inline
-
-.title--header
-  position: static
-  margin-top: 30px
-
-.title--footer
-  top: -31px
-
-.title--hidden
-  display: none
 
 @media (min-width: 360px)
   .title
-    top: -36px
     font-size: 40px
-
-@media (min-width: 600px)
-  .title
-    top: -40px
-    left: 10vw
-    font-size: 43px
-    width: auto
-
-  .title-line
-    display: block
-
-  .title--left
-    text-align: left
-
-  .title--right
-    top: -88px
-    right: 10vw
-    text-align: right
-
-  .title--header
-    position: absolute
-    margin-top: 0
-    top: -90px
-    left: 10vw
-    width: auto
-
-    .title-line
-      display: inline
-
-  .title--footer
-    left: 0
-    width: 100%
-    text-align: center
 
 @media (min-width: 700px)
   .title
-    top: -47px
-    font-size: 50px
-
-  .title--right
-    top: -100px
-
-  .title--header
-    top: -90px
-
-  .title--footer
-    top: -46px
+    font-size: 45px
 
 @media (min-width: 1024px)
-  .title--hidden
-    display: block
+  .title
+    font-size: 52px
 
 @media (min-width: 1200px)
   .title
-    top: -59px
-    font-size: 60px
-    line-height: 1.2
+    font-size: 66px
 
-  .title--right
-    text-align: left
-
-  .title--header
-    top: -98px
-    left: 10vw
-    width: 50%
-
-    .title-line
-      display: block
-
-  .title--hidden
-    text-align: center
 
 
 /*      header      */
@@ -256,6 +185,9 @@ body
 .header
   position: relative
   margin-top: 15vh
+
+.header__title
+  height: 15vh
 
 .header__picture
   height: 28vh
@@ -282,6 +214,9 @@ body
 @media (min-width: 600px)
   .header
     margin-top: 21vh
+
+  .header__title
+    height: auto
 
   .header__picture
     height: 32vh
@@ -338,11 +273,12 @@ body
     max-width: 450px
 
 
+
 /*      plant team      */
 .plant-team
   margin: 100px 0
 
-.title--team
+.plant-team__title
   width: 100%
 
 .plant-team__text
@@ -380,10 +316,7 @@ body
     grid-template-rows: 150px 450px
     align-items: center
 
-  .title
-    font-size: 45px
-
-  .title--team
+  .plant-team__title
     text-align: right
     align-self: center
 
@@ -567,7 +500,7 @@ body
   .inspiration__text
     width: 70vw
 
-  .title--inspiration
+  .inspiration__title
     width: 90vw
     margin: 0 auto
 
@@ -604,7 +537,7 @@ body
   .inspiration
     margin: 30px 0 150px 0
 
-  .title--inspiration
+  .inspiration__title
     margin-bottom: 5vh
 
   .inspiration__text
@@ -728,3 +661,253 @@ body
 
   .sub-footer
     padding: 5px
+
+
+
+
+
+
+/*              contact.html              */
+
+/*          location        */
+.location
+  margin-top: 17vh
+
+.location__title
+  width: 85%
+  margin: 0 auto
+
+@media (min-width: 600px)
+  .location__title
+    width: 100%
+
+@media (min-width: 900px)
+  .location
+    margin-top: 20vh
+    display: flex
+
+  .location__title
+    width: 35%
+    height: 50vh
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+
+    .line-title
+      display: block
+      margin: 0
+      padding-left: 5vw
+      text-align: left
+
+  .location__map
+    width: 65%
+    height: 60vh
+    margin-top: 0
+    margin-bottom: 23vh
+
+@media (min-width: 1100px)
+  .location__map
+    margin-bottom: 27vh
+
+
+
+/*          information        */
+.information__text
+  height: 60vh
+  min-height: 400px
+  margin-top: 5vh
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
+  align-items: center
+  line-height: normal
+
+.info__header
+  font-size: 16px
+  font-weight: 500
+  text-align: center
+  margin-top: 0
+
+.addres__text-line
+  width: 140px
+  margin: 0 auto
+
+.info__days
+  width: 50vw
+
+.days__text-line
+  display: flex
+  justify-content: space-between
+
+.information__picture
+  width: 70%
+  height: 65vh
+  margin: 15vh auto 20vh
+
+@media (min-width: 360px)
+  .info__days
+    width: 40vw
+
+@media (min-width: 600px)
+  .information
+    height: 50vh
+    max-height: 650px
+    display: grid
+    margin: 0 7vw
+    grid-template-columns: 1fr 1.2fr
+    grid-template-rows: 100px 1fr
+    grid-row-gap: 5vh
+    justify-content: center
+    align-items: center
+
+  .information__title
+    grid-column: span 2
+    align-self: center
+    margin: 0 auto
+
+  .information__text
+    grid-column: 2 / 3
+    grid-row: 2 / 3
+    height: 100%
+    margin: 0
+    flex-direction: row
+
+  .info__days
+    width: 180px
+
+  .information__picture
+    width: 100%
+    max-width: 280px
+    height: 100%
+    max-height: 430px
+    margin: 0
+    justify-self: center
+
+@media (min-width: 700px)
+  .information__title
+    width: 100%
+
+@media (min-width: 1100px)
+  .information
+    grid-template-columns: 1fr 1.6fr
+    grid-template-rows: 150px 1fr
+    grid-gap: 0
+    height: 75vh
+    margin: 0 10vw
+    max-height: none
+
+  .information__title
+    grid-column: 2 / 3
+    text-align: right
+
+    .line-title
+      display: block
+
+  .information__text
+    min-height: 0
+
+  .info__header
+    font-size: 20px
+
+  .addres__text-line
+    width: 150px
+
+  .information__picture
+    grid-row: 1 / 3
+    width: 80%
+    max-width: 320px
+    height: 95%
+    max-height: 500px
+    align-self: end
+
+
+
+/*          contact        */
+.contact
+  margin-bottom: 20vh
+
+.contact__title
+  .line-title
+    display: block
+
+.contact__form
+  margin: 7vh auto
+  width: 70%
+
+.form-input
+  position: relative
+  margin: 30px 0
+
+.form__input
+  background: white
+  border: none
+  border-bottom: 1px solid $text-color
+  border-radius: 0
+  width: 100%
+  font: 400 16px 'Montserrat'
+  color: $text-color
+  height: 1.5rem
+  padding: 0 5px
+  box-sizing: border-box
+
+.form__input--textarea:focus
+  height: auto
+
+.form__label
+  position: absolute
+  bottom: 1px
+  left: 5px
+
+.form__label--textarea
+  bottom: 6px
+
+.form__button
+  background: none
+  border: 1px solid transparent
+  box-shadow: 5px 5px 10px rgba(0,0,0,.1)
+  width: 8rem
+  display: block
+  height: 2.6rem
+  color: $text-color
+  font-family: 'Montserrat', sans-serif
+  font-size: 14px
+  font-weight: 500
+  border-radius: 50px
+  margin: 40px auto
+  outline: none
+
+
+@media (min-width: 600px)
+  .contact
+    margin: 100px 0
+
+  .contact__title
+    .line-title
+      display: inline
+
+  .contact__form
+    width: 70vw
+    max-width: 600px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    margin: 100px auto
+
+  .form-input
+    margin: 0
+    width: 45%
+    margin-bottom: 50px
+
+  .form-input--textarea
+    width: 100%
+
+  .form__button
+    margin: 0 auto
+
+@media (min-width: 1100px)
+  .contact
+    margin: 20vh 0
+
+  .form__button
+    font-size: 16px
