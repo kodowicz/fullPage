@@ -45,20 +45,26 @@ function navigation () {
     });
   };
 
-  function navAnimation() {
+  ffunction navAnimation() {
     switch (navButton.getAttribute('aria-label')) {
+    // close menu
       case ('Menu expanded'):
         navListItem.forEach(li => li.classList.remove('nav-list__item--expanded'));
-        navList.forEach(list => list.style.setProperty('transition-delay', '0.5s'));
         navListItem[navListItem.length-1].addEventListener('transitionend', function() {
-          navList.forEach(list => list.classList.remove('nav-list--expanded'));
+          navWrapper.classList.remove('nav-wrapper--expanded');
+          navWrapper.classList.add('nav-wrapper--collapsed');
+          overlay.classList.remove('overlay--expanded');
         }, {once: true});
         break;
 
+    // open menu
       case ('Menu collapsed'):
-        navList.forEach(list => list.classList.add('nav-list--expanded'));
-        navListItem.forEach(li => li.classList.add('nav-list__item--expanded'));
-        navList.forEach(list => list.style.setProperty('transition-delay', '0s'));
+        overlay.classList.add('overlay--expanded');
+        navWrapper.classList.remove('nav-wrapper--collapsed');
+        navWrapper.classList.add('nav-wrapper--expanded');
+        navWrapper.addEventListener('transitionend', function() {
+          navListItem.forEach(li => li.classList.add('nav-list__item--expanded'));
+        }, {once: true});
         break;
 
       default:
