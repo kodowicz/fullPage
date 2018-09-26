@@ -221,11 +221,7 @@ $width: 100vw
 
 @media (min-width: 360px)
   .title
-    font-size: 40px
-
-@media (min-width: 700px)
-  .title
-    font-size: 45px
+    font-size: 41px
 
 @media (min-width: 1024px)
   .title
@@ -233,34 +229,32 @@ $width: 100vw
 
 @media (min-width: 1200px)
   .title
-    font-size: 66px
+    font-size: 63px
 
 
 
 /*      header      */
 
 .header
-  position: relative
-  margin-top: 15vh
+  margin-top: 17vh
 
 .header__title
-  height: 15vh
+  height: 17vh
 
 .header__picture
-  height: 28vh
+  height: 38vh
   min-height: 150px
+  margin: 3vh 0 20vh 0
 
-.header__picture-img
-  height: 100%
+.image
   width: 100%
+  height: 100%
   object-fit: cover
 
 .header__text
-  padding: 70px 0
-
-.header__text-wrapper
-  width: 70vw
-  margin: 0 auto 80px auto
+  width: 80vw
+  margin: 0 auto
+  text-align: center
 
 .header__text-header
   text-align: center
@@ -268,66 +262,101 @@ $width: 100vw
   margin: 0
   margin-bottom: 20px
 
+.header__text-content
+  margin: 0
+  margin-bottom: 100px
+
+
 @media (min-width: 600px)
   .header
-    margin-top: 21vh
+    margin-top: 12vh
 
   .header__title
     height: auto
 
   .header__picture
-    height: 32vh
-    min-height: 350px
-    max-height: 450px
+    height: 30vh
+    margin: 50px 0 100px 0
+
+  .header__text
+    width: 50vw
+
+
+@media (min-width: 700px)
+  .header
+    width: 100%
+    margin-top: 130px
+    display: flex
+    flex-wrap: wrap
+
+  .header__title
+    z-index: 2
+    width: 30%
+    height: 22vh
+    max-height: 300px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+
+    .title-line
+      display: block
+      margin: 0
+      padding-left: 7vw
+
+  .header__picture
+    width: 70%
+    height: 22vh
+    max-height: 300px
+    margin-top: 0
+    margin-bottom: 170px
 
   .header__text
     display: flex
     justify-content: space-evenly
-    padding-top: 150px
-    padding-bottom: 200px
+    width: 100vw
+    margin: 0 auto
 
   .header__text-wrapper
-    width: 37vw
+    margin: 0
+    width: 32vw
+    max-width: 340px
+
+  .header__text-content
     margin: 0
 
-  .header__text-header-wrapper
-    height: 3em
-    display: flex
-    align-items: center
-    justify-content: center
-    margin-bottom: 30px
-
-  .header__text-header
-    text-align: center
-    font-size: 18px
-    margin: 0
-
-@media (min-width: 800px)
-  .header__picture
-    height: 28vh
-    min-height: 350px
-    max-height: 450px
-
-@media (min-width: 1000px)
+@media (min-width: 1100px)
   .header
     margin-top: 20vh
 
-@media (min-width: 1200px)
-  .header
-    margin-top: 25vh
+  .header__title
+    width: 30%
+    height: 55vh
+    max-height: none
+
+    .title-line
+      padding-left: 7vw
 
   .header__picture
-    height: 50vh
-    width: 60vw
-    margin: 0 auto
+    width: 70%
+    height: 60vh
+    max-height: none
+    margin-top: 0
+    margin-bottom: 23vh
 
   .header__text
-    padding-top: 25vh
-    margin: 0 10vw
+    display: flex
+    justify-content: space-around
+    width: 70vw
+    height: 30vh
+    margin: 0 auto
 
   .header__text-wrapper
-    width: 30vw
-    max-width: 450px
+    max-width: 380px
+    line-height: 1.3rem
+
+  .header__text-header
+    font-size: 18px
 
 
 
@@ -336,25 +365,21 @@ $width: 100vw
   margin: 100px 0
 
 .plant-team__title
-  width: 100%
+  .line-title
+    display: block
 
 .plant-team__text
   width: 80%
-  margin: 70px auto
+  margin: 15vh auto 25vh auto
 
 .plant-team__text-content
   margin-bottom: 30px
 
 .plant-team__image
   margin: 0 auto
-  width: 60%
-  height: 50vh
+  width: 70%
+  height: 65vh
   max-height: 400px
-
-.image
-  width: 100%
-  height: 100%
-  object-fit: cover
 
 
 @media (min-width: 600px)
@@ -379,12 +404,11 @@ $width: 100vw
 
     .title-line
       display: block
-      padding-right: 10vw
+      padding-right: 7vw
 
   .plant-team__text
     width: auto
     margin: 0
-    //align-self: end
 
   .plant-team__text-content
     padding: 0 7vw
@@ -392,7 +416,6 @@ $width: 100vw
 
 
   .plant-team__image
-    //align-self: end
     justify-self: end
     margin: 0
     width: 85%
@@ -401,46 +424,51 @@ $width: 100vw
     padding: 0
     grid-row: 1 / span 2
 
-@media (min-width: 1100px)
+@media (min-width: 900px)
+  .plant-team__text-content
+    padding: 0 10vw
+
+  .plant-team__image
+    width: 75%
+    height: 50vh
+    max-height: 500px
+
+@media (min-width: 1200px)
   .plant-team
-    height: 100vh
-    background: rgba(0,0,0,0.2)
-    margin-top: 160px
-    margin-bottom: 50px
-    grid-template-columns: 40% 60%
-    grid-template-rows:  25vh 75vh
+    height: 84vh
+    margin-top: 20vh
+    margin-bottom: 10vh
+    padding: 7vh 7vw
+    grid-template-columns: minmax(40%, 400px) 1fr
+    grid-template-rows:  20vh 64vh
+    grid-column-gap: 7vw
     align-items: center
 
-  .title
-    font-size: 45px
-
-  .title--team
-    text-align: right
-    align-self: center
-
-    .title-line
-      display: block
-      padding-right: 10vw
+  .plant-team__title
+    align-self: start
 
   .plant-team__text
     width: auto
     margin: 0
-    //align-self: end
 
   .plant-team__text-content
-    padding: 0 10vw
+    padding:  0
     margin: 20px 0
+    width: 90%
 
 
   .plant-team__image
     align-self: center
     justify-self: center
     margin: 0
-    width: 400px
-    height: 85%
-    max-height: 85vh
+    width: 100%
+    max-width: 350px
+    height: 100%
+    max-height: 80vh
     padding: 0
     grid-row: 1 / span 2
+
+
 
 /*      benefits      */
 .benefits
