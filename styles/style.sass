@@ -470,91 +470,15 @@ $width: 100vw
 
 
 
-/*      benefits      */
-.benefits
-  position: relative
-  display: flex
-  flex-direction: column
-
-.benefits__text-wrapper
-  margin: 120px 10vw 100px 10vw
-
-.benefits__text--bold
-  font-weight: 600
-  margin-top: 35px
-
-.benefits__points
-  display: grid
-  padding: 50px 0
-  grid-template: repeat(4, auto) / 1fr
-  grid-row-gap: 50px
-  background: $black-background
-
-.benefit
-  width: 250px
-  justify-self: center
-  font-weight: 600
-  color: $light-gray-color
-  text-align: center
-
-.benefit__title
-  font-size: 18px
-
-.benefit__text
-  color: $gray-color
-
-@media (min-width: 360px)
-  .benefits__text-wrapper
-    margin: 120px 15vw 100px 15vw
-
-@media (min-width: 600px)
-
-  .benefits__text-wrapper
-    margin-top: 180px
-
-  .benefits__points
-    width: 80vw
-    min-width: 600px
-    margin: 0 auto
-    padding: 70px 5vw
-    box-sizing: border-box
-    grid-template: repeat(2, auto) / repeat(2, 1fr)
-    grid-gap: 30px
-
-@media (min-width: 1024px)
-  .benefits__text-wrapper
-    margin: 180px 17vw 100px 17vw
-
-@media (min-width: 1200px)
-  .benefits
-    flex-direction: row
-
-  .benefits__text-wrapper
-    width: 50%
-    margin: 0
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: center
-
-  .benefits__text
-    width: 450px
-    margin: 20px auto
-
-  .benefits__points
-    width: 50%
-    height: 700px
-    padding: 100px 7vw
-    grid-gap: 50px
 
 /*          inspiration           */
 .inspiration
-  margin-top: 100px
+  margin-top: 20vh
   margin-bottom: 150px
 
 .inspiration__text
   width: 80vw
-  margin: 70px auto
+  margin: 15vh auto 20vh auto
 
 .inspiration-text-title
   font-size: 22px
@@ -576,10 +500,10 @@ $width: 100vw
 .inspiration__images
   display: grid
   width: 70%
-  margin: 0 auto
+  margin: 30vh auto
   grid-template-columns: 1fr
-  grid-template-rows: repeat(4, 60vh)
-  grid-row-gap: 10vh
+  grid-template-rows: repeat(4, 65vh)
+  grid-row-gap: 22vh
 
 @media (min-width: 600px)
   .inspiration__text
@@ -645,9 +569,9 @@ $width: 100vw
 .site-footer
   position: relative
   color: white
+  line-height: 1.1rem
 
 .main-footer
-  position: relative
   height: 30vh
   display: flex
   flex-direction: column
@@ -699,7 +623,7 @@ $width: 100vw
   background: $footer-gray
   padding: 10px
 
-.sub-footer__rights, .sub-footer__author
+.sub-footer__text
   margin: 0
   text-align: center
   font-size: 12px
@@ -718,13 +642,10 @@ $width: 100vw
     height: 130px
     flex-direction: row
     justify-content: space-between
+    font-size: 16px
 
   .main-footer__mention
     width: calc(20vw + 290px)
-    position: relative
-
-  //.mention-paragraf
-    font-size: 16px
 
   .main-footer__social
     width: calc(20vw + 315px)
@@ -740,9 +661,6 @@ $width: 100vw
 
   .social-list
     margin: 10px
-
-  //.social-icon
-    margin: 0
 
   .sub-footer
     padding: 5px
