@@ -435,9 +435,9 @@ $width: 100vw
 
 @media (min-width: 1200px)
   .plant-team
-    height: 84vh
-    margin-top: 20vh
-    margin-bottom: 10vh
+    height: 80vh
+    margin-top: 15vh
+    margin-bottom: 16vh
     padding: 7vh 7vw
     grid-template-columns: minmax(40%, 400px) 1fr
     grid-template-rows:  20vh 64vh
@@ -478,7 +478,7 @@ $width: 100vw
 
 .inspiration__text
   width: 80vw
-  margin: 15vh auto 20vh auto
+  margin: 12vh auto 30vh auto
 
 .inspiration-text-title
   font-size: 22px
@@ -512,14 +512,27 @@ $width: 100vw
   .inspiration__title
     width: 90vw
     margin: 0 auto
+    .title-line
+      display: inline
+
+  .inspiration__paragraf
+    height: 60vh
+    max-height: 550px
+    display: flex
+    flex-direction: column
+    justify-content: space-evenly
+    align-items: center
+
+  .inspiration__text
+    margin: 0
 
   .inspiration__images
-    width: 85%
+    width: 80%
     display: grid
     margin: 70px auto
     grid-template-columns: 1fr 1fr
     grid-template-rows: 40vh 40vh
-    grid-column-gap: 5vw
+    grid-column-gap: 10vw
     grid-row-gap: 30px
 
   .inspiration-img
@@ -532,13 +545,19 @@ $width: 100vw
   .inspiration
     margin: 100px 0 150px 0
 
+  .inspiration__paragraf
+    height: 40vh
+    max-height: 600px
+
   .inspiration__text
     max-width: 550px
 
   .inspiration__images
     width: 70vw
-    margin: 100px auto
-    grid-template-rows: repeat(2, minmax(40vh, 450px))
+    height: 80vh
+    max-height: 1000px
+    margin: 50px auto
+    grid-template-rows: repeat(2, minmax(40%, 450px))
     grid-column-gap: 14vw
     grid-row-gap: 100px
 
@@ -547,19 +566,28 @@ $width: 100vw
     margin: 30px 0 150px 0
 
   .inspiration__title
-    margin-bottom: 5vh
+    margin-bottom: 0
+
+  .inspiration__paragraf
+    height: 70vh
+    max-height: 600px
 
   .inspiration__text
     max-width: 750px
 
+  .inspiration-text-message
+    margin: 20px 0
+
   .inspiration__images
     width: 65vw
-    margin: 20vh auto
-    padding: 5vh 0
+    height: auto
+    max-height: none
+    margin: 22vh auto
+    padding: 0
     grid-template-columns: 1fr 1fr
     grid-template-rows: repeat(2, 72vh)
     grid-column-gap: 20vw
-    grid-row-gap: 23vh
+    grid-row-gap: 25vh
 
   .inspiration-img
     height: 90%
