@@ -361,111 +361,95 @@ $width: 100vw
 
 
 /*      plant team      */
-.plant-team
+.plants
+  display: grid
+  grid-template-columns: 1fr
+  grid-template-rows: min-content 110vh 70vh
+  place-items: center
   margin: 100px 0
 
-.plant-team__title
+.plants__title
   .line-title
     display: block
 
-.plant-team__text
+.plants__text
   width: 80%
-  margin: 15vh auto 25vh auto
 
-.plant-team__text-content
+.plants__text-content
   margin-bottom: 30px
 
-.plant-team__image
-  margin: 0 auto
+.plants__image
   width: 70%
-  height: 65vh
+  height: 70vh
   max-height: 400px
 
 
 @media (min-width: 600px)
-  .plant-team__text
+  .plants
+    grid-template-rows: repeat(3, min-content)
+    grid-row-gap: 100px
+
+  .plants__text
     width: 70vw
 
-  .plant-team__image
+  .plants__image
     width: 50%
-    height: 55vh
+    height: 100%
     max-height: 500px
 
 @media (min-width: 700px)
-  .plant-team
-    display: grid
-    grid-template-columns: 40% 60%
-    grid-template-rows: 150px 450px
-    align-items: center
+  .plants
+    grid-template-columns: 1fr 1.5fr
+    grid-template-rows: repeat(2, min-content)
+    grid-gap: 40px 7vw
+    margin: 100px 10vw
 
-  .plant-team__title
+  .plants__title
     text-align: right
-    align-self: center
+    justify-self: end
 
-    .title-line
-      display: block
-      padding-right: 7vw
-
-  .plant-team__text
+  .plants__text
     width: auto
     margin: 0
 
-  .plant-team__text-content
-    padding: 0 7vw
-    margin: 20px 0
-
-
-  .plant-team__image
-    justify-self: end
+  .plants__text-content
+    padding: 0
     margin: 0
-    width: 85%
-    height: 50vh
-    max-height: 450px
+    margin-top: 20px
+
+  .plants__image
+    justify-self: center
+    align-self: end
+    margin: 0
+    width: 100%
+    max-width: 270px
+    height: 60vh
+    max-height: 400px
     padding: 0
     grid-row: 1 / span 2
 
 @media (min-width: 900px)
-  .plant-team__text-content
-    padding: 0 10vw
+  .plants
+    grid-gap: 40px 10vw
 
-  .plant-team__image
-    width: 75%
-    height: 50vh
-    max-height: 500px
+  .plants__image
+    max-height: 450px
 
 @media (min-width: 1200px)
-  .plant-team
+  .plants
     height: 80vh
     margin-top: 15vh
     margin-bottom: 16vh
-    padding: 7vh 7vw
-    grid-template-columns: minmax(40%, 400px) 1fr
-    grid-template-rows:  20vh 64vh
-    grid-column-gap: 7vw
-    align-items: center
+    grid-template-rows: min-content 1fr
+    grid-gap: 50px 7vw
 
-  .plant-team__title
+  .plants__text
     align-self: start
 
-  .plant-team__text
-    width: auto
-    margin: 0
-
-  .plant-team__text-content
-    padding:  0
-    margin: 20px 0
-    width: 90%
-
-
-  .plant-team__image
-    align-self: center
-    justify-self: center
-    margin: 0
-    width: 100%
+  .plants__image
     max-width: 350px
     height: 100%
     max-height: 80vh
-    padding: 0
     grid-row: 1 / span 2
 
 
