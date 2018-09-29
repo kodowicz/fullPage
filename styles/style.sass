@@ -364,7 +364,8 @@ $width: 100vw
 .plants
   display: grid
   grid-template-columns: 1fr
-  grid-template-rows: min-content 110vh 70vh
+  grid-template-rows: repeat(2, min-content) 70vh
+  grid-row-gap: 20vh
   place-items: center
   margin: 100px 0
 
@@ -380,7 +381,7 @@ $width: 100vw
 
 .plants__image
   width: 70%
-  height: 70vh
+  height: 100%
   max-height: 400px
 
 
@@ -689,20 +690,78 @@ $width: 100vw
   margin-top: 17vh
 
 .location__title
-  width: 85%
-  margin: 0 auto
+  height: 17vh
+
+.location__picture
+  height: 38vh
+  min-height: 150px
+  margin: 3vh 0 20vh 0
+  position: relative
+
+.location__picture-overlay
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background: rgba(129, 255, 188, 0.2)
 
 @media (min-width: 600px)
+  .location
+    margin-top: 12vh
+
   .location__title
     width: 100%
+    height: auto
+
+  .location__picture
+    height: 30vh
+    margin: 50px 0 100px 0
+
+@media (min-width: 700px)
+  .location
+    width: 100%
+    margin-top: 130px
+    display: flex
+    flex-wrap: wrap
+
+  .location__title
+    text-align: left
+    z-index: 2
+    width: 35%
+    height: 22vh
+    max-height: 300px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+
+    .line-title
+      display: block
+      margin: 0
+      padding-left: 7vw
+
+  .location__picture
+    width: 65%
+    height: 22vh
+    max-height: 300px
+    margin-top: 0
+    margin-bottom: 130px
+
+  .location__picture
+    height: 38vh
+    margin: 3vh 0 20vh 0
+    max-height: none
+
+
 
 @media (min-width: 900px)
   .location
-    margin-top: 20vh
+    margin-top: 22vh
     display: flex
 
   .location__title
-    width: 35%
+    width: 40%
     height: 50vh
     display: flex
     flex-direction: column
@@ -715,14 +774,14 @@ $width: 100vw
       padding-left: 5vw
       text-align: left
 
-  .location__map
-    width: 65%
-    height: 60vh
+  .location__picture
+    width: 60%
+    height: 55vh
     margin-top: 0
-    margin-bottom: 23vh
+    margin-bottom: 27vh
 
 @media (min-width: 1100px)
-  .location__map
+  .location__picture
     margin-bottom: 27vh
 
 
