@@ -6,8 +6,8 @@ This page was created to learn more about real-life pages, to express purposes o
 ## Installation
 
 ```
-  git clone https://github.com/kodowicz/plant-page.git
-  cd plant-page
+  git clone https://github.com/kodowicz/plant-shop.git
+  cd plant-shop
   npm install
   npm start
 ```
@@ -23,7 +23,7 @@ This page was created to learn more about real-life pages, to express purposes o
 This project was created using:
 + HTML
 + SASS
-+ JavaScript with ECMAScript2016
++ JavaScript with ES6
 + RWD
 
 ## Warning!
