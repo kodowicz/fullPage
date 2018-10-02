@@ -1,0 +1,23 @@
+{
+  "name": "plantgang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browser-sync start --directory --server --files \"*.css, *.html, *.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodowicz/plant-shop.git"
+  },
+  "author": "Anna Kotowicz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kodowicz/plant-shop/issues"
+  },
+  "homepage": "https://github.com/kodowicz/plant-shop#readme",
+  "dependencies": {
+    "browser-sync": "^2.24.7"
+  }
+}
