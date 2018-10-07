@@ -15,8 +15,8 @@
     <header role="banner" class="site-header">
       <div class="topbar">
         <h1 class="topbar__logo">
-          <a href="about.html">
-            <img class="topbar__logo-icon" src="images/logo.svg" alt="project Rośliny" />
+          <a href="index.html">
+            <img class="topbar__logo-icon" src="images/logo.svg" alt="project Rośliny">
           </a>
         </h1>
 
@@ -74,16 +74,13 @@
 
         <div id="menu" aria-hidden="true" class="nav-wrapper">
           <ul class="nav-list">
-            <li class="nav-list__item">
-              <a class="nav-link" href="index.html">
-                <img class="topbar__logo-icon" src="images/logo.svg" alt="project Rośliny" />
+            <li class="nav-list__item nav-list__item--logo">
+              <a href="index.html">
+                <img class="nav-list__logo-icon" src="images/logo.svg" alt="project Rośliny">
               </a>
             </li>
             <li class="nav-list__item">
               <a class="nav-link" href="about.html">about</a>
-            </li>
-            <li class="nav-list__item">
-              <a class="nav-link" href="events.html">events</a>
             </li>
             <li class="nav-list__item">
               <a class="nav-link" href="contact.html">contact</a>
@@ -98,28 +95,33 @@
 
     <main class="main">
       <header class="about">
-          <h2 class="title about__title">
-            <span class="about__title-line">Looking for anything about plants?</span>
-            <span class="about__title-line">Find out something about us.</span>
-          </h2>
+        <h2 class="title about__title">
+          <span class="about__title-line">Looking for anything about plants?</span>
+          <span class="about__title-line">Find out something about us.</span>
+        </h2>
 
+        <div class="about__wrapper">
           <p class="about__text"><b>rosliny project</b> /<i> latin plantae </i>/ is the tandem of people and this what is growing from the soil. The dreams and the actions. In move and without the move. The art and the non art. We believe that the usually things can be unusually. This project’s purpose is to expand the idea it is worth appreciate even the smallest roots which after the passing time are sprouting strong and healthy.</p>
 
-          <div class="about__picture">
+          <div class="about__picture picture">
             <img class="image" src="images/about-quote.jpg" alt="">
           </div>
+        </div>
+
       </header>
 
       <section class="goals">
         <h2 class="title goals__title">Our planty goals</h2>
 
-        <div class="goals__text">
-          <p class="goals__text--margin">Until recently the potted plant was associated with a wilting poor fern at windowsill in staircase. Nowadays plants proudly present themself in fashionable resteurants, good designed interiors and increasingly in our houses. Creating home jungle is great idea to fight accumulated stress and test your responsebility for... living nature.</p>
-          <p>Our mission is to make the experience of discovering the perfect potted plants as wonderful as the plants themselves. We would love to bridge the gap between plants and people, offering products (plants, pots) and specially help for better understanding plant’s needs. We writed a book specially for these who always forget what your pupils need exept a huge love from you. In this book except for presenting design tricks with plants we would love to show people plants are a living independent existence that needs attention and love.</p>
-        </div>
+        <div class="goals__wrapper">
+          <div class="goals__text">
+            <p class="goals__text--margin">Until recently the potted plant was associated with a wilting poor fern at windowsill in staircase. Nowadays plants proudly present themself in fashionable resteurants, good designed interiors and increasingly in our houses. Creating home jungle is great idea to fight accumulated stress and test your responsebility for... living nature.</p>
+            <p>Our mission is to make the experience of discovering the perfect potted plants as wonderful as the plants themselves. We would love to bridge the gap between plants and people, offering products (plants, pots) and specially help for better understanding plant’s needs. We writed a book specially for these who always forget what your pupils need exept a huge love from you. In this book except for presenting design tricks with plants we would love to show people plants are a living independent existence that needs attention and love.</p>
+          </div>
 
-        <div class="goals__picture">
-          <img class="image" src="images/about-goals.jpg" alt="">
+          <div class="goals__picture picture">
+            <img class="image" src="images/about-goals.jpg" alt="">
+          </div>
         </div>
       </section>
     </main>
@@ -177,6 +179,7 @@
       </section>
     </footer>
 
-    <script src="index.js" charset="utf-8"></script>
+    <script src="node_modules/rellax/rellax.min.js" charset="utf-8"></script>
+    <script src="scripts/index.js" charset="utf-8"></script>
   </body>
 </html>

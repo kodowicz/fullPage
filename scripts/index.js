@@ -62,10 +62,12 @@ function navigation () {
           navWrapper.classList.remove('nav-wrapper--expanded');
           navWrapper.classList.add('nav-wrapper--collapsed');
           overlay.classList.remove('overlay--expanded');
+          nav.classList.remove('navigation--expanded');
         }, {once: true});
         break;
 
         case ('Menu collapsed'):
+          nav.classList.add('navigation--expanded');
           overlay.classList.add('overlay--expanded');
           navWrapper.classList.remove('nav-wrapper--collapsed');
           navWrapper.classList.add('nav-wrapper--expanded');
@@ -100,7 +102,23 @@ function navigation () {
   userInteraction();
 };
 
+function rellaxEffect() {
+  const images = document.querySelectorAll('.picture');
+  images.forEach(image => image.classList.add('rellax'));
+
+  const rellax = new Rellax('.rellax', {
+    speed: 1.7,
+    center: true
+  });
+
+}
+
 
 document.addEventListener('DOMContentLoaded', function() {
+  const isDesktop = window.innerWidth >= 1200;
   navigation();
+
+  if (isDesktop) {
+    rellaxEffect();
+  }
 });

@@ -11,8 +11,6 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet">
   </head>
   <body>
-    <div class="overlay"></div>
-
     <header role="banner" class="site-header">
       <div class="topbar">
         <h1 class="topbar__logo">
@@ -57,6 +55,8 @@
         </ul>
       </div>
 
+      <div class="overlay"></div>
+
       <nav class="navigation">
         <button class="nav-button" aria-label="Menu collapsed" aria-expanded="false" aria-controls="menu" title="Open menu">
           <svg aria-hidden="false" class="button-icon button-icon--open" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -73,16 +73,13 @@
 
         <div id="menu" aria-hidden="true" class="nav-wrapper">
           <ul class="nav-list">
-            <li class="nav-list__item">
+            <li class="nav-list__item nav-list__item--logo">
               <a href="index.html">
-                <img class="topbar__logo-icon" src="images/logo.svg" alt="project Rośliny">
+                <img class="nav-list__logo-icon" src="images/logo.svg" alt="project Rośliny">
               </a>
             </li>
             <li class="nav-list__item">
               <a class="nav-link" href="about.html">about</a>
-            </li>
-            <li class="nav-list__item">
-              <a class="nav-link" href="events.html">events</a>
             </li>
             <li class="nav-list__item">
               <a class="nav-link" href="contact.html">contact</a>
@@ -97,7 +94,7 @@
 
     <main class="main">
 
-      <header class="header">
+      <section class="header">
         <h2 class="title header__title">
           <span class="title-line">Plants</span>
           <span class="title-line">make</span>
@@ -108,19 +105,7 @@
         <div class="header__picture">
           <img class="image" src="images/header.jpg" alt=" ">
         </div>
-
-        <div class="header__text">
-          <div class="header__text-wrapper">
-            <h3 class="header__text-header">Are you a plant person? Did you fall in love with plants?</h3>
-            <p class="header__text-content">If you did then you know plants put us in a good mood and make everything around good looking and more beautiful. Where can we find most of plants?</p>
-          </div>
-
-          <div class="header__text-wrapper">
-            <h3 class="header__text-header">How many plants do people own in their houses?</h3>
-            <p class="header__text-content">We can see hundreds of thousands trees, shrubs, flowers and other greens on the streets and the parks. Our idea is to bring these huge and those smaller plants to people’s homes.</p>
-          </div>
-        </div>
-      </header>
+      </section>
 
       <section class="plants">
         <h2 class="title plants__title">
@@ -128,17 +113,21 @@
           <span class="title-line">have plants</span>
         </h2>
 
-        <div class="plants__text">
-          <p class="plants__text-content">
-          It doesn’t matter if you are a plant enthusiast or a hipster, a beginner whether a green thumb. It’s irrelevant that flowers are wilthering cause of your touch either burst into bloom in the brightness of your personage. All plants deserve for love and inversely!
-          </p>
-          <p class="plants__text-content">
-            Also one thing is well known to us. All people love to take responsibility and care of something. We keen on watering them, spraying leaves with water or taking off the dust with a wet rubber. Plants bring a huge pleasure during their growth and we love to watch it. Each of plants is different even in the same type, but all plants are equal. All of them are equally wonderful.
-          </p>
-        </div>
+        <div class="plants__wrapper">
 
-        <div class="plants__image">
-          <img class="image" src="images/awesome.jpg" alt="">
+          <div class="plants__text">
+            <p class="plants__text-content">
+            It doesn’t matter if you are a plant enthusiast or a hipster, a beginner whether a green thumb. It’s irrelevant that flowers are wilthering cause of your touch either burst into bloom in the brightness of your personage. All plants deserve for love and inversely!
+            </p>
+            <p class="plants__text-content">
+              Also one thing is well known to us. All people love to take responsibility and care of something. We keen on watering them, spraying leaves with water or taking off the dust with a wet rubber. Plants bring a huge pleasure during their growth and we love to watch it. Each of plants is different even in the same type, but all plants are equal. All of them are equally wonderful.
+            </p>
+          </div>
+
+          <div class="plants__picture picture">
+            <img class="image" src="images/awesome.jpg" alt="">
+          </div>
+
         </div>
       </section>
 
@@ -160,11 +149,11 @@
           </div>
         </div>
 
-        <div class="inspiration__images">
-          <img class="image inspiration-img inspiration-img-1" src="images/inspiration1.jpg" alt="insert description">
-          <img class="image inspiration-img inspiration-img-2" src="images/inspiration4.png" alt="insert description">
-          <img class="image inspiration-img inspiration-img-3" src="images/inspiration3.png" alt="insert description">
-          <img class="image inspiration-img inspiration-img-4" src="images/inspiration2.jpg" alt="insert description">
+        <div class="inspiration__picture">
+          <img class="image inspiration__image picture inspiration__image--bottom" data-rellax-speed="0" src="images/inspiration1.jpg" alt="insert description">
+          <img class="image inspiration__image picture" data-rellax-speed="-2" src="images/inspiration4.png" alt="insert description">
+          <img class="image inspiration__image picture inspiration__image--bottom" data-rellax-speed="2" src="images/inspiration3.png" alt="insert description">
+          <img class="image inspiration__image picture" data-rellax-speed="0" src="images/inspiration2.jpg" alt="insert description">
         </div>
       </section>
     </main>
@@ -222,7 +211,7 @@
       </section>
     </footer>
 
-    <!--  scripts  -->
+    <script src="node_modules/rellax/rellax.min.js" charset="utf-8"></script>
     <script src="scripts/index.js" charset="utf-8"></script>
   </body>
 </html>
