@@ -284,6 +284,9 @@ $width: 100vw
   .title
     font-size: 63px
 
+  .location__title, .header__title
+    font-size: 76px
+
 
 
 /*      header      */
@@ -769,14 +772,6 @@ $width: 100vw
   margin: 3vh 0 20vh 0
   position: relative
 
-.location__picture-overlay
-  position: absolute
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background: rgba(50, 255, 95, 0.2)
-
 @media (min-width: 600px)
   .location
     margin-top: 12vh
@@ -800,8 +795,8 @@ $width: 100vw
     text-align: left
     z-index: 2
     width: 35%
-    height: 22vh
-    max-height: 300px
+    height: 20vh
+    max-height: 250px
     display: flex
     flex-direction: column
     justify-content: center
@@ -814,8 +809,8 @@ $width: 100vw
 
   .location__picture
     width: 65%
-    height: 22vh
-    max-height: 300px
+    height: 20vh
+    max-height: 250px
     margin-top: 0
     margin-bottom: 0
 
@@ -824,15 +819,14 @@ $width: 100vw
     margin: 3vh 0 20vh 0
     max-height: none
 
-
 @media (min-width: 900px)
   .location
-    margin-top: 22vh
+    margin-top: 150px
     display: flex
 
   .location__title
-    width: 40%
-    height: 50vh
+    width: 35%
+    height: 60vh
     display: flex
     flex-direction: column
     justify-content: center
@@ -841,21 +835,22 @@ $width: 100vw
     .line-title
       display: block
       margin: 0
-      padding-left: 5vw
+      padding-left: 7vw
       text-align: left
 
   .location__picture
     width: 60%
-    height: 55vh
+    height: 60vh
     margin-top: 0
-    margin-bottom: 27vh
+    margin-bottom: 150px
 
 @media (min-width: 1100px)
+  .location__title
+    max-height: 500px
+
   .location__picture
     max-height: 500px
-    margin-bottom: 27vh
-
-
+    margin-bottom: 200px
 
 /*          information        */
 .information__text
@@ -1034,7 +1029,6 @@ $width: 100vw
   font-weight: 500
   border-radius: 50px
   margin: 40px auto
-  outline: none
 
 
 @media (min-width: 600px)
@@ -1127,8 +1121,6 @@ $width: 100vw
     max-width: 250px
     margin: 100px auto
 
-
-
 @media (min-width: 768px)
   .about
     margin: 0
@@ -1155,8 +1147,6 @@ $width: 100vw
     max-height: 350px
     margin: 0
     align-self: flex-end
-
-
 
 @media (min-width: 1200px)
   .about__title
@@ -1232,7 +1222,7 @@ $width: 100vw
 
 @media (min-width: 1200px)
   .goals
-    margin: 170px 0
+    margin: 200px 0
 
   .goals__title
     margin: 0 0 40px 10vw
