@@ -105,9 +105,7 @@ function navigation () {
 function rellaxEffect() {
   const images = document.querySelectorAll('.picture');
 
-  if (images.length == 0) {
-    return;
-  } else {
+  if (images.length !== 0) {
     images.forEach(image => image.classList.add('rellax'));
 
     const rellax = new Rellax('.rellax', {
