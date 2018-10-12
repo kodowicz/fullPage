@@ -104,21 +104,46 @@ function navigation () {
 
 function rellaxEffect() {
   const images = document.querySelectorAll('.picture');
-  images.forEach(image => image.classList.add('rellax'));
 
-  const rellax = new Rellax('.rellax', {
-    speed: 1.7,
-    center: true
+  if (images.length == 0) {
+    return;
+  } else {
+    images.forEach(image => image.classList.add('rellax'));
+
+    const rellax = new Rellax('.rellax', {
+      speed: 1.7,
+      center: true
+    });
+  };
+};
+
+function hoverOffer () {
+  this.classList.toggle('offer__picture--hover');
+};
+
+function offerRellaxEfect() {
+  const slowRellaxDown = new Rellax('.slow-rellax-down', {
+    speed: -0.8
   });
 
+  const SlowRellaxUp = new Rellax('.slow-rellax-up', {
+    speed: 0.8
+  });
 }
 
-
 document.addEventListener('DOMContentLoaded', function() {
+  const offers = document.querySelectorAll('.offer__picture');
   const isDesktop = window.innerWidth >= 1200;
   navigation();
 
   if (isDesktop) {
     rellaxEffect();
+
+    if (offers.length !== 0) {
+      offers.forEach(offer => offer.addEventListener('mouseenter', hoverOffer));
+      offers.forEach(offer => offer.addEventListener('mouseleave', hoverOffer));
+
+      offerRellaxEfect();
+    }
   }
 });
