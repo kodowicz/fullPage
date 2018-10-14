@@ -120,19 +120,104 @@ function hoverOffer () {
 };
 
 function offerRellaxEfect() {
-  const slowRellaxDown = new Rellax('.slow-rellax-down', {
-    speed: -0.8
-  });
+  let offerRellax = new Rellax('.offer__picture');
+}
 
-  const SlowRellaxUp = new Rellax('.slow-rellax-up', {
-    speed: 0.8
+function offerFilter() {
+  const inputs = document.querySelectorAll('.inputs__checkbox');
+  const offers = document.querySelectorAll('.offer__picture');
+  const offer = document.querySelector('.offer');
+  const warning = document.querySelector('.offer__warning');
+
+
+  inputs.forEach((input) => input.addEventListener('click', function() {
+    changeSpeed(offers, offerRellax);
+    offerRellax = new Rellax('.offer__picture');
+
+    const regExp = new RegExp(input.value, 'gi');
+
+    if (input.value == 'all') {
+      inputs.forEach((input) => {
+        if (input.value == 'all') return;
+        input.checked = false;
+        offers.forEach((offer) => {
+          offer.style.display = 'flex';
+        })
+      });
+    }
+
+    switch (input.checked) {
+      case true:
+        offers.forEach((offer) => {
+          if (!offer.getAttribute('data-type').match(regExp)) {
+            offer.style.display = 'none';
+          }
+        })
+        break;
+
+      case false:
+        offers.forEach((offer) => {
+          if (!offer.getAttribute('data-type').match(regExp)) {
+            offer.style.display = 'flex';
+          }
+        })
+        break;
+
+      default:
+        break;
+    }
+
+    if (offer.clientHeight == 0) {
+      warning.style.display = 'block';
+    } else {
+      warning.style.display = 'none';
+    };
+
+  }));
+}
+
+function changeSpeed (elements, rellax) {
+  let last_value = 0.5;
+
+  rellax.destroy();
+
+  elements.forEach(element => {
+    if (element.style.display == 'none') {
+      element.setAttribute('data-rellax-speed', 0);
+      return;
+    };
+
+    element.setAttribute('data-rellax-speed', last_value);
+    console.log(element);
+
+    switch (last_value) {
+      case (0.5):
+        last_value = 0
+        break;
+
+      case (0):
+        last_value = -0.5
+        break;
+
+      case (-0.5):
+        last_value = 0.5
+        break;
+
+      default:
+        break;
+    }
   });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   const offers = document.querySelectorAll('.offer__picture');
-  const isDesktop = window.innerWidth >= 1200;
+  const isDesktop = window.innerWidth >= 1000;
+
   navigation();
+
+  if (offers.length !== 0) {
+    offerFilter();
+  }
 
   if (isDesktop) {
     rellaxEffect();
@@ -142,6 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
       offers.forEach(offer => offer.addEventListener('mouseleave', hoverOffer));
 
       offerRellaxEfect();
+
     }
   }
 });

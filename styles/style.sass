@@ -1309,13 +1309,18 @@ $width: 100vw
 
   .selection__text
     font-size: 20px
-    margin: 40px auto
+    margin: 300px auto 40px auto
 
 @media (min-width: 1200px)
   .selection
     margin-bottom: 280px
 
+
+
+
 /* offer */
+
+
 .offer
   display: flex
   flex-wrap: wrap
@@ -1327,6 +1332,13 @@ $width: 100vw
   margin: 20px auto
   display: flex
   justify-content: space-evenly
+
+.offer__picture:nth-child(even)
+  background: rgba(0,100,100, 0.3)
+
+.offer__picture:nth-child(odd)
+  background: rgba(200,200,0, 0.3)
+
 
 .offer__title
   width: 42%
@@ -1356,6 +1368,13 @@ $width: 100vw
   width: 42%
   max-width: 200px
 
+.offer__warning
+  display: none
+  width: 60%
+  margin: 0 auto
+  text-align: center
+  font-weight: 500
+
 @media (min-width: 768px)
   .offer__picture
     width: 80%
@@ -1365,9 +1384,9 @@ $width: 100vw
   .offer
     display: grid
     grid-template-columns: repeat(3, 1fr)
-    grid-auto-rows: 400px
+    //grid-auto-rows: 400px
     place-items: center
-    grid-row-gap: 100px
+    grid-row-gap: 200px
     margin: 0 5%
 
   .offer__picture
@@ -1378,15 +1397,16 @@ $width: 100vw
     margin: 50px
     margin: 0
 
-  //.offer__picture--bottom
-    align-self: end
-
-  //.offer__picture--top
-    align-self: start
+  .offer__picture--hidden
+    display: none
 
   .offer__image
     width: 100%
     max-width: none
+
+  .offer__warning
+    font-size: 18px
+    grid-column: span 3
 
   .offer__title
     position: absolute
@@ -1478,7 +1498,7 @@ $width: 100vw
 
 .attention
   width: 80vw
-  margin: 12vh auto 30vh auto
+  margin: 25vh auto 30vh auto
 
 .attention__text
 
@@ -1522,3 +1542,4 @@ $width: 100vw
 @media (min-width: 1200px)
   .attention
     max-width: 750px
+    margin-top: 150px
