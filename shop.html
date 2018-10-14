@@ -11,15 +11,98 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500" rel="stylesheet">
   </head>
   <body>
+    <header role="banner" class="site-header">
+      <div class="topbar">
+        <h1 class="topbar__logo">
+          <a href="index.html">
+            <img class="topbar__logo-icon" src="images/logo.svg" alt="project Rośliny">
+          </a>
+        </h1>
 
+        <ul class="topbar__social-list">
+          <li class="topbar-social-list__item">
+            <a href="/facebook">
+              <svg class="topbar-social-icon" version="1.1"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.1 43.5">
+                <path d="M22.5,1.8l-5.2,0c-5.8,0-9.6,3.9-9.6,9.8v4.5c0,0,0,0,0,0H2.6c-0.5,0-0.8,0.4-0.8,0.8v6.5
+                  c0,0.5,0.4,0.8,0.8,0.8h5.2c0,0,0,0,0,0v16.5c0,0.5,0.4,0.8,0.8,0.8h6.8c0.5,0,0.8-0.4,0.8-0.8V24.4c0,0,0,0,0,0h6.1
+                  c0.5,0,0.8-0.4,0.8-0.8l0-6.6c0-0.2-0.1-0.4-0.2-0.6s-0.4-0.2-0.6-0.2h-6.1c0,0,0,0,0,0v-3.8c0-1.8,0.4-2.8,2.9-2.8l3.5,0
+                  c0.5,0,0.8-0.4,0.8-0.8V2.6C23.4,2.1,23,1.8,22.5,1.8z"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="topbar-social-list__item">
+            <a href="/twitter">
+              <svg class="topbar-social-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.5 35.3">
+                <path d="M37.4,20.8"></path>
+                <path d="M36.7,18c-0.3,1.3-0.9,2.6-1.6,3.8c-3.7,6.4-10.4,10.8-17.8,11.6c-8.8,1-15.5-3-15.5-3
+                  c5.4,1.6,12.4-3.9,12.4-3.9c-6.2,0.8-7.8-5.4-7.8-5.4c1.6,0,3.1-0.8,3.1-0.8c-6.2-1.6-6.2-7.8-6.2-7.8c1.6,0.8,3.9,0.8,3.9,0.8
+                  C1,8.7,4.9,2.5,4.9,2.5s3.9,5.4,8.5,7s7.8,1.6,8.5,1.6h0.9c-0.2-0.7-0.2-1.5-0.1-2.3c0.3-3.6,3.2-6.5,6.8-6.9
+                  c4.7-0.5,8.6,3.1,8.6,7.7C38.2,9.5,38.1,14.4,36.7,18z"></path>
+                <path d="M39,6.5c0,0,1.3,0.1,2.8-0.6C41,6.8,39.9,8,39,8.4"></path>
+                <path d="M36.8,3.5c0,0,3-0.8,3.8-1.2c-0.5,0.9-1.6,2.1-2.2,2.4"></path>
+              </svg>
+            </a>
+          </li>
+          <li class="topbar-social-list__item">
+            <a href="/instagram">
+              <svg class="topbar-social-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.5 43.5">
+                <path d="M33.8,41.8h-24c-4.4,0-8-3.6-8-8v-24c0-4.4,3.6-8,8-8h24c4.4,0,8,3.6,8,8v24C41.8,38.2,38.2,41.8,33.8,41.8z"></path>
+                <path d="M30.4,21.8c0,4.8-3.9,8.6-8.6,8.6s-8.6-3.9-8.6-8.6s3.9-8.6,8.6-8.6S30.4,17,30.4,21.8z"></path>
+                <path d="M35.4,9.6C35,10,34.3,9.9,33.9,9.5S33.5,8.4,34,8s1.1-0.4,1.5,0.1S35.9,9.2,35.4,9.6z"></path>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="overlay"></div>
+
+      <nav class="navigation">
+        <button class="nav-button" aria-label="Menu collapsed" aria-expanded="false" aria-controls="menu" title="Open menu">
+          <svg aria-hidden="false" class="button-icon button-icon--open" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="#101010"/>
+          </svg>
+          <svg aria-hidden="true" class="button-icon button-icon--close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59
+              6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="#101010"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </button>
+
+        <div id="menu" aria-hidden="true" class="nav-wrapper">
+          <ul class="nav-list">
+            <li class="nav-list__item nav-list__item--logo">
+              <a href="index.html">
+                <img class="nav-list__logo-icon" src="images/logo.svg" alt="project Rośliny">
+              </a>
+            </li>
+            <li class="nav-list__item">
+              <a class="nav-link" href="about.html">about</a>
+            </li>
+            <li class="nav-list__item">
+              <a class="nav-link" href="contact.html">contact</a>
+            </li>
+            <li class="nav-list__item">
+              <a class="nav-link" href="shop.html">shop</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
 
     <main class="main">
 
       <section class="selection">
-
+        <h2 class="title selection__title">
+          <span class="title-line">Let them shine</span>
+          <span class="title-line">bright</span>
+          <span class="title-line">in the light</span>
+        </h2>
 
         <div class="selection__text">
-          <p>select any group that’s nearly to your life style</p>
+          <p>select any plant group that’s nearly to your life style</p>
         </div>
 
         <div class="selection__inputs">
@@ -48,53 +131,339 @@
       </section>
 
       <section class="offer">
-        <figure data-type="all light beginners" data-rellax-speed="0.5" class="offer__picture">picture 1</figure>
+        <figure data-type="all light beginners" data-rellax-speed="0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/aglaonema.jpg" alt="">
+          <p class="title__title">Aglaonema</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Aglaonema</h3>
+            <p class="title__price">30$</p>
+            <p class="title__description">
+              medium to bright indirect light </br>
+              constant moist soil </br>
+              high humidity
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all light beginners" data-rellax-speed="0" class="offer__picture">picture 2</figure>
+        <figure data-type="all light beginners" data-rellax-speed="0" class="offer__picture">
+          <img class="image offer__image" src="images/shop/alocasia.jpg" alt="">
+          <p class="title__title">Alocasia Polly</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Alocasia Polly</h3>
+            <p class="title__price">35$</p>
+            <p class="title__description">
+              medium to bright indirect light </br>
+              constant moist soil </br>
+              high humidity
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all light beginners" data-rellax-speed="-0.5" class="offer__picture">picture 3</figure>
+        <figure data-type="all light beginners" data-rellax-speed="-0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/aloe.jpg" alt="">
+          <p class="title__title">Aloe Aristata</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Aloe Aristata</h3>
+            <p class="title__price">15$</p>
+            <p class="title__description">
+              bright direct light <br>
+              permeable, very low moist soil
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all light beginners" data-rellax-speed="0.5" class="offer__picture ">picture 4</figure>
+        <figure data-type="all light beginners" data-rellax-speed="0.5" class="offer__picture ">
+          <img class="image offer__image" src="images/shop/cactusmini.jpg" alt="">
+          <p class="title__title">Cactus mini mix</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Cactus mini mix</h3>
+            <p class="title__price">20$</p>
+            <p class="title__description">
+              bright light <br>
+              permeable, very low moist soil
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all light beginners" data-rellax-speed="0" class="offer__picture">picture 5</figure>
+        <figure data-type="all light beginners" data-rellax-speed="0" class="offer__picture">
+          <img class="image offer__image" src="images/shop/cactus.jpg" alt="">
+          <p class="title__title">Cactus</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Cactus</h3>
+            <p class="title__price">30$</p>
+            <p class="title__description">
+              bright light <br>
+              permeable, very low moist soil
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all beginners" data-rellax-speed="-0.5" class="offer__picture">picture 6</figure>
+        <figure data-type="all beginners" data-rellax-speed="-0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/calatheaorbiflora.jpg" alt="">
+          <p class="title__title">Calathea Orbiflora</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Calathea Orbiflora</h3>
+            <p class="title__price">40$</p>
+            <p class="title__description">
+              medium indirect light </br>
+              constant moist soil </br>
+              high humidity
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all accessories" data-rellax-speed="0.5" class="offer__picture">picture 7</figure>
+        <figure data-type="all accessories" data-rellax-speed="0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/coppercan.jpg" alt="">
+          <p class="title__title">copper watering can</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">copper watering can</h3>
+            <p class="title__price">55$</p>
+            <p class="title__description">
+              easier and enjoyable watering plants
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all light" data-rellax-speed="0" class="offer__picture">picture 8</figure>
+        <figure data-type="all light" data-rellax-speed="0" class="offer__picture">
+          <img class="image offer__image" src="images/shop/ficusbambino.jpg" alt="">
+          <p class="title__title">Ficus Lyrata</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Ficus Lyrata</h3>
+            <p class="title__price">60$</p>
+            <p class="title__description">
+              medium to bright indirect light </br>
+              constant moist soil </br>
+              tree type
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all accessories" data-rellax-speed="-0.5" class="offer__picture">picture 9</figure>
+        <figure data-type="all accessories" data-rellax-speed="-0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/goldcan.jpg" alt="">
+          <p class="title__title">golden watering can</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">golden watering can</h3>
+            <p class="title__price">60$</p>
+            <p class="title__description">
+              easier and enjoyable watering plants
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all dark beginners" data-rellax-speed="0.5" class="offer__picture">picture 10</figure>
+        <figure data-type="all dark beginners" data-rellax-speed="0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/hedera.jpg" alt="">
+          <p class="title__title">Hedera Helix</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Hedera Helix</h3>
+            <p class="title__price">35$</p>
+            <p class="title__description">
+              low to bright indirect light </br>
+              constant moist soil
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all accessories" data-rellax-speed="0" class="offer__picture">picture 11</figure>
+        <figure data-type="all accessories" data-rellax-speed="0" class="offer__picture">
+          <img class="image offer__image" src="images/shop/macrame.jpg" alt="">
+          <p class="title__title">macrame</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">macrame</h3>
+            <p class="title__price">50$</p>
+            <p class="title__description">
+              plant hanger
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all dark beginners" data-rellax-speed="-0.5" class="offer__picture">picture 12</figure>
+        <figure data-type="all dark beginners" data-rellax-speed="-0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/monsteramini.jpg" alt="">
+          <p class="title__title">Monstera Adansonii</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Monstera Adansonii</h3>
+            <p class="title__price">45$</p>
+            <p class="title__description">
+              medium indirect light </br>
+              permeable, medium moist soil </br>
+              high humidity </br>
+              climbing plant
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all dark beginners" data-rellax-speed="0.5" class="offer__picture">picture 13</figure>
+        <figure data-type="all dark beginners" data-rellax-speed="0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/monstera.jpg" alt="">
+          <p class="title__title">Monstera Deliciosa</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Monstera Deliciosa</h3>
+            <p class="title__price">60$</p>
+            <p class="title__description">
+              medium indirect light </br>
+              permeable, medium moist soil </br>
+              high humidity </br>
+              climbing plant
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all light" data-rellax-speed="0" class="offer__picture">picture 14</figure>
+        <figure data-type="all light" data-rellax-speed="0" class="offer__picture">
+          <img class="image offer__image" src="images/shop/Pellaea.jpg" alt="">
+          <p class="title__title">Pellaea Rotundifolia</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Pellaea Rotundifolia</h3>
+            <p class="title__price">30$</p>
+            <p class="title__description">
+              medium indirect light </br>
+              constant moist, permeable soil </br>
+              high humidity
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all light" data-rellax-speed="-0.5" class="offer__picture">picture 15</figure>
+        <figure data-type="all light" data-rellax-speed="-0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/Phlebodium.jpg" alt="">
+          <p class="title__title">Phlebodium Aureum</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Phlebodium Aureum</h3>
+            <p class="title__price">30$</p>
+            <p class="title__description">
+              medium to bright indirect light </br>
+              constant moist soil </br>
+              high humidity
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all accessories" data-rellax-speed="0.5" class="offer__picture">picture 16</figure>
+        <figure data-type="all accessories" data-rellax-speed="0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/sprayer.jpg" alt="">
+          <p class="title__title">plant sprayer</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">plant sprayer</h3>
+            <p class="title__price">45$</p>
+            <p class="title__description">
+              sprayer for plants that prefer high humidity
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all light" data-rellax-speed="0" class="offer__picture">picture 17</figure>
+        <figure data-type="all light" data-rellax-speed="0" class="offer__picture">
+          <img class="image offer__image" src="images/shop/Platycerium.jpg" alt="">
+          <p class="title__title">Platycerium</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Platycerium</h3>
+            <p class="title__price">25$</p>
+            <p class="title__description">
+              medium to bright indirect light </br>
+              constant, high moist soil </br>
+              can grow without soil at tree bark
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all dark beginners" data-rellax-speed="-0.5" class="offer__picture">picture 18</figure>
+        <figure data-type="all dark beginners" data-rellax-speed="-0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/Sansevieria.jpg" alt="">
+          <p class="title__title">Sansevieria Laurentii</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Sansevieria Laurentii</h3>
+            <p class="title__price">20$</p>
+            <p class="title__description">
+              low to bright direct light </br>
+              permeable, very low moist soil
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all light" data-rellax-speed="0.5" class="offer__picture">picture 19</figure>
+        <figure data-type="all light" data-rellax-speed="0.5" class="offer__picture">
+          <img class="image offer__image" src="images/shop/Tillandsia.jpg" alt="">
+          <p class="title__title">Tillandsia</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Tillandsia</h3>
+            <p class="title__price">15$</p>
+            <p class="title__description">
+              bright indirect light </br>
+              doesn't need soil but has to be soaked
+            </p>
+          </figcaption>
+        </figure>
 
-        <figure data-type="all dark beginners" data-rellax-speed="0" class="offer__picture">picture 20</figure>
+        <figure data-type="all dark beginners" data-rellax-speed="0" class="offer__picture">
+          <img class="image offer__image" src="images/shop/zamioculcas.jpg" alt="">
+          <p class="title__title">Zamioculcas</p>
+          <figcaption class="offer__title">
+            <h3 class="title__name">Zamioculcas</h3>
+            <p class="title__price">25$</p>
+            <p class="title__description">
+              low to medium light </br>
+              permeable, medium moist soil
+            </p>
+          </figcaption>
+        </figure>
 
 
-        <p class="offer__warning">sorry, we don't have this type of products!</p>
+        <p class="offer__warning">sorry, we don't have this type of plants!</p>
       </section>
 
+      <section class="attention">
+        <p class="attention__text">All shown plants are available in our store. If you want some, just visit us. If you want to know more details about the plant call or text us. Don’t forget every plant is different.  The same plant species has different shapes of leaves, branches grow in different directions and are not the same tall. So the best way to gain a new best friend is choosing them face to face.</p>
+        <div class="attention__link">
+          <a class="link-anchor" href="/contact.html">contact us</a>
+        </div>
+      </section>
     </main>
 
-    <script src="scripts/rellax.min.js" charset="utf-8"></script>
+    <footer class="site-footer" role="contentinfo">
+      <section class="main-footer">
+        <div class="main-footer__mention">
+          <p class="mention-paragraf">Made with love to plants.</p>
+          <p class="mention-paragraf">
+            Inspired by
+            <a class="mention-paragraf__link" href="https://www.facebook.com/projektrosliny/">Rośliny</a>.
+          </p>
+        </div>
+        <div class="main-footer__social">
+          <p class="social-text">To know more about us and what we do.</p>
+          <ul class="social-list">
+            <li class="social-icon">
+              <a href="/facebook">
+                <svg class="social-icon-svg" version="1.1"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25.1 43.5">
+                  <path d="M22.5,1.8l-5.2,0c-5.8,0-9.6,3.9-9.6,9.8v4.5c0,0,0,0,0,0H2.6c-0.5,0-0.8,0.4-0.8,0.8v6.5
+                    c0,0.5,0.4,0.8,0.8,0.8h5.2c0,0,0,0,0,0v16.5c0,0.5,0.4,0.8,0.8,0.8h6.8c0.5,0,0.8-0.4,0.8-0.8V24.4c0,0,0,0,0,0h6.1
+                    c0.5,0,0.8-0.4,0.8-0.8l0-6.6c0-0.2-0.1-0.4-0.2-0.6s-0.4-0.2-0.6-0.2h-6.1c0,0,0,0,0,0v-3.8c0-1.8,0.4-2.8,2.9-2.8l3.5,0
+                    c0.5,0,0.8-0.4,0.8-0.8V2.6C23.4,2.1,23,1.8,22.5,1.8z"></path>
+                </svg>
+              </a>
+            </li>
+            <li class="social-icon">
+              <a href="/twitter">
+                <svg class="social-icon-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.5 35.3">
+                  <path d="M37.4,20.8"></path>
+                  <path d="M36.7,18c-0.3,1.3-0.9,2.6-1.6,3.8c-3.7,6.4-10.4,10.8-17.8,11.6c-8.8,1-15.5-3-15.5-3
+                    c5.4,1.6,12.4-3.9,12.4-3.9c-6.2,0.8-7.8-5.4-7.8-5.4c1.6,0,3.1-0.8,3.1-0.8c-6.2-1.6-6.2-7.8-6.2-7.8c1.6,0.8,3.9,0.8,3.9,0.8
+                    C1,8.7,4.9,2.5,4.9,2.5s3.9,5.4,8.5,7s7.8,1.6,8.5,1.6h0.9c-0.2-0.7-0.2-1.5-0.1-2.3c0.3-3.6,3.2-6.5,6.8-6.9
+                    c4.7-0.5,8.6,3.1,8.6,7.7C38.2,9.5,38.1,14.4,36.7,18z"></path>
+                  <path d="M39,6.5c0,0,1.3,0.1,2.8-0.6C41,6.8,39.9,8,39,8.4"></path>
+                  <path d="M36.8,3.5c0,0,3-0.8,3.8-1.2c-0.5,0.9-1.6,2.1-2.2,2.4"></path>
+                </svg>
+              </a>
+            </li>
+            <li class="social-icon">
+              <a href="/instagram">
+                <svg class="social-icon-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.5 43.5">
+                  <path d="M33.8,41.8h-24c-4.4,0-8-3.6-8-8v-24c0-4.4,3.6-8,8-8h24c4.4,0,8,3.6,8,8v24C41.8,38.2,38.2,41.8,33.8,41.8z"></path>
+                  <path d="M30.4,21.8c0,4.8-3.9,8.6-8.6,8.6s-8.6-3.9-8.6-8.6s3.9-8.6,8.6-8.6S30.4,17,30.4,21.8z"></path>
+                  <path d="M35.4,9.6C35,10,34.3,9.9,33.9,9.5S33.5,8.4,34,8s1.1-0.4,1.5,0.1S35.9,9.2,35.4,9.6z"></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="sub-footer">
+        <p class="sub-footer__text">Copyright &copy 2018. All rights reserved.</p>
+        <p class="sub-footer__text">Designed and created by Anna Kotowicz</p>
+      </section>
+    </footer>
+
+    <script src="node_modules/rellax/rellax.min.js" charset="utf-8"></script>
     <script src="scripts/changed.js" charset="utf-8"></script>
   </body>
 </html>
