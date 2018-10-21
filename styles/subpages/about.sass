@@ -1,0 +1,79 @@
+.about
+  margin-bottom: 20vh
+
+.about__title
+  height: 95vh
+  max-height: 630px
+  @include flex (center, center, column)
+
+.about__title-line
+  display: block
+  width: 70%
+  margin-bottom: 0
+
+.about__title-line--margin
+  margin-bottom: 5vh
+
+.about__wrapper
+  @include wrapper($tablet, $desktop, row-reverse)
+
+.about__text
+  @include text ($small_tablet, $tablet)
+
+.about__picture
+  @include picture ($small_tablet, $tablet, $desktop)
+
+@media (min-width: $small_tablet)
+  .about
+    margin-bottom: 150px
+
+  .about__title
+    height: 40vh
+    max-height: 350px
+    span
+      margin-bottom: 0
+      width: 100%
+
+@media (min-width: $desktop)
+  .about
+    margin-bottom: 200px
+
+  .about__title
+    height: 80vh
+    max-height: 600px
+
+  .about__wrapper
+    margin: 200px 0
+
+  .about__picture
+    align-self: center
+
+
+
+
+.goals__text
+  @include text ($small_tablet, $tablet)
+
+.goals__text--margin
+  margin-bottom: 50px
+
+.goals__picture
+  @include picture ($small_tablet, $tablet, $desktop)
+
+.goals__wrapper
+  @include wrapper($tablet, $desktop, row)
+
+@media (min-width: $tablet)
+  .goals
+    margin: 100px 0 150px 0
+
+  .goals__title
+    margin: 0 0 50px 10vw
+    text-align: left
+
+@media (min-width: $desktop)
+  .goals
+    margin: 200px 0
+
+  .goals__title
+    margin: 0 0 60px 10vw

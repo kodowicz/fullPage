@@ -1,0 +1,175 @@
+.information__wrapper
+  @include wrapper($tablet, $desktop, row-reverse)
+
+.information__text
+  @include flex (center, center, column)
+  @include text ($small_tablet, $tablet)
+
+.info
+  line-height: normal
+  margin: 30px 0
+
+.info__header
+  font-size: 16px
+  font-weight: bold
+  text-align: center
+  margin-top: 0
+
+.addres__text-line
+  width: 140px
+  margin: 0 auto
+
+.info__days
+  width: 50vw
+
+.days__text-line
+  display: flex
+  justify-content: space-between
+
+.information__picture
+  @include picture ($small_tablet, $tablet, $desktop)
+
+
+@media (min-width: 360px)
+  .info__days
+    width: 40vw
+
+@media (min-width: $small_tablet)
+
+  .info__days
+    width: 150px
+
+@media (min-width: $tablet)
+  .information
+    margin: 150px 0
+
+  .information__title
+    margin: 0 10vw 30px 0
+    text-align: right
+    span
+      display: block
+
+  .info__days
+    width: 180px
+
+@media (min-width: $desktop)
+  .information
+    margin-top: 50px
+    margin-bottom: 100px
+
+  .information__title
+    margin: 0 10vw 0 0
+    text-align: right
+
+    span
+      display: block
+
+  .information__text
+    justify-content: space-around
+    flex-direction: row
+    align-self: center
+
+  .info__header
+    font-size: 18px
+
+  .addres__text-line
+    width: 150px
+
+
+
+
+.contact
+  margin-bottom: 20vh
+
+.contact__title
+  .line-title
+    display: block
+
+.contact__form
+  margin: 10vh auto
+  width: 70%
+
+.form-input
+  position: relative
+  margin: 30px 0
+  width: 100%
+
+.form__input
+  background-color: transparent
+  border: none
+  border-bottom: 1px solid $gray
+  border-radius: 0
+  width: 100%
+  font: 400 16px 'Montserrat'
+  color: $gray
+  height: 1.5rem
+  padding: 0 5px
+  box-sizing: border-box
+
+.form__input--textarea:focus
+  height: auto
+
+.form__label
+  position: absolute
+  bottom: 1px
+  left: 5px
+  letter-spacing: 0.5px
+  transition: font-size 0.2s ease-out
+
+.form__input:focus ~ .form__label
+  top: -20px
+  left: 0
+  font-size: 12px
+  color: #3399FF
+
+.form__label--textarea
+  bottom: 6px
+
+.form__button
+  background: none
+  border: 1px solid transparent
+  box-shadow: 5px 5px 10px rgba(0,0,0,.1)
+  width: 8rem
+  display: block
+  height: 2.6rem
+  color: $gray
+  font-family: 'Montserrat', sans-serif
+  font-size: 14px
+  font-weight: 500
+  border-radius: 50px
+  margin: 40px auto
+
+
+@media (min-width: $small_tablet)
+  .contact
+    margin: 100px 0
+
+  .contact__title
+    .line-title
+      display: inline
+
+  .contact__form
+    width: 70vw
+    max-width: 600px
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    margin: 100px auto
+
+  .form-input
+    margin: 0
+    width: 45%
+    margin-bottom: 50px
+
+  .form-input--textarea
+    width: 100%
+
+  .form__button
+    margin: 0 auto
+
+@media (min-width: $desktop)
+  .contact
+    margin: 150px 0 250px 0
+
+  .form__button
+    font-size: 16px

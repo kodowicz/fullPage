@@ -1,0 +1,147 @@
+.plants
+  margin: 100px 0
+
+.plants__text
+  @include text ($small_tablet, $tablet)
+
+.plants__text-content
+  margin-bottom: 30px
+
+.plants__picture
+  @include picture ($small_tablet, $tablet, $desktop)
+
+.plants__wrapper
+  @include wrapper($tablet, $desktop, row-reverse)
+
+@media (min-width: $tablet)
+  .plants
+    margin: 150px 0
+
+  .plants__title
+    margin: 0 10vw 50px 0
+    text-align: right
+
+    span
+      display: block
+
+@media (min-width: $desktop)
+  .plants
+    margin-top: 50px
+    margin-bottom: 200px
+
+  .plants__title
+    margin: 0 10vw 0 0
+
+
+
+
+.inspiration
+  margin-top: 20vh
+  margin-bottom: 150px
+
+.inspiration__text
+  width: 80%
+  margin: 12vh auto 30vh auto
+
+.inspiration-text-title
+  @include title (26px, center, 1.5rem)
+
+.inspiration-text-message
+  margin: 30px 0
+
+.inspiration__picture
+  display: grid
+  width: 70%
+  margin: 30vh auto
+  grid-template-columns: 1fr
+  grid-template-rows: repeat(4, 65vh)
+  grid-row-gap: 22vh
+
+
+@media (min-width: $small_tablet)
+  .inspiration
+    margin-top: 150px
+
+  .inspiration__text
+    width: 70vw
+    margin: 0
+
+  .inspiration__title
+    width: 90vw
+    margin: 0 auto
+    .title-line
+      display: inline
+
+  .inspiration__paragraf
+    height: 60vh
+    max-height: 550px
+    @include flex (space-evenly, center, column)
+
+  .inspiration__picture
+    width: 80%
+    margin: 70px auto
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 40vh 40vh
+    grid-column-gap: 10vw
+    grid-row-gap: 30px
+
+  .inspiration__image
+    height: 85%
+
+  .inspiration__image--bottom
+    align-self: end
+
+@media (min-width: $tablet)
+  .inspiration
+    margin: 100px 0 150px 0
+
+  .inspiration__paragraf
+    height: 40vh
+    max-height: 600px
+
+  .inspiration__text
+    max-width: 550px
+
+  .inspiration__picture
+    width: 66vw
+    height: 80vh
+    max-height: 1000px
+    margin: 50px auto
+    grid-template-rows: repeat(2, minmax(40%, 450px))
+    grid-column-gap: 14vw
+    grid-row-gap: 100px
+
+@media (min-width: $desktop)
+  .inspiration
+    margin: 30px 0 150px 0
+
+  .inspiration__title
+    margin-bottom: 0
+
+  .inspiration__paragraf
+    height: 70vh
+    max-height: 600px
+
+  .inspiration__text
+    max-width: 750px
+
+  .inspiration-text-title
+    margin-top: 0
+
+  .inspiration-text-message
+    margin: 20px 0
+
+  .inspiration__picture
+    width: 68vw
+    height: 1300px
+    max-height: 1500px
+    margin: 200px auto
+    padding: 0
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: repeat(2, 1fr)
+    grid-column-gap: 17vw
+    grid-row-gap: 250px
+
+  .inspiration__image
+    height: 90%
+    max-height: 550px

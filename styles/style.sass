@@ -1,35 +1,127 @@
-$pink-background: rgba(255,232,222,0.9)
-$black-background: #1C1B20
-$dark-color: #333333
-$light-gray-color: #D8D8D8
-$gray-color: #4C4A57
-$text-color: #4F4F4F
-$header-color: #2E282A
-$footer-green: hsl(148, 23%, 29%)
-$footer-gray: hsl(140, 3%, 17%)
+/*  variables  */
+$large_mobile: 360px
+$small_tablet: 600px
+$tablet: 768px
+$large_tablet: 1024px
+$desktop: 1200px
 
+// colors
+$bgcolor: #F7F7F7
+$black: #201F1F
+$text: #333333
 $nav-link: #2C2D2E
-$nav-link-hover: #3A3B3C
+$gray: #757575
+$pink: #FFE4D0
 
+// fonts
+$abril: 'Abril Fatface', cursive
+$montserrat: 'Montserrat', sans-serif
+
+
+/*  mixin  */
+@mixin title ($size, $align, $height)
+  font-size: $size
+  text-align: $align
+  line-height: $height
+  font-family: $abril
+  font-weight: 500
+
+@mixin title_line
+  display: block
+  margin: 0
+
+@mixin flex ($justify, $align, $direction)
+  display: flex
+  justify-content: $justify
+  align-items: $align
+  flex-direction: $direction
+
+@mixin text ($small_tablet, $tablet)
+  width: 80%
+  margin: 7vh auto 20vh auto
+
+  @media (min-width: #{$small_tablet})
+    width: 60%
+    margin: 70px auto
+
+  @media (min-width: #{$tablet})
+    width: 40%
+    max-width: 600px
+    margin: 0
+
+@mixin picture ($small_tablet, $tablet, $desktop)
+  width: 70%
+  height: 70vh
+  max-height: 440px
+  margin: 20vh auto
+
+  @media (min-width: #{$small_tablet})
+    height: 60vh
+    max-height: 400px
+    max-width: 250px
+    margin: 100px auto
+
+  @media (min-width: #{$tablet})
+    width: 32%
+    max-width: 220px
+    height: 350px
+    max-height: 350px
+    margin: 0
+
+  @media (min-width: #{$desktop})
+    align-self: flex-end
+    max-width: 320px
+    height: 500px
+    max-height: 500px
+
+@mixin wrapper ($tablet, $desktop, $direction)
+  @media (min-width: #{$tablet})
+    height: min-content
+    @include flex (space-evenly, center, #{$direction})
+
+  @media (min-width: #{$desktop})
+    height: 380px
+
+@mixin wide_text ($small_tablet, $tablet, $desktop)
+  width: 80%
+
+  @media (min-width: #{$small_tablet})
+    width: 70%
+
+  @media (min-width: #{$tablet})
+    max-width: 550px
+
+  @media (min-width: #{$desktop})
+    max-width: 750px
+
+
+
+
+
+/*  general styles  */
 html
   font-size: 14px
 
+*
+  box-sizing: border-box
+
 body
   margin: 0
-  font-family: 'Montserrat', Sans-Serif
+  padding: 0
+  font-family: $montserrat
   font-weight: 400
   line-height: 1.4rem
-  color: $dark-color
+  color: $text
 
-@media (min-width: 360px)
+@media (min-width: $large_mobile)
   html
     font-size: 16px
 
-@media (min-width: 600px)
+@media (min-width: $small_tablet)
   html
     font-size: 14px
 
-@media (min-width: 1100px)
+@media (min-width: $desktop)
   html
     font-size: 16px
 
@@ -38,7 +130,76 @@ body
 
 
 
-/*         banner         */
+.title
+  @include title(33px, center, 1.1)
+  margin: 0
+  color: $black
+
+@media (min-width: 360px)
+  .title
+    font-size: 41px
+
+@media (min-width: 600px)
+  .title
+    font-size: 33px
+
+@media (min-width: 768px)
+  .title
+    font-size: 38px
+
+@media (min-width: 1024px)
+  .title
+    font-size: 48px
+
+@media (min-width: 1200px)
+  .title
+    font-size: 63px
+
+
+
+.image
+  width: 100%
+  height: 100%
+  object-fit: cover
+
+
+.link
+  width: 100%
+  text-align: center
+
+.anchor
+  text-decoration: none
+  color: $black
+  font-weight: 500
+
+  &::after
+    content: '→'
+    position: relative
+    right: -10px
+    font-size: 14px
+    transition: right 0.2s ease-out
+
+  &:hover
+    color: $gray
+
+  &:hover::after
+    color: $gray
+    right: -17px
+
+@media (min-width: 600px)
+  .anchor::after
+    font-size: 20px
+
+
+
+@import subpages/home.sass
+@import subpages/about.sass
+@import subpages/contact.sass
+@import subpages/assortment.sass
+
+
+
+/*  navbar  */
 .site-header
   z-index: 3
   position: fixed
@@ -81,7 +242,6 @@ body
   fill: none
   width: 20px
   height: 20px
-
 
 /*      navigation      */
 $width: 100vw
@@ -188,16 +348,14 @@ $width: 100vw
 .nav-link
   text-decoration: none
   font-weight: 500
-  color: $nav-link
+  color: $black
   position: relative
   transition: color 0.5s ease-out
 
 .nav-list__item:hover .nav-link
-  color: $nav-link-hover
+  color: $gray
 
-
-
-@media (min-width: 600px)
+@media (min-width: $small_tablet)
   .site-header
     height: 70px
     width: 100%
@@ -205,8 +363,7 @@ $width: 100vw
   .topbar
     margin-right: 100px
 
-
-@media (min-width: 1000px)
+@media (min-width: $large_tablet)
   $width: 35vw
   $margin: 100vw - $width
 
@@ -253,44 +410,8 @@ $width: 100vw
 
 
 
-/*         title         */
-.title
-  margin: 0
-  font-size: 33px
-  font-family: 'Abril Fatface', cursive
-  font-weight: 500
-  line-height: 1.1
-  color: $header-color
-  text-align: center
 
-@media (min-width: 360px)
-  .title
-    font-size: 41px
-
-@media (min-width: 600px)
-  .title
-    font-size: 33px
-
-@media (min-width: 768px)
-  .title
-    font-size: 38px
-  // może 38px?
-
-@media (min-width: 1024px)
-  .title
-    font-size: 48px
-
-@media (min-width: 1200px)
-  .title
-    font-size: 63px
-
-  .location__title, .header__title
-    font-size: 76px
-
-
-
-/*      header      */
-
+/*  header  */
 .header
   margin-top: 17vh
 
@@ -302,28 +423,8 @@ $width: 100vw
   min-height: 150px
   margin: 3vh 0 20vh 0
 
-.image
-  width: 100%
-  height: 100%
-  object-fit: cover
 
-.header__text
-  width: 80vw
-  margin: 0 auto
-  text-align: center
-
-.header__text-header
-  text-align: center
-  font-size: 16px
-  margin: 0
-  margin-bottom: 20px
-
-.header__text-content
-  margin: 0
-  margin-bottom: 100px
-
-
-@media (min-width: 600px)
+@media (min-width: $small_tablet)
   .header
     margin-top: 12vh
 
@@ -334,64 +435,48 @@ $width: 100vw
     height: 30vh
     margin: 50px 0 100px 0
 
-  .header__text
-    width: 50vw
-
-
-@media (min-width: 768px)
+@media (min-width: $tablet)
   .header
-    width: 100%
     margin-top: 130px
     display: flex
     flex-wrap: wrap
 
+
   .header__title
-    z-index: 2
     width: 30%
     height: 22vh
     max-height: 300px
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: flex-start
+    @include flex (center, flex-start, column)
 
     .title-line
-      display: block
-      margin: 0
+      @include title_line
       padding-left: 7vw
 
   .header__picture
     width: 70%
     height: 22vh
     max-height: 300px
-    margin-top: 0
-    margin-bottom: 0
-
-  .header__text
-    display: flex
-    justify-content: space-evenly
-    width: 100vw
-    margin: 0 auto
-
-  .header__text-wrapper
-    margin: 0
-    width: 32vw
-    max-width: 340px
-
-  .header__text-content
     margin: 0
 
-@media (min-width: 1200px)
+@media (min-width: $desktop)
   .header
     margin-top: 20vh
 
   .header__title
-    width: 30%
+    font-size: 76px
     height: 55vh
     max-height: none
+    position: relative
 
     .title-line
-      padding-left: 7vw
+      padding-left: 4vw
+
+      &:nth-child(2)
+        padding-left: 6vw
+      &:nth-child(3)
+        padding-left: 8vw
+      &:nth-child(4)
+        padding-left: 10vw
 
   .header__picture
     width: 70%
@@ -400,259 +485,9 @@ $width: 100vw
     margin-top: 0
     margin-bottom: 23vh
 
-  .header__text
-    display: flex
-    justify-content: space-around
-    width: 70vw
-    height: 30vh
-    margin: 0 auto
-
-  .header__text-wrapper
-    max-width: 380px
-    line-height: 1.3rem
-
-  .header__text-header
-    font-size: 18px
 
 
-
-/*      plant team      */
-.plants
-  margin: 100px 0
-
-.plants__title
-  .line-title
-    display: block
-
-.plants__text
-  width: 80%
-  margin: 20vh auto
-
-.plants__text-content
-  margin-bottom: 30px
-
-.plants__picture
-  width: 70%
-  height: 70vh
-  max-height: 440px
-  margin: 20vh auto
-
-
-@media (min-width: 600px)
-  .plants
-
-  .plants__text
-    width: 60vw
-    margin: 70px auto
-
-  .plants__picture
-    height: 60vh
-    max-height: 400px
-    max-width: 250px
-    margin: 100px auto
-
-
-@media (min-width: 768px)
-  .plants
-    margin: 100px 10vw
-    margin: 150px 0
-
-  .plants__title
-    margin: 0 10vw 20px 0
-    text-align: right
-
-    span
-      display: block
-
-  .plants__wrapper
-    height: min-content
-    display: flex
-    justify-content: space-evenly
-    flex-direction: row-reverse
-    align-items: center
-
-  .plants__text
-    width: 40%
-    max-width: 600px
-    margin: 0
-
-  .plants__text-content
-    padding: 0
-    margin: 0
-    margin-top: 20px
-
-  .plants__picture
-    width: 30%
-    max-width: 220px
-    height: 350px
-    //max-height: 450px
-    margin: 0
-    //max-width: 270px
-    //height: 60vh
-    //max-height: 400px
-
-//@media (min-width: 900px)
-  .plants
-    grid-gap: 40px 10vw
-
-  .plants__image
-    max-height: 450px
-
-@media (min-width: 1200px)
-  .plants
-    margin-top: 50px
-    margin-bottom: 200px
-
-  .plants__title
-    margin: 0 10vw 0 0
-
-  .plants__wrapper
-    height: 380px
-
-  .plants__text
-    align-self: center
-
-  .plants__picture
-    align-self: flex-end
-    max-width: 320px
-    height: 500px
-    max-height: 500px
-
-
-
-
-/*          inspiration           */
-.inspiration
-  margin-top: 20vh
-  margin-bottom: 150px
-
-.inspiration__text
-  width: 80vw
-  margin: 12vh auto 30vh auto
-
-.inspiration-text-title
-  font-size: 22px
-  font-weight: 500
-  text-align: center
-
-.inspiration-text-message
-  margin: 30px 0
-
-.inspiration-text-anchor
-  width: 100%
-  text-align: center
-
-.text-anchor
-  text-decoration: none
-  color: inherit
-  font-weight: 500
-
-.inspiration__picture
-  display: grid
-  width: 70%
-  margin: 30vh auto
-  grid-template-columns: 1fr
-  grid-template-rows: repeat(4, 65vh)
-  grid-row-gap: 22vh
-
-
-@media (min-width: 600px)
-  .inspiration
-    margin-top: 150px
-
-  .inspiration__text
-    width: 70vw
-
-  .inspiration__title
-    width: 90vw
-    margin: 0 auto
-    .title-line
-      display: inline
-
-  .inspiration__paragraf
-    height: 60vh
-    max-height: 550px
-    display: flex
-    flex-direction: column
-    justify-content: space-evenly
-    align-items: center
-
-  .inspiration__text
-    margin: 0
-
-  .inspiration__picture
-    width: 80%
-    display: grid
-    margin: 70px auto
-    grid-template-columns: 1fr 1fr
-    grid-template-rows: 40vh 40vh
-    grid-column-gap: 10vw
-    grid-row-gap: 30px
-
-  .inspiration__image
-    height: 85%
-
-  .inspiration__image--bottom
-    align-self: end
-
-@media (min-width: 768px)
-  .inspiration
-    margin: 100px 0 150px 0
-
-  .inspiration__paragraf
-    height: 40vh
-    max-height: 600px
-
-  .inspiration__text
-    max-width: 550px
-
-  .inspiration__picture
-    width: 66vw
-    height: 80vh
-    max-height: 1000px
-    margin: 50px auto
-    grid-template-rows: repeat(2, minmax(40%, 450px))
-    grid-column-gap: 14vw
-    grid-row-gap: 100px
-
-@media (min-width: 1200px)
-  .inspiration
-    margin: 30px 0 150px 0
-
-  .inspiration__title
-    margin-bottom: 0
-
-  .inspiration__paragraf
-    height: 70vh
-    max-height: 600px
-
-  .inspiration__text
-    max-width: 750px
-
-  .inspiration-text-title
-    margin-top: 0
-
-  .inspiration-text-message
-    margin: 20px 0
-
-  .inspiration__picture
-    width: 68vw
-    height: 1300px
-    max-height: 1500px
-    margin: 200px auto
-    padding: 0
-    grid-template-columns: 1fr 1fr
-    grid-template-rows: repeat(2, 1fr)
-    grid-column-gap: 17vw
-    grid-row-gap: 250px
-
-  .inspiration__image
-    height: 90%
-    max-height: 550px
-    //align-self: center
-
-
-/*          footer          */
+/*  footer  */
 .site-footer
   position: relative
   color: white
@@ -663,7 +498,7 @@ $width: 100vw
   display: flex
   flex-direction: column
   justify-content: center
-  background: $footer-green
+  background: $black
 
 .main-footer__mention
   width: 100%
@@ -707,7 +542,7 @@ $width: 100vw
   height: 23px
 
 .sub-footer
-  background: $footer-gray
+  background: $black
   padding: 10px
 
 .sub-footer__text
@@ -716,15 +551,15 @@ $width: 100vw
   font-size: 12px
   font-weight: 300
 
-@media (min-width: 360px)
+@media (min-width: $large_mobile)
   .main-footer
     height: 25vh
 
-@media (min-width: 600px)
+@media (min-width: $small_tablet)
   .main-footer
     height: 17vh
 
-@media (min-width: 1024px)
+@media (min-width: $large_tablet)
   .main-footer
     height: 130px
     flex-direction: row
@@ -751,783 +586,3 @@ $width: 100vw
 
   .sub-footer
     padding: 5px
-
-
-
-
-
-
-/*  ==========  contact.html  ==========  */
-
-/*          location        */
-.location
-  margin-top: 17vh
-
-.location__title
-  height: 17vh
-
-.location__picture
-  height: 38vh
-  min-height: 150px
-  margin: 3vh 0 20vh 0
-  position: relative
-
-@media (min-width: 600px)
-  .location
-    margin-top: 12vh
-
-  .location__title
-    width: 100%
-    height: auto
-
-  .location__picture
-    height: 30vh
-    margin: 50px 0 100px 0
-
-@media (min-width: 700px)
-  .location
-    width: 100%
-    margin-top: 130px
-    display: flex
-    flex-wrap: wrap
-
-  .location__title
-    text-align: left
-    z-index: 2
-    width: 35%
-    height: 20vh
-    max-height: 250px
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: flex-start
-
-    .line-title
-      display: block
-      margin: 0
-      padding-left: 7vw
-
-  .location__picture
-    width: 65%
-    height: 20vh
-    max-height: 250px
-    margin-top: 0
-    margin-bottom: 0
-
-  //.location__picture
-    height: 38vh
-    margin: 3vh 0 20vh 0
-    max-height: none
-
-@media (min-width: 900px)
-  .location
-    margin-top: 150px
-    display: flex
-
-  .location__title
-    width: 35%
-    height: 60vh
-    display: flex
-    flex-direction: column
-    justify-content: center
-    align-items: flex-start
-
-    .line-title
-      display: block
-      margin: 0
-      padding-left: 7vw
-      text-align: left
-
-  .location__picture
-    width: 60%
-    height: 60vh
-    margin-top: 0
-    margin-bottom: 150px
-
-@media (min-width: 1100px)
-  .location__title
-    max-height: 500px
-
-  .location__picture
-    max-height: 500px
-    margin-bottom: 200px
-
-/*          information        */
-.information__text
-  height: 60vh
-  min-height: 400px
-  max-height: 450px
-  margin-top: 5vh
-  display: flex
-  flex-direction: column
-  justify-content: space-evenly
-  align-items: center
-  line-height: normal
-
-.info__header
-  font-size: 16px
-  font-weight: 500
-  text-align: center
-  margin-top: 0
-
-.addres__text-line
-  width: 140px
-  margin: 0 auto
-
-.info__days
-  width: 50vw
-
-.days__text-line
-  display: flex
-  justify-content: space-between
-
-.information__picture
-  width: 70%
-  height: 70vh
-  max-height: 440px
-  margin: 20vh auto
-
-@media (min-width: 360px)
-  .info__days
-    width: 40vw
-
-@media (min-width: 600px)
-  .information
-    max-height: 650px
-    margin: 150px 0
-
-  .information__title
-    margin: 0 10vw 20px 0
-    text-align: right
-    span
-      display: block
-
-  .information__wrapper
-    height: min-content
-    display: flex
-    justify-content: space-evenly
-    flex-direction: row-reverse
-    align-items: center
-
-  .information__text
-    width: 40%
-    max-width: 500px
-    min-height: 350px
-    max-height: 350px
-    margin: 0
-
-  .info__days
-    width: 180px
-
-  .information__picture
-    width: 30%
-    max-width: 220px
-    height: 350px
-    //max-height: 400px
-    margin: 0
-
-@media (min-width: 1000px)
-  .information
-    margin-top: 50px
-    margin-bottom: 100px
-
-  .information__title
-    margin: 0 10vw 0 0
-    text-align: right
-
-    .line-title
-      display: block
-
-  .information__wrapper
-    height: 380px
-
-  .information__text
-    justify-content: space-between
-    min-height: 0
-    flex-direction: row
-    align-self: center
-
-  .information__picture
-    width: 30%
-    max-width: 220px
-    height: 350px
-
-@media (min-width: 1200px)
-
-  .info__header
-    font-size: 20px
-
-  .addres__text-line
-    width: 150px
-
-  .information__picture
-    align-self: flex-end
-    max-width: 320px
-    height: 500px
-    max-height: 500px
-
-
-
-/*          contact        */
-.contact
-  margin-bottom: 20vh
-
-.contact__title
-  .line-title
-    display: block
-
-.contact__form
-  margin: 10vh auto
-  width: 70%
-
-.form-input
-  position: relative
-  margin: 30px 0
-  width: 100%
-
-.form__input
-  background-color: transparent
-  border: none
-  border-bottom: 1px solid $text-color
-  border-radius: 0
-  width: 100%
-  font: 400 16px 'Montserrat'
-  color: $text-color
-  height: 1.5rem
-  padding: 0 5px
-  box-sizing: border-box
-
-.form__input--textarea:focus
-  height: auto
-
-.form__label
-  position: absolute
-  bottom: 1px
-  left: 5px
-  letter-spacing: 0.5px
-  transition: font-size 0.2s ease-out
-
-.form__input:focus ~ .form__label
-  top: -20px
-  left: 0
-  font-size: 12px
-  color: #3399FF
-
-.form__label--textarea
-  bottom: 6px
-
-.form__button
-  background: none
-  border: 1px solid transparent
-  box-shadow: 5px 5px 10px rgba(0,0,0,.1)
-  width: 8rem
-  display: block
-  height: 2.6rem
-  color: $text-color
-  font-family: 'Montserrat', sans-serif
-  font-size: 14px
-  font-weight: 500
-  border-radius: 50px
-  margin: 40px auto
-
-
-@media (min-width: 600px)
-  .contact
-    margin: 100px 0
-
-  .contact__title
-    .line-title
-      display: inline
-
-  .contact__form
-    width: 70vw
-    max-width: 600px
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-between
-    margin: 100px auto
-
-  .form-input
-    margin: 0
-    width: 45%
-    margin-bottom: 50px
-
-  .form-input--textarea
-    width: 100%
-
-  .form__button
-    margin: 0 auto
-
-@media (min-width: 1100px)
-  .contact
-    margin: 150px 0 250px 0
-
-  .form__button
-    font-size: 16px
-
-
-
-
-/*  ==========  about.html  ==========  */
-/*          about        */
-.about
-  margin-bottom: 20vh
-
-.about__title
-  height: 90vh
-  max-height: 600px
-  display: flex
-  flex-direction: column
-  justify-content: center
-  align-items: center
-
-.about__title-line
-  display: block
-  width: 70%
-  margin-bottom: 5vh
-
-.about__title-line:last-child
-  margin-bottom: 0
-
-.about__text
-  width: 80%
-  margin: 12vh auto
-
-.about__picture
-  width: 70%
-  height: 70vh
-  max-height: 440px
-  margin: 30vh auto 10vh auto
-
-@media (min-width: 600px)
-  .about
-    margin-bottom: 150px
-
-  .about__title
-    height: 40vh
-    max-height: 350px
-
-  .about__title-line
-    margin-bottom: 0
-    width: 100%
-
-  .about__text
-    margin: 0 auto
-    width: 60vw
-
-  .about__picture
-    height: 60vh
-    max-height: 400px
-    max-width: 250px
-    margin: 100px auto
-
-@media (min-width: 768px)
-  .about
-    margin: 0
-
-  .about__title
-    height: 350px
-
-  .about__wrapper
-    height: min-content
-    display: flex
-    flex-direction: row-reverse
-    justify-content: space-evenly
-    align-items: center
-
-  .about__text
-    width: 40%
-    max-width: 600px
-    margin: 0
-
-  .about__picture
-    width: 32%
-    max-width: 220px
-    height: 350px
-    max-height: 350px
-    margin: 0
-    align-self: flex-end
-
-@media (min-width: 1200px)
-  .about__title
-    height: 80vh
-    max-height: 600px
-
-  .about__wrapper
-    margin: 100px 0
-    //height: 700px
-
-  .about__picture
-    max-width: 320px
-    height: 500px
-    max-height: 500px
-    align-self: center
-
-/*          goals        */
-.goals
-
-.goals__title
-
-.goals__text
-  width: 80%
-  margin: 10vh auto
-
-.goals__text--margin
-  margin-bottom: 50px
-
-.goals__picture
-  width: 70%
-  height: 70vh
-  max-height: 440px
-  margin: 20vh auto
-
-@media (min-width: 600px)
-  .goals
-
-  .goals__text
-    width: 60vw
-    margin: 70px auto
-
-  .goals__picture
-    height: 60vh
-    max-height: 400px
-    max-width: 250px
-    margin: 100px auto
-
-@media (min-width: 768px)
-  .goals
-    margin: 100px 0 150px 0
-
-  .goals__title
-    margin: 0 0 50px 10vw
-    text-align: left
-
-  .goals__wrapper
-    height: min-content
-    display: flex
-    justify-content: space-evenly
-    align-items: center
-
-  .goals__text
-    width: 40%
-    max-width: 600px
-    margin: 0
-
-  .goals__picture
-    width: 32%
-    max-width: 220px
-    height: 350px
-    max-height: 350px
-    margin: 0
-
-@media (min-width: 1200px)
-  .goals
-    margin: 200px 0
-
-  .goals__title
-    margin: 0 0 40px 10vw
-
-  .goals__wrapper
-    height: 450px
-
-  .goals__picture
-    max-width: 320px
-    height: 500px
-    max-height: 500px
-    align-self: flex-end
-
-  .goals__text
-
-
-
-
-
-
-/*  ==========  shop.html  ==========  */
-
-/* selection */
-.selection
-  margin-bottom: 25vh
-
-.selection__title
-  margin: 20vh 0 10vh 0
-
-.selection__text
-  width: 80%
-  margin: 30px auto
-  text-align: center
-
-.selection__inputs
-  height: 80px
-  width: 80%
-  margin: 0 auto
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-evenly
-  align-content: space-between
-
-.inputs__checkbox
-  display: none
-
-  & + .inputs__label
-    display: inline-block
-    padding: 0.3rem 1.5rem
-    border-radius: 50px
-    border: 1px solid transparent
-    box-shadow: 5px 5px 10px rgba(0,0,0,.1)
-    color: $text-color
-    font-size: 14px
-    font-weight: 500
-    transition: transform .1s ease-out
-
-  &:checked + .inputs__label
-    background-color: #F7F7F7
-    border: 1px solid #EEEFF1
-    transform: translateY(3px)
-    box-shadow: 0 0 0
-
-@media (min-width: 768px)
-  .selection
-    margin-bottom: 200px
-
-  .selection__title
-    margin: 150px 0 60px 0
-
-  .selection__text
-    margin: 50px auto
-    font-weight: 500
-
-  .selection__inputs
-    height: 32px
-
-@media (min-width: 1024px)
-  .selection__title
-    margin: 200px 0 60px 0
-
-  .selection__inputs
-    max-width: 650px
-
-  .selection__text
-    font-size: 20px
-    margin: 40px auto
-
-@media (min-width: 1200px)
-  .selection
-    margin-bottom: 280px
-
-
-
-
-/* offer */
-.offer
-  display: flex
-  flex-wrap: wrap
-
-.offer__picture
-  width: 100%
-  height: 40vh
-  max-height: 250px
-  margin: 20px auto
-  display: flex
-  justify-content: space-evenly
-
-.offer__title
-  width: 42%
-  max-width: 230px
-  color: black
-
-.title__title
-  display: none
-
-.title__name
-  font-family: 'Abril Fatface', cursive
-  line-height: 1.5rem
-  font-weight: 500
-  font-size: 22px
-
-.title__price
-  font-family: 'Abril Fatface', cursive
-  font-size: 20px
-  font-style: italic
-
-.title__description
-  font-style: italic
-  font-size: 12px
-  line-height: 1rem
-
-.offer__image
-  width: 42%
-  max-width: 200px
-
-.offer__warning
-  display: none
-  width: 60%
-  margin: 0 auto
-  text-align: center
-  font-weight: 500
-
-@media (min-width: 768px)
-  .offer__picture
-    width: 80%
-    margin: 25px auto
-
-@media (min-width: 1024px)
-  .offer
-    display: grid
-    grid-template-columns: repeat(3, 1fr)
-    place-items: center
-    grid-row-gap: 200px
-    margin: 0 5%
-
-  .offer__picture
-    width: 200px
-    height: 300px
-    max-height: 300px
-    position: relative
-    margin: 50px
-    margin: 0
-
-  .offer__picture--hidden
-    display: none
-
-  .offer__image
-    width: 100%
-    max-width: none
-
-  .offer__warning
-    font-size: 18px
-    grid-column: span 3
-
-  .offer__title
-    position: absolute
-    top: 0
-    left: 0
-    width: 100%
-    height: 100%
-    padding: 0 30px
-    box-sizing: border-box
-    display: flex
-    flex-direction: column
-    justify-content: center
-    text-align: center
-    visibility: hidden
-
-  .title__title
-    display: block
-    font-family: 'Abril Fatface', cursive
-    line-height: 1.5rem
-    font-weight: 500
-    font-size: 28px
-    color: black
-    position: absolute
-    margin: 0
-    top: 50px
-    left: -22px
-    height: 200px
-    width: 300px
-    transform: translateY(0) rotate(90deg)
-    transition: transform 0.2s ease-in
-
-  .title__name
-    font-size: 25px
-    margin-bottom: 0
-
-  .title__price
-    margin: 0.7em 0 1em 0
-
-  .title__description
-    font-weight: 500
-
-  .title__name, .title__price, .title__description
-    transform: translateY(5px)
-    opacity: 0
-    transition: opacity .2s ease-in, transform .2s ease-in
-
-  /* hover */
-  .offer__picture--hover
-    & .title__title
-      transform: translateY(-10px) rotate(90deg)
-
-    & .offer__title
-      background: rgba(0,0,0,.55)
-      visibility: visible
-      color: white
-
-    & .title__name, & .title__price, & .title__description
-      transform: translateY(0)
-      opacity: 1
-
-@media (min-width: 1200px)
-  .offer__picture
-    width: 250px
-    height: 350px
-    max-height: 350px
-
-  .title__title
-    width: 350px
-    height: 250px
-    font-size: 32px
-
-  .offer__title
-    max-width: none
-
-
-
-
-
-
-
-
-
-
-
-
-
-.attention
-  width: 80vw
-  margin: 25vh auto 30vh auto
-
-.attention__text
-
-.attention__link
-  width: 100%
-  text-align: center
-
-.link-anchor
-  text-decoration: none
-  color: black
-  font-weight: 500
-
-  &::after
-    content: '→'
-    position: relative
-    right: -10px
-    font-size: 14px
-    transition: right 0.2s ease-out
-
-  &:hover
-    color: #333333
-
-  &:hover::after
-    color: #333333
-    right: -17px
-
-
-
-@media (min-width: 600px)
-  .attention
-    width: 70vw
-    margin: 100px auto 200px auto
-
-  .link-anchor::after
-    font-size: 20px
-
-@media (min-width: 768px)
-  .attention
-    max-width: 550px
-    margin-top: 150px
-
-@media (min-width: 1200px)
-  .attention
-    max-width: 750px
-    margin-top: 200px

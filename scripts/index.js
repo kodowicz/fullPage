@@ -1,7 +1,7 @@
 (function () {
   const offers = document.querySelectorAll('.offer__picture');
   const isDesktop = window.innerWidth >= 1200;
-  let first_value = 0.5;
+  let first_value = 0.3;
   let offerRellax;
 
 
@@ -135,16 +135,16 @@
         element.setAttribute('data-rellax-speed', last_value);
 
         switch (last_value) {
-          case (0.5):
+          case (0.3):
           last_value = 0;
           break;
 
           case (0):
-          last_value = -0.5;
+          last_value = -0.3;
           break;
 
-          case (-0.5):
-          last_value = 0.5;
+          case (-0.3):
+          last_value = 0.3;
           break;
 
           default:

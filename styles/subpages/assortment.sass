@@ -1,0 +1,234 @@
+.selection
+  margin-bottom: 25vh
+
+.selection__title
+  margin: 20vh 0 10vh 0
+
+.selection__text
+  width: 80%
+  margin: 30px auto
+  text-align: center
+
+.selection__inputs
+  height: 80px
+  width: 80%
+  margin: 0 auto
+  @include flex (space-evenly, space-between, row)
+  flex-wrap: wrap
+
+.inputs__checkbox
+  display: none
+
+  & + .inputs__label
+    display: inline-block
+    padding: 0.3rem 1.5rem
+    border-radius: 50px
+    border: 1px solid transparent
+    box-shadow: 5px 5px 10px rgba(0,0,0,.1)
+    color: $gray
+    font-size: 14px
+    font-weight: 500
+    transition: transform .1s ease-out
+
+  &:checked + .inputs__label
+    background-color: #F7F7F7
+    border: 1px solid #EEEFF1
+    transform: translateY(3px)
+    box-shadow: 0 0 0
+
+@media (min-width: $tablet)
+  .selection
+    margin-bottom: 200px
+
+  .selection__title
+    margin: 150px 0 60px 0
+
+  .selection__text
+    margin: 50px auto
+    font-weight: 500
+
+  .selection__inputs
+    height: 32px
+
+@media (min-width: $large_tablet)
+  .selection__title
+    margin: 200px 0 60px 0
+
+  .selection__inputs
+    max-width: 650px
+
+  .selection__text
+    font-size: 20px
+    margin: 40px auto
+
+@media (min-width: $desktop)
+  .selection
+    margin-bottom: 300px
+
+
+
+
+
+.offer
+  display: flex
+  flex-wrap: wrap
+
+.offer__picture
+  width: 100%
+  height: 40vh
+  max-height: 250px
+  margin: 20px auto
+  display: flex
+  justify-content: space-evenly
+
+.offer__title
+  width: 42%
+  max-width: 230px
+  color: black
+
+.title__title
+  display: none
+
+.title__name
+  @include title (22px, center, 1.5rem)
+  font-weight: 500
+
+.title__price
+  @include title (20px, center, 1.1)
+  font-style: italic
+
+.title__description
+  font-style: italic
+  font-size: 12px
+  line-height: 1rem
+
+.offer__image
+  width: 42%
+  max-width: 200px
+
+.offer__warning
+  display: none
+  width: 60%
+  margin: 0 auto
+  text-align: center
+  font-weight: 500
+
+@media (min-width: $tablet)
+  .offer__picture
+    width: 80%
+    margin: 25px auto
+
+@media (min-width: $large_tablet)
+  .offer
+    display: grid
+    grid-template-columns: repeat(3, 1fr)
+    place-items: center
+    grid-row-gap: 200px
+    margin: 0 5%
+
+  .offer__picture
+    width: 200px
+    height: 300px
+    max-height: 300px
+    position: relative
+    margin: 50px
+    margin: 0
+
+  .offer__picture--hidden
+    display: none
+
+  .offer__image
+    width: 100%
+    max-width: none
+
+  .offer__warning
+    font-size: 18px
+    grid-column: span 3
+
+  .offer__title
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    padding: 0 30px
+    box-sizing: border-box
+    @include flex (center, center, column)
+    text-align: center
+    visibility: hidden
+
+  .title__title
+    display: block
+    @include title (28px, left, 1.5rem)
+    font-weight: 500
+    color: black
+    position: absolute
+    margin: 0
+    top: 50px
+    left: -22px
+    height: 200px
+    width: 300px
+    transform: translateY(0) rotate(90deg)
+    transition: transform 0.2s ease-in
+
+  .title__name
+    font-size: 25px
+    margin-bottom: 0
+
+  .title__price
+    margin: 0.7em 0 1em 0
+
+  .title__description
+    font-weight: 500
+
+  .title__name, .title__price, .title__description
+    transform: translateY(5px)
+    opacity: 0
+    transition: opacity .2s ease-in, transform .2s ease-in
+
+  /* hover */
+  .offer__picture--hover
+    & .title__title
+      transform: translateY(-10px) rotate(90deg)
+
+    & .offer__title
+      background: rgba(0,0,0,.55)
+      visibility: visible
+      color: white
+
+    & .title__name, & .title__price, & .title__description
+      transform: translateY(0)
+      opacity: 1
+
+@media (min-width: $desktop)
+  .offer__picture
+    width: 250px
+    height: 350px
+    max-height: 350px
+
+  .title__title
+    width: 350px
+    height: 250px
+    font-size: 32px
+
+  .offer__title
+    max-width: none
+
+
+
+
+.attention
+  @include wide_text ($small_tablet, $tablet, $desktop)
+  margin: 20vh auto 30vh auto
+
+@media (min-width: $small_tablet)
+  .attention
+    margin: 100px auto 200px auto
+
+@media (min-width: $tablet)
+  .attention
+    margin-top: 150px
+
+@media (min-width: $desktop)
+  .attention
+    margin-top: 200px
