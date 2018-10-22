@@ -1,6 +1,7 @@
 (function () {
   const offers = document.querySelectorAll('.offer__picture');
-  const isDesktop = window.innerWidth >= 1200;
+  const picture = document.querySelector('.header__picture');
+  const isDesktop = window.innerWidth >= 1000;
   let first_value = 0.3;
   let offerRellax;
 
@@ -9,8 +10,6 @@
     const navButton = document.querySelector('.nav-button');
     const buttonIconOpen = navButton.querySelector('.button-icon--open');
     const buttonIconClose = navButton.querySelector('.button-icon--close');
-
-    const overlay = document.querySelector('.overlay');
 
     const nav = document.querySelector('.navigation');
     const navWrapper = nav.querySelector('.nav-wrapper');
@@ -68,14 +67,12 @@
           navListItem[navListItem.length-1].addEventListener('transitionend', function() {
             navWrapper.classList.remove('nav-wrapper--expanded');
             navWrapper.classList.add('nav-wrapper--collapsed');
-            overlay.classList.remove('overlay--expanded');
             nav.classList.remove('navigation--expanded');
           }, {once: true});
           break;
 
           case ('Menu collapsed'):
             nav.classList.add('navigation--expanded');
-            overlay.classList.add('overlay--expanded');
             navWrapper.classList.remove('nav-wrapper--collapsed');
             navWrapper.classList.add('nav-wrapper--expanded');
 
@@ -108,6 +105,30 @@
     initDelay();
     userInteraction();
   };
+
+  function horizontalRellaxEffect () {
+    let last_scrollY = window.scrollY;
+    let last_translate = 0;
+
+    picture.style.setProperty('transition', 'transform 0.1s ease');
+
+    window.addEventListener('scroll', function() {
+      if (last_scrollY > window.scrollY) {
+        last_translate -= 1;
+
+        picture.style.setProperty('transform', `translateX(${last_translate}px)`);
+
+      } else if (last_scrollY < window.scrollY) {
+        last_translate += 1;
+
+        picture.style.setProperty('transform', `translateX(${last_translate}px)`);
+      };
+
+      last_scrollY = window.scrollY;
+    })
+  }
+
+
 
   function rellaxEffect() {
     const images = document.querySelectorAll('.picture');
@@ -220,7 +241,11 @@
       offers.forEach(offer => offer.addEventListener('mouseleave', hoverOffer));
 
       offerRellax = new Rellax('.offer__picture');
-    }
+    };
+
+    if (picture !== null) {
+      horizontalRellaxEffect();
+    };
   }
 
   navigation();
