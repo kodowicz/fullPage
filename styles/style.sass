@@ -8,9 +8,10 @@ $desktop: 1200px
 // colors
 $bgcolor: #F7F7F7
 $black: #201F1F
+$white: #FFFFFF
 $text: #333333
 $nav-link: #2C2D2E
-$gray: #757575
+$gray: #505050
 $pink: #FFE4D0
 
 // fonts
@@ -57,6 +58,7 @@ $montserrat: 'Montserrat', sans-serif
 
   @media (min-width: #{$small_tablet})
     height: 60vh
+    min-height: 350px
     max-height: 400px
     max-width: 250px
     margin: 100px auto
@@ -205,16 +207,13 @@ body
   position: fixed
   top: 0
   left: 0
-  width: 100%
-  height: 70px
 
 .topbar
-  display: flex
-  justify-content: space-between
-  align-items: center
+  position: absolute
+  top: 18px
+  left: 25px
   height: 100%
-  width: auto
-  margin: 0 75px 0 25px
+  margin: 18px 25px
 
 .topbar__logo
   z-index: 1
@@ -224,26 +223,8 @@ body
   width: 75px
 
 .topbar__logo-icon-path
-  fill: rgba(20,20,20,.9)
+  fill: $black
 
-.topbar__social-list
-  margin: 0
-  padding: 0
-  display: flex
-  z-index: 1
-
-.topbar-social-list__item
-  list-style: none
-  margin: 0 7px
-
-.topbar-social-icon
-  stroke: #000
-  stroke-width: 3px
-  fill: none
-  width: 20px
-  height: 20px
-
-/*      navigation      */
 $width: 100vw
 
 .overlay
@@ -258,7 +239,7 @@ $width: 100vw
 
 .overlay--expanded
   visibility: visible
-  background: rgba(255,232,222,0.9)
+  background: $pink
 
 .navigation
   position: fixed
@@ -270,14 +251,50 @@ $width: 100vw
 .navigation--expanded
   height: 100vh
 
+.nav-button
+    position: absolute
+    top: 33px
+    right: 25px
+    height: 28px
+    width: 28px
+    padding: 0
+    visibility: visible
+    background: none
+    border: none
+    transform: translateY(-50%)
+    z-index: 3
+
+    &:hover .button-icon
+      fill: $text
+
+      .icon-rect
+        width: 5px
+
+.button-icon
+  width: 100%
+  height: 100%
+  fill: $black
+
+.button-icon--open
+  stroke: none
+  stroke-width: 0
+
+.icon-rect
+  transition: width 0.2s
+
+.button-icon[aria-hidden='true']
+  display: none
+
+.button-icon[aria-hidden='false']
+  display: block
+
 .nav-wrapper
   height: 100vh
   width: $width
   margin-left: $width
-  display: flex
-  flex-direction: column
-  justify-content: center
-  background: rgba(255,232,222,0.9)
+  @include flex (center, flex-start, column)
+  padding: 0 10vw
+  background: $pink
   opacity: 0
   visibility: visible
   z-index: 2
@@ -293,50 +310,18 @@ $width: 100vw
   transform: translate3d(-$width, 0, 0)
   opacity: 1
 
-.nav-button
-  position: absolute
-  top: 33px
-  right: 25px
-  height: 28px
-  width: 28px
-  padding: 0
-  visibility: visible
-  background: none
-  border: none
-  transform: translateY(-50%)
-  z-index: 3
-
-.button-icon
-  width: 100%
-  height: 100%
-
-.button-icon[aria-hidden='true']
-  display: none
-
-.button-icon[aria-hidden='false']
-  display: block
-
 .nav-list
-  display: flex
-  flex-direction: column
-  align-items: center
-  width: min-content
-  margin: 0 auto
-  padding: 20px 0
-  visibility: visible
-
-.nav-list[aria-hidden="true"]
-  visibility: hidden
-
-.nav-list[aria-hidden="false"]
+  margin: 0
+  padding: 0
   visibility: visible
 
 .nav-list__item
-  padding: 15px
+  width: min-content
+  padding: 10px 0
   list-style: none
   opacity: 0
   transform: translateY(-15px)
-  transition: opacity .2s ease, transform .2s ease-out
+  transition: opacity .2s ease, transform .3s ease-out
 
 .nav-list__logo-icon
   width: 75px
@@ -347,66 +332,98 @@ $width: 100vw
 
 .nav-link
   text-decoration: none
-  font-weight: 500
-  color: $black
+  font-weight: 800
+  font-size: 40px
+  color: rgba(0,0,0,.85)
   position: relative
-  transition: color 0.5s ease-out
+  transition: color 0.3s ease-out
+
+.nav-link--active
+  color: $white
 
 .nav-list__item:hover .nav-link
-  color: $gray
+  color: rgba(100,0,0,.4)
+
+.subnav
+  height: 170px
+  margin-top: 50px
+  @include flex (space-between, flex-end, column)
+  align-self: flex-end
+
+.subnav-list
+  padding: 0
+  margin: 0
+  text-align: right
+
+.subnav-list__title
+  width: auto
+  font-size: 24px
+  color: rgba(255,0,0,.3)
+  font-weight: 800
+  margin: 0 0 0.6rem 0
+
+.subnav-list__item
+  width: auto
+  padding: 0
+  list-style: none
+
+.subnav-link
+  font-size: 24px
+  text-decoration: none
+  font-weight: 800
+  color: rgba(0,0,0,.85)
+  position: relative
+  transition: color 0.3s ease-out
+
+.subnav-list__item:hover .subnav-link
+  color: rgba(100,0,0,.4)
+
 
 @media (min-width: $small_tablet)
   .site-header
     height: 70px
-    width: 100%
 
-  .topbar
-    margin-right: 100px
-
-@media (min-width: $large_tablet)
-  $width: 35vw
-  $margin: 100vw - $width
-
-
-  .overlay
-    width: 0
-    opacity: 0
-
-  .overlay--expanded
-    width: 0
-    opacity: 0
-
-  .nav-wrapper
-    width: $width
-    margin-left: 0
-    transform: translate3d(-100vw, 0, 0)
-
-  .nav-wrapper--collapsed
-    width: 0
-    transform: translate3d(-100vw, 0, 0)
-
-  .nav-wrapper--expanded
-    width: 100%
-    margin-left: 0
-    transform: translate3d(0, 0, 0)
-
-  .nav-list
-    flex-direction: row
-    justify-content: center
-    flex-wrap: wrap
-    width: 500px
-    margin: 0 auto
-
-  .nav-list__item--logo
-    width: 100%
-    display: flex
-    justify-content: center
-
-  .nav-list__logo-icon
-    width: 100px
+  .nav-list__item
+    padding: 15px 0
 
   .nav-link
-    font-size: 18px
+    font-size: 55px
+
+  .subnav
+    height: 300px
+    justify-content: space-around
+
+  .subnav-list__title
+    font-size: 26px
+    margin-bottom: 1.2rem
+
+  .subnav-list__item
+    padding: 0
+
+  .subnav-link
+    font-size: 26px
+
+@media (min-width: $desktop)
+  .nav-wrapper
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+
+  .nav-list__item
+    padding: 25px 0
+
+  .nav-link
+    font-size: 76px
+
+  .subnav-list__title
+    padding: 0
+
+  .subnav-list__item
+    padding: 0
+
+  .subnav
+    align-self: center
+    margin: 0
 
 
 
@@ -433,6 +450,7 @@ $width: 100vw
 
   .header__picture
     height: 30vh
+    min-height: 250px
     margin: 50px 0 100px 0
 
 @media (min-width: $tablet)
@@ -444,7 +462,8 @@ $width: 100vw
 
   .header__title
     width: 30%
-    height: 22vh
+    height: 26vh
+    min-height: 300px
     max-height: 300px
     @include flex (center, flex-start, column)
 
@@ -455,6 +474,7 @@ $width: 100vw
   .header__picture
     width: 70%
     height: 22vh
+    min-height: 300px
     max-height: 300px
     margin: 0
 
@@ -468,15 +488,7 @@ $width: 100vw
     max-height: none
     position: relative
 
-    .title-line
-      padding-left: 4vw
 
-      &:nth-child(2)
-        padding-left: 6vw
-      &:nth-child(3)
-        padding-left: 8vw
-      &:nth-child(4)
-        padding-left: 10vw
 
   .header__picture
     width: 70%

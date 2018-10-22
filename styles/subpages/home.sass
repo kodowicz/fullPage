@@ -74,16 +74,19 @@
 
   .inspiration__paragraf
     height: 60vh
+    min-height: 400px
     max-height: 550px
     @include flex (space-evenly, center, column)
 
   .inspiration__picture
     width: 80%
     margin: 70px auto
+    height: 80vh
+    min-height: 800px
+    grid-template-rows: repeat(2, minmax(40%, 450px))
     grid-template-columns: 1fr 1fr
-    grid-template-rows: 40vh 40vh
-    grid-column-gap: 10vw
-    grid-row-gap: 30px
+    grid-column-gap: 10%
+    grid-row-gap: 15%
 
   .inspiration__image
     height: 85%
@@ -97,6 +100,7 @@
 
   .inspiration__paragraf
     height: 40vh
+    min-height: 450px
     max-height: 600px
 
   .inspiration__text
