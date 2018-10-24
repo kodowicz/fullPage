@@ -37,6 +37,14 @@ $montserrat: 'Montserrat', sans-serif
   align-items: $align
   flex-direction: $direction
 
+@mixin list
+  padding: 0
+  margin: 0
+  list-style: none
+
+  & a
+    text-decoration: none
+
 @mixin text ($small_tablet, $tablet)
   width: 80%
   margin: 7vh auto 20vh auto
@@ -49,6 +57,11 @@ $montserrat: 'Montserrat', sans-serif
     width: 40%
     max-width: 600px
     margin: 0
+
+@mixin link ($color, $size, $weight)
+  color: $color
+  font-size: $size
+  font-weight: $weight
 
 @mixin picture ($small_tablet, $tablet, $desktop)
   width: 70%
@@ -212,11 +225,9 @@ body
   position: absolute
   top: 18px
   left: 25px
-  height: 100%
-  margin: 18px 25px
+  z-index: 3
 
 .topbar__logo
-  z-index: 1
   margin: 0
 
 .topbar__logo-icon
@@ -226,20 +237,6 @@ body
   fill: $black
 
 $width: 100vw
-
-.overlay
-  position: fixed
-  top: 0
-  left: 0
-  width: 0
-  height: 100%
-  visibility: hidden
-  z-index: 2
-  transition: all 0.2s ease-in-out
-
-.overlay--expanded
-  visibility: visible
-  background: $pink
 
 .navigation
   position: fixed
@@ -252,23 +249,23 @@ $width: 100vw
   height: 100vh
 
 .nav-button
-    position: absolute
-    top: 33px
-    right: 25px
-    height: 28px
-    width: 28px
-    padding: 0
-    visibility: visible
-    background: none
-    border: none
-    transform: translateY(-50%)
-    z-index: 3
+  position: absolute
+  top: 33px
+  right: 25px
+  height: 28px
+  width: 28px
+  padding: 0
+  visibility: visible
+  background: none
+  border: none
+  transform: translateY(-50%)
+  z-index: 3
 
-    &:hover .button-icon
-      fill: $text
+  &:hover .button-icon
+    fill: $text
 
-      .icon-rect
-        width: 5px
+    .icon-rect
+      width: 5px
 
 .button-icon
   width: 100%
@@ -317,7 +314,7 @@ $width: 100vw
 
 .nav-list__item
   width: min-content
-  padding: 10px 0
+  padding: 5px 0
   list-style: none
   opacity: 0
   transform: translateY(-15px)
@@ -332,8 +329,9 @@ $width: 100vw
 
 .nav-link
   text-decoration: none
-  font-weight: 800
-  font-size: 40px
+  font-weight: 500
+  font-size: 35px
+  font-family: $abril
   color: rgba(0,0,0,.85)
   position: relative
   transition: color 0.3s ease-out
@@ -345,8 +343,8 @@ $width: 100vw
   color: rgba(100,0,0,.4)
 
 .subnav
-  height: 170px
-  margin-top: 50px
+  height: 200px
+  margin-top: 40px
   @include flex (space-between, flex-end, column)
   align-self: flex-end
 
@@ -358,8 +356,9 @@ $width: 100vw
 .subnav-list__title
   width: auto
   font-size: 24px
+  font-family: $abril
   color: rgba(255,0,0,.3)
-  font-weight: 800
+  font-weight: 500
   margin: 0 0 0.6rem 0
 
 .subnav-list__item
@@ -368,9 +367,10 @@ $width: 100vw
   list-style: none
 
 .subnav-link
-  font-size: 24px
+  font-size: 22px
   text-decoration: none
-  font-weight: 800
+  font-family: $abril
+  font-weight: 500
   color: rgba(0,0,0,.85)
   position: relative
   transition: color 0.3s ease-out
@@ -410,10 +410,10 @@ $width: 100vw
     align-items: center
 
   .nav-list__item
-    padding: 25px 0
+    padding: 20px 0
 
   .nav-link
-    font-size: 76px
+    font-size: 72px
 
   .subnav-list__title
     padding: 0
@@ -431,6 +431,7 @@ $width: 100vw
 /*  header  */
 .header
   margin-top: 17vh
+  overflow-x: hidden
 
 .header__title
   height: 17vh
@@ -501,100 +502,96 @@ $width: 100vw
 
 /*  footer  */
 .site-footer
-  position: relative
   color: white
-  line-height: 1.1rem
+  background: #2E2D2E
 
 .main-footer
-  height: 30vh
-  display: flex
-  flex-direction: column
-  justify-content: center
-  background: $black
+  height: 370px
+  @include flex (space-evenly, center, column)
 
-.main-footer__mention
-  width: 100%
-  height: auto
-  display: flex
-  justify-content: center
-  align-items: center
-  flex-direction: column
+.main-footer__nav
+  height: 120px
+  @include flex (space-between, center, column)
+  @include list
 
-.mention-paragraf
+.nav__item-link
+  @include link (white, 1.2rem, 500)
+
+.main-footer__contact
+  height: 110px
+  @include flex (space-between, center, column)
+
+
+.contact__social
+  @include flex (space-between, center, column)
+  @include list
+
+.social__item-link
+  @include link (#D5D5D5, 1rem, 400)
+
+.contact__mail
+  @include link (#D5D5D5, 1rem, 400)
   margin: 0
 
-.mention-paragraf__link
-  text-decoration: none
-  color: white
-  font-weight: 600
-
-.main-footer__social
-  width: 100%
-  height: auto
-
-.social-text
-  display: none
-
-.social-list
-  margin: 30px 0 0 0
-  padding: 0
-  display: flex
-  justify-content: center
-  align-items: center
-
-.social-icon
-  list-style: none
-  margin: 0 7px
-
-.social-icon-svg
-  stroke: #FBFBFB
-  stroke-width: 3px
-  fill: none
-  width: 23px
-  height: 23px
-
 .sub-footer
+  height: 70px
   background: $black
-  padding: 10px
+  padding: 1rem
 
 .sub-footer__text
   margin: 0
+  line-height: 1.1rem
   text-align: center
-  font-size: 12px
-  font-weight: 300
+  font-size: 0.8rem
 
-@media (min-width: $large_mobile)
-  .main-footer
-    height: 25vh
 
-@media (min-width: $small_tablet)
-  .main-footer
-    height: 17vh
-
-@media (min-width: $large_tablet)
+@media (min-width: $tablet)
   .main-footer
     height: 130px
+    padding: 0 50px
     flex-direction: row
     justify-content: space-between
-    font-size: 16px
 
-  .main-footer__mention
-    width: calc(20vw + 290px)
+  .main-footer__nav
+    height: 100%
+    width: 50%
+    max-width: 400px
+    flex-direction: row
 
-  .main-footer__social
-    width: calc(20vw + 315px)
-    position: relative
-    display: flex
+  .nav__item
+    text-align: left
+
+  .nav__item-link
+    font-size: 1.1rem
+
+  .main-footer__contact
+    height: 35%
+    width: 50%
     flex-direction: column
-    align-items: center
-    justify-content: center
+    align-items: flex-end
 
-  .social-text
-    display: block
-    margin: 10px 0
+  .contact__social
+    height: auto
+    width: 50%
+    max-width: 200px
+    flex-direction: row
 
-  .social-list
-    margin: 10px
+  .contact__mail
+    margin: 0
 
   .sub-footer
-    padding: 5px
+    height: 45px
+    padding: 0.3rem
+
+@media (min-width: $large_tablet)
+  .main-footer__nav
+    width: 35%
+
+  .main-footer__contact
+    height: 100%
+    max-width: 550px
+    flex-direction: row
+    align-items: center
+
+  .contact__social
+    width: 40%
