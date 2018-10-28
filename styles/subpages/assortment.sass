@@ -219,11 +219,11 @@
 
 .attention
   @include wide_text ($small_tablet, $tablet, $desktop)
-  margin: 20vh auto 30vh auto
+  margin: 20vh auto
 
 @media (min-width: $small_tablet)
   .attention
-    margin: 100px auto 200px auto
+    margin: 100px auto 150px auto
 
 @media (min-width: $tablet)
   .attention
@@ -232,3 +232,40 @@
 @media (min-width: $desktop)
   .attention
     margin-top: 200px
+
+
+
+
+.book
+  padding-top: 50px
+  margin-bottom: 150px
+
+.book__title
+  width: 80%
+  margin: 0 auto
+
+.book__text
+  @include text ($small_tablet, $tablet)
+  margin-bottom: 10vh
+  p
+    margin: 30px 0
+
+.book__picture
+  @include picture ($small_tablet, $tablet, $desktop)
+  margin-top: 10vh
+
+.book__wrapper
+  @include wrapper($tablet, $desktop, row-reverse)
+
+@media (min-width: $tablet)
+  .book__title
+    width: auto
+    margin-bottom: 20px
+
+@media (min-width: $desktop)
+  .book__title
+    margin: 0 10vw 50px 0
+    text-align: right
+
+    span
+      display: block
