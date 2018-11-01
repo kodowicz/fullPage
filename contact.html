@@ -21,43 +21,25 @@
         </h1>
       </div>
 
+      <div class="overlay"></div>
+
       <nav class="navigation">
-        <button class="nav-button" aria-label="Menu collapsed" aria-expanded="false" aria-controls="menu" title="Open menu">
-          <svg aria-hidden="false" class="button-icon button-icon--open" viewBox="0 0 5.4 3.2" xmlns="http://www.w3.org/2000/svg">
-            <g xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(0,-293.82486)">
-              <rect width="5" height="0.5" x="0.1571883" y="294" ry="0"/>
-              <rect class="icon-rect" width="3" height="0.5" x="0.1571883" y="295.4" ry="0"/>
-              <rect width="5" height="0.5" x="0.1571883" y="296.8" ry="0"/>
-            </g>
-          </svg>
-          <svg aria-hidden="true" class="button-icon button-icon--close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59
-              6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="#201F1F"/>
-            <path d="M0 0h24v24H0z" fill="none"/>
-          </svg>
-        </button>
 
         <div id="menu" aria-hidden="true" class="nav-wrapper">
           <ul class="nav-list">
-            <li class="nav-list__item nav-list__item">
-              <a class="nav-link nav-link--active" href="index.html">home</a>
-            </li>
-            <li class="nav-list__item nav-list__item">
+            <li class="nav-list__item">
               <a class="nav-link" href="about.html">about</a>
             </li>
-            <li class="nav-list__item nav-list__item">
+            <li class="nav-list__item">
               <a class="nav-link" href="contact.html">contact</a>
             </li>
-            <li class="nav-list__item nav-list__item">
+            <li class="nav-list__item">
               <a class="nav-link" href="assortment.html">assortment</a>
             </li>
           </ul>
 
           <div class="subnav">
             <ul class="subnav-list">
-              <p class="nav-list__item subnav-list__title">follow us</p>
-
               <li class="nav-list__item subnav-list__item">
                 <a class="subnav-link" href="https://www.instagram.com/projektrosliny/?hl=pl">instagram</a>
               </li>
@@ -67,16 +49,31 @@
             </ul>
 
             <ul class="subnav-list">
-              <p class="nav-list__item subnav-list__title">buy</p>
-
               <li class="nav-list__item subnav-list__item">
-                <a class="subnav-link" href="https://www.empik.com/projekt-rosliny-sienko-ola-muszkieta-weronika,p1195708326,ksiazka-p">our book</a>
+                <a class="subnav-link" href="https://www.empik.com/projekt-rosliny-sienko-ola-muszkieta-weronika,p1195708326,ksiazka-p">book</a>
               </li>
             </ul>
           </div>
         </div>
+
+        <button class="nav-button" aria-label="Menu collapsed" aria-expanded="false" aria-controls="menu" title="Open menu">
+          <svg aria-hidden="false" class="button-icon button-icon--open" viewBox="0 0 5.4 3.2" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(0,-293.82486)">
+              <rect width="5" height="0.3" x="0.1571883" y="294" ry="0"/>
+              <rect class="icon-rect" width="5" height="0.3" x="0.1571883" y="295.3" ry="0"/>
+              <rect width="5" height="0.3" x="0.1571883" y="296.6" ry="0"/>
+            </g>
+          </svg>
+          <svg aria-hidden="true" class="button-icon button-icon--close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59
+            6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="#201F1F"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+          </svg>
+        </button>
       </nav>
     </header>
+
 
     <main class="main">
       <section class="header">
@@ -205,7 +202,7 @@
         <p class="sub-footer__text">Designed and created by Anna Kotowicz</p>
       </section>
     </footer>
-    
+
     <script src="scripts/rellax.min.js" charset="utf-8"></script>
     <script src="scripts/index.js" charset="utf-8"></script>
   </body>
