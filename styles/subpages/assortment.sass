@@ -69,7 +69,8 @@
 
 
 
-.offer
+.offer-grid
+  @include list
   display: flex
   flex-wrap: wrap
 
@@ -81,12 +82,15 @@
   display: flex
   justify-content: space-evenly
 
-.offer__title
+.figure
+  margin: 0
+
+.figure__title
   width: 42%
   max-width: 230px
   color: black
 
-.title__title
+.figure__subtitle
   display: none
 
 .title__name
@@ -102,7 +106,7 @@
   font-size: 12px
   line-height: 1rem
 
-.offer__image
+.figure__image
   width: 42%
   max-width: 200px
 
@@ -119,7 +123,7 @@
     margin: 25px auto
 
 @media (min-width: $large_tablet)
-  .offer
+  .offer-grid
     display: grid
     grid-template-columns: repeat(3, 1fr)
     place-items: center
@@ -137,7 +141,7 @@
   .offer__picture--hidden
     display: none
 
-  .offer__image
+  .figure__image
     width: 100%
     max-width: none
 
@@ -145,7 +149,7 @@
     font-size: 18px
     grid-column: span 3
 
-  .offer__title
+  .figure__title
     position: absolute
     top: 0
     left: 0
@@ -157,7 +161,7 @@
     text-align: center
     visibility: hidden
 
-  .title__title
+  .figure__subtitle
     display: block
     @include title (28px, left, 1.5rem)
     font-weight: 500
@@ -188,10 +192,10 @@
 
   /* hover */
   .offer__picture--hover
-    & .title__title
+    & .figure__subtitle
       transform: translateY(-10px) rotate(90deg)
 
-    & .offer__title
+    & .figure__title
       background: rgba(0,0,0,.55)
       visibility: visible
       color: white
@@ -202,16 +206,16 @@
 
 @media (min-width: $desktop)
   .offer__picture
-    width: 250px
-    height: 350px
-    max-height: 350px
+    width: 220px
+    height: 320px
+    max-height: 320px
 
-  .title__title
-    width: 350px
-    height: 250px
+  .figure__subtitle
+    width: 320px
+    height: 220px
     font-size: 32px
 
-  .offer__title
+  .figure__title
     max-width: none
 
 
@@ -264,7 +268,7 @@
 
 @media (min-width: $desktop)
   .book__title
-    margin: 0 10vw 50px 0
+    margin: 0 10vw 20px 0
     text-align: right
 
     span

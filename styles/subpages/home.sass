@@ -50,12 +50,36 @@
   margin: 30px 0
 
 .inspiration__picture
-  display: grid
+  height: 350vh
+  max-height: 2400px
   width: 70%
   margin: 30vh auto
+  display: -ms-grid
+  display: grid
+  grid-row-gap: 5%
+  -ms-grid-columns: 1fr
   grid-template-columns: 1fr
-  grid-template-rows: repeat(4, 65vh)
-  grid-row-gap: 22vh
+  -ms-grid-rows: 20% 5% 20% 5% 20% 5% 20%
+  grid-template-rows: repeat(4, 1fr)
+
+.inspiration__image
+  max-height: 450px
+
+.inspiration__image:nth-child(1)
+  -ms-grid-row: 1
+  -ms-grid-column: 1
+
+.inspiration__image:nth-child(2)
+  -ms-grid-row: 3
+  -ms-grid-column: 1
+
+.inspiration__image:nth-child(3)
+  -ms-grid-row: 5
+  -ms-grid-column: 1
+
+.inspiration__image:nth-child(4)
+  -ms-grid-row: 7
+  -ms-grid-column: 1
 
 
 @media (min-width: $small_tablet)
@@ -81,15 +105,37 @@
   .inspiration__picture
     width: 80%
     margin: 70px auto
-    height: 80vh
+    height: 70vh
     min-height: 800px
-    grid-template-rows: repeat(2, minmax(40%, 450px))
-    grid-template-columns: 1fr 1fr
     grid-column-gap: 10%
     grid-row-gap: 15%
+    -ms-grid-rows: 7% 1fr 7% 10% 7% 1fr 7%
+    grid-template-rows: repeat(2, minmax(40%, 450px))
+    -ms-grid-columns: 1fr 10% 1fr
+    grid-template-columns: 1fr 1fr
 
   .inspiration__image
     height: 85%
+
+  .inspiration__image:nth-child(1)
+    -ms-grid-row: 2
+    -ms-grid-row-span: 2
+    -ms-grid-column: 1
+
+  .inspiration__image:nth-child(2)
+    -ms-grid-row: 1
+    -ms-grid-row-span: 2
+    -ms-grid-column: 3
+
+  .inspiration__image:nth-child(3)
+    -ms-grid-row: 6
+    -ms-grid-row-span: 2
+    -ms-grid-column: 1
+
+  .inspiration__image:nth-child(4)
+    -ms-grid-row: 5
+    -ms-grid-row-span: 2
+    -ms-grid-column: 3
 
   .inspiration__image--bottom
     align-self: end
@@ -111,9 +157,9 @@
     height: 80vh
     max-height: 1000px
     margin: 50px auto
-    grid-template-rows: repeat(2, minmax(40%, 450px))
     grid-column-gap: 14vw
     grid-row-gap: 100px
+    -ms-grid-columns: 1fr 14vw 1fr
 
 @media (min-width: $desktop)
   .inspiration
@@ -136,15 +182,16 @@
     margin: 20px 0
 
   .inspiration__picture
-    width: 68vw
+    width: 64vw
     height: 1300px
     max-height: 1500px
     margin: 200px auto
     padding: 0
+    grid-column-gap: 18vw
+    grid-row-gap: 250px
+    -ms-grid-columns: 1fr 18vw 1fr
     grid-template-columns: 1fr 1fr
     grid-template-rows: repeat(2, 1fr)
-    grid-column-gap: 17vw
-    grid-row-gap: 250px
 
   .inspiration__image
     height: 90%

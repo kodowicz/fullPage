@@ -13,6 +13,7 @@ $text: #333333
 $nav-link: #2C2D2E
 $gray: #505050
 $pink: #FFE4D0
+$hover: rgba(100,0,0,.4)
 
 // fonts
 $abril: 'Abril Fatface', cursive
@@ -93,10 +94,11 @@ $montserrat: 'Montserrat', sans-serif
 @mixin wrapper ($tablet, $desktop, $direction)
   @media (min-width: #{$tablet})
     height: min-content
+    justify-content: space-around
     @include flex (space-evenly, center, #{$direction})
 
   @media (min-width: #{$desktop})
-    height: 380px
+    height: 360px
 
 @mixin wide_text ($small_tablet, $tablet, $desktop)
   width: 80%
@@ -196,10 +198,10 @@ body
     transition: right 0.2s ease-out
 
   &:hover
-    color: $gray
+    color: $hover
 
   &:hover::after
-    color: $gray
+    color: $hover
     right: -17px
 
 @media (min-width: 600px)
@@ -283,17 +285,26 @@ body
 
 .nav-list
   width: 65vw
+  max-width: 250px
   @include list
   @include flex (space-between, center, row)
 
+.nav-list__item:first-child
+  display: none
+
 .nav-link
-  @include font ($black, 1rem, 500)
+  @include font (black, 0.9rem, 500)
+
+
 
 @media (max-width: 767px)
   .js-enabled
     .site-header
       width: auto
       background: transparent
+
+    .topbar
+      margin: 0
 
     .topbar__logo-icon
       width: 70px
@@ -307,17 +318,13 @@ body
       top: 0
       left: 0
       width: 100%
-      height: 60vh
+      height: 55vh
       background: white
       z-index: 2
       @include flex (center, flex-start, column)
       padding: 0 10vw
       box-shadow: 0 15px 15px -10px rgba(0,0,0,.4)
       transform: translateY(-70vh)
-
-    .site-header--expanded .nav-wrapper
-      transform: translateY(0)
-      transition: transform 0.2s ease-in-out
 
     .nav-list
       @include list
@@ -326,26 +333,25 @@ body
 
     .nav-list__item
       width: min-content
-      padding-bottom: 5px
+      padding: 2px 0
       opacity: 0
       transform: translateY(-15px)
       transition: opacity .2s ease, transform .3s ease-out
 
-    .nav-list__item--expanded
-      opacity: 1
-      transform: translateY(0)
+    .nav-list__item:first-child
+      display: block
 
     .nav-link
-      @include font ($black, 24px, 500)
+      @include font (black, 1.1rem, 500)
       transition: color 0.3s ease-out
 
     .nav-list__item:hover .nav-link
-      color: rgba(100,0,0,.4)
+      color: $hover
 
     .subnav
-      height: 15vh
-      max-height: 100px
-      margin-top: 35px
+      height: 13vh
+      max-height: 90px
+      margin-top: 20px
       @include flex (space-between, flex-end, column)
       align-self: flex-end
 
@@ -358,11 +364,19 @@ body
       padding: 0
 
     .subnav-link
-      @include font ($nav-link, 18px, 500)
+      @include font ($nav-link, 1rem, 500)
       transition: color 0.3s ease-out
 
     .subnav-list__item:hover .subnav-link
-      color: rgba(100,0,0,.4)
+      color: $hover
+
+    .site-header--expanded .nav-wrapper
+      transform: translateY(0)
+      transition: transform 0.2s ease-in-out
+
+    .nav-list__item--expanded
+      opacity: 1
+      transform: translateY(0)
 
 @media (min-width: $tablet)
   .site-header
@@ -383,16 +397,19 @@ body
     @include flex (space-between, center, row)
 
   .nav-list
-    width: 45%
+    width: 50%
     max-width: 300px
     @include list
     @include flex (space-between, center, row)
 
+  .nav-list__item:first-child
+    display: block
+
   .nav-link
-    @include font ($black, 16px, 500)
+    @include font ($black, 1.1rem, 500)
 
   .nav-list__item:hover .nav-link
-    color: rgba(100,0,0,.4)
+    color: $hover
 
   .subnav
     width: 45%
@@ -406,10 +423,10 @@ body
     padding: 0 10px
 
   .subnav-link
-    @include font ($nav-link, 16px, 400)
+    @include font ($nav-link, 1.1rem, 400)
 
   .subnav-list__item:hover .subnav-link
-    color: rgba(100,0,0,.4)
+    color: $hover
 
 
   .js-enabled
@@ -438,6 +455,7 @@ body
 
     .site-header--expanded
       background: white
+      //box-shadow: 0 10px 15px -10px rgba(0,0,0,.2)
 
       & .overlay
         opacity: 1
@@ -451,22 +469,24 @@ body
 
 @media (min-width: $desktop)
   .nav-wrapper
-    width: 60vw
+    width: 65vw
+    max-width: 850px
 
   .nav-list
-    width: 50%
+    width: 45%
+    max-width: 400px
 
   .nav-link
-    @include font ($black, 18px, 500)
+    @include font ($black, 15px, 500)
 
   .subnav
-    width: 50%
+    width: 45%
 
   .subnav-list__item
     padding: 0 20px
 
   .subnav-link
-    @include font ($nav-link, 16px, 400)
+    @include font ($nav-link, 15px, 400)
 
 
 
@@ -550,6 +570,7 @@ body
 
 .main-footer
   height: 370px
+  justify-content: space-around
   @include flex (space-evenly, center, column)
 
 .main-footer__nav
@@ -558,7 +579,7 @@ body
   @include list
 
 .nav__item-link
-  @include font (white, 1.2rem, 500)
+  @include font (white, 1.1rem, 500)
 
 .main-footer__contact
   height: 110px
@@ -577,20 +598,20 @@ body
   margin: 0
 
 .sub-footer
-  height: 70px
+  height: 3.5rem
   background: $black
-  padding: 1rem
+  padding: 0.6rem
 
 .sub-footer__text
   margin: 0
   line-height: 1.1rem
   text-align: center
-  font-size: 0.8rem
+  font-size: 0.6rem
 
 
 @media (min-width: $tablet)
   .main-footer
-    height: 130px
+    height: 110px
     padding: 0 50px
     flex-direction: row
     justify-content: space-between
@@ -603,9 +624,6 @@ body
 
   .nav__item
     text-align: left
-
-  .nav__item-link
-    font-size: 1.1rem
 
   .main-footer__contact
     height: 35%
@@ -636,5 +654,12 @@ body
     flex-direction: row
     align-items: center
 
+  .nav__item-link
+    font-size: 1rem
+
   .contact__social
     width: 40%
+
+  .social__item-link,
+  .contact__mail
+    font-size: 0.9rem
