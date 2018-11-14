@@ -1,10 +1,12 @@
 (function () {
   const body = document.getElementsByTagName('body')[0];
+  const bookPicture = document.querySelector('.book__picture');
   const offers = document.querySelectorAll('.offer__picture');
   const picture = document.querySelector('.header__picture');
-  const isDesktop = window.innerWidth >= 1000;
+  const isDesktop = window.innerWidth >= 1200;
   let first_value = 0.3;
   let offerRellax;
+  let bookRellax;
 
   body.classList.add('js-enabled');
 
@@ -52,8 +54,10 @@
 
         if (current_scroll > start_scroll) {
           collapsAnimation();
+          removeAria();
         } else {
           expandAnimation();
+          addAria();
         }
 
         start_scroll = window.scrollY;
@@ -89,9 +93,11 @@
       switch (navButton.getAttribute('aria-label')) {
         case ('Menu expanded'):
           collapsAnimation();
+          addAria();
           break;
         case ('Menu collapsed'):
           expandAnimation();
+          removeAria();
           break;
         default:
           break;
@@ -144,12 +150,38 @@
     userInteraction();
   };
 
+  function form() {
+  /*  const submit_button = document.querySelector('.form__button');
+    const form_inputs = document.querySelectorAll('.form__input');
+
+    submit_button.addEventListener('click', function(event) {
+      event.preventDefault();
+    });
+
+    form_inputs.forEach(input => input.addEventListener('change', function () {
+      if (this.value == "") {
+        this.classList.remove('focused');
+      } else {
+        this.classList.add('focused');
+      };
+    }));*/
+  };
+
+
+
   function rellaxEffect() {
     const images = document.querySelectorAll('.picture');
 
+    if (bookPicture !== null) {
+      bookPicture.classList.add('rellax--book');
+      bookRellax = new Rellax('.rellax--book', {
+        speed: 1.7,
+        center: true
+      });
+    };
+
     if (images.length !== 0) {
       images.forEach(image => image.classList.add('rellax'));
-
       const rellax = new Rellax('.rellax', {
         speed: 1.7,
         center: true
@@ -161,9 +193,17 @@
     this.classList.toggle('offer__picture--hover');
   };
 
-  function changeSpeed(rellax) {
+  function changeSpeed (rellax) {
+    const offer = document.querySelector('.offer__picture');
+
+    if (offer !== null) {
+      rellax.destroy();
+      const offerRellax = new Rellax('.offer__picture');
+    }
+  }
+
+  function hideElements () {
     let last_value = first_value;
-    rellax.destroy();
 
     offers.forEach(element => {
       if (!element.classList.contains('offer__picture--hidden')) {
@@ -187,11 +227,18 @@
         };
       };
     });
+  };
 
-    const offerRellax = new Rellax('.offer__picture');
-  }
+  function changeBookRellax (rellax) {
+    rellax.destroy();
 
-  function offerFilter () {
+    const bookRellax = new Rellax('.rellax--book', {
+      speed: 1.7,
+      center: true
+    });
+  };
+
+  function offerFilter (rellax) {
     const offers = document.querySelectorAll('.offer__picture');
     const inputs = document.querySelectorAll('.inputs__checkbox');
     const offer = document.querySelector('.offer');
@@ -225,8 +272,8 @@
             if (!offer.getAttribute('data-type').match(regExp)) {
               offer.classList.remove('offer__picture--hidden');
               offer.classList.add('offer__picture');
-            }
-          })
+            };
+          });
           break;
 
         default:
@@ -237,15 +284,19 @@
         warning.style.display = 'block';
       } else {
         warning.style.display = 'none';
+        changeBookRellax(bookRellax);
       };
 
+      hideElements();
       changeSpeed(offerRellax);
+
+      changeBookRellax(bookRellax);
     }));
   };
 
   if (offers.length !== 0) {
     offerFilter();
-  }
+  };
 
   if (isDesktop) {
     rellaxEffect();
@@ -259,4 +310,5 @@
   };
 
   navigation();
+  form();
 })()
