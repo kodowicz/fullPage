@@ -2,17 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>contact | Rosliny project - indoor potted plants to your home</title>
-    <link rel="icon" href="compre/icon.png">
+    <link rel="icon" href="images/icon.png">
     <link rel="stylesheet" href="styles/style.min.css">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,800" rel="stylesheet">
   </head>
 
   <body>
-    <header role="banner" class="site-header">
+    <header class="site-header">
       <div class="topbar">
         <h1 class="topbar__logo">
           <a href="index.html">
@@ -130,7 +130,7 @@
           </div>
 
           <div class="information__picture picture">
-            <img class="image" src="compre/contact.jpg" alt="">
+            <img class="image" src="images/contact.jpg" alt="">
           </div>
         </div>
       </section>
@@ -143,32 +143,32 @@
 
         <form class="contact__form">
           <div class="form-input">
-            <input class="form__input" type="text" placeholder="" id="input" aria-label="firstname">
+            <input class="form__input" type="text" id="firstname" aria-label="firstname" name="contact">
             <label class="form__label" for="firstname">firstname</label>
           </div>
           <div class="form-input">
-            <input class="form__input" type="text" name="lastname" value="">
+            <input class="form__input" type="text" id="lastname" aria-label="lastname" name="contact">
             <label class="form__label" for="lastname">lastname</label>
           </div>
           <div class="form-input">
-            <input class="form__input" type="email" name="email" value="">
+            <input class="form__input" type="email" id="email" aria-label="email" name="contact">
             <label class="form__label" for="email">email</label>
           </div>
           <div class="form-input">
-            <input class="form__input" type="text" name="subject" value="">
+            <input class="form__input" type="text" id="subject" aria-label="subject" name="contact">
             <label class="form__label" for="subject">subject</label>
           </div>
           <div class="form-input form-input--textarea">
-            <textarea class="form__input form__input--textarea" rows="4" cols="40" name="message"></textarea>
+            <textarea class="form__input form__input--textarea" rows="4" cols="40" id="message" aria-label="message" name="contact"></textarea>
             <label class="form__label form__label--textarea" for="message">how can we help you?</label>
           </div>
-          <button class="form__button" type="submit" name="button">submit</button>
+          <button class="form__button" type="submit" name="message">submit</button>
         </form>
       </section>
     </main>
 
-    <footer class="site-footer" role="contentinfo">
-      <section class="main-footer">
+    <footer class="site-footer">
+      <div class="main-footer">
 
         <ul class="main-footer__nav">
           <li class="nav__item">
@@ -198,15 +198,15 @@
           <p class="contact__mail">kontakt@projektrosliny.pl</p>
         </div>
 
-      </section>
+      </div>
 
-      <section class="sub-footer">
-        <p class="sub-footer__text">Copyright &copy 2018. All rights reserved.</p>
+      <div class="sub-footer">
+        <p class="sub-footer__text">Copyright &copy; 2018. All rights reserved.</p>
         <p class="sub-footer__text">Designed and created by Anna Kotowicz</p>
-      </section>
+      </div>
     </footer>
 
-    <script src="scripts/rellax.min.js" charset="utf-8"></script>
-    <script src="scripts/index.js" charset="utf-8"></script>
+    <script src="scripts/rellax.min.js"></script>
+    <script src="scripts/index.js"></script>
   </body>
 </html>
