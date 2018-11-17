@@ -13,7 +13,7 @@ $text: #333333
 $nav-link: #2C2D2E
 $gray: #505050
 $pink: #FFE4D0
-$hover: rgba(100,0,0,.4)
+$hover: rgba(160, 60, 70, 0.85)
 
 // fonts
 $abril: 'Abril Fatface', cursive
@@ -63,7 +63,6 @@ $montserrat: 'Montserrat', sans-serif
     width: 40%
     max-width: 600px
     margin: 0
-
 
 @mixin picture ($small_tablet, $tablet, $desktop)
   width: 70%
@@ -242,11 +241,17 @@ body
 .topbar__logo-icon-path
   fill: $black
 
+.skip-link
+  @include font(transparent, 0.8rem, 400)
+
+  &:focus, &:active
+    color: $black
+
 .nav-button
   display: none
   position: fixed
-  top: 27px
-  right: 15px
+  top: 29px
+  right: 12px
   height: 28px
   width: 28px
   padding: 0
@@ -259,9 +264,6 @@ body
   &:hover .button-icon
     fill: $text
 
-    .icon-rect
-      width: 5px
-
 .button-icon
   width: 100%
   height: 100%
@@ -270,9 +272,6 @@ body
 .button-icon--open
   stroke: none
   stroke-width: 0
-
-.icon-rect
-  transition: width 0.2s
 
 .button-icon[aria-hidden='true']
   display: none
@@ -318,22 +317,22 @@ body
       top: 0
       left: 0
       width: 100%
-      height: 55vh
+      height: 0
       background: white
       z-index: 2
-      @include flex (center, flex-start, column)
+      @include flex (center, center, column)
       padding: 0 10vw
-      box-shadow: 0 15px 15px -10px rgba(0,0,0,.4)
-      transform: translateY(-70vh)
+      opacity: 0
 
     .nav-list
       @include list
       flex-direction: column
-      align-items: flex-start
+      align-items: center
+      display: none
 
     .nav-list__item
       width: min-content
-      padding: 2px 0
+      padding: 10px 0
       opacity: 0
       transform: translateY(-15px)
       transition: opacity .2s ease, transform .3s ease-out
@@ -342,7 +341,8 @@ body
       display: block
 
     .nav-link
-      @include font (black, 1.1rem, 500)
+      @include font (black, 1.3rem, 500)
+      text-shadow: 0 0 3px #c2c2c2
       transition: color 0.3s ease-out
 
     .nav-list__item:hover .nav-link
@@ -351,28 +351,37 @@ body
     .subnav
       height: 13vh
       max-height: 90px
-      margin-top: 20px
-      @include flex (space-between, flex-end, column)
+      width: 100%
+      margin: 20px 0 50px
+      @include flex (center, center, row)
       align-self: flex-end
+      display: none
 
     .subnav-list
       @include list
+      @include flex(center, center, row)
       text-align: right
 
     .subnav-list__item
       width: auto
-      padding: 0
+      padding: 0 10px
 
     .subnav-link
       @include font ($nav-link, 1rem, 500)
+      text-shadow: 0 0 3px #c2c2c2
       transition: color 0.3s ease-out
 
     .subnav-list__item:hover .subnav-link
       color: $hover
 
-    .site-header--expanded .nav-wrapper
-      transform: translateY(0)
-      transition: transform 0.2s ease-in-out
+    .site-header--expanded
+      & .nav-wrapper
+        height: 100vh
+        opacity: 1
+        transition: opacity 0.2s ease-in-out
+
+      & .subnav, & .nav-list
+        display: flex
 
     .nav-list__item--expanded
       opacity: 1
@@ -380,7 +389,7 @@ body
 
 @media (min-width: $tablet)
   .site-header
-    height: 65px
+    height: 60px
     padding: 0 3vw
     background: white
 
@@ -407,6 +416,8 @@ body
 
   .nav-link
     @include font ($black, 1.1rem, 500)
+    text-shadow: 0 0 3px #c2c2c2
+
 
   .nav-list__item:hover .nav-link
     color: $hover
@@ -424,6 +435,7 @@ body
 
   .subnav-link
     @include font ($nav-link, 1.1rem, 400)
+    text-shadow: 0 0 3px #c2c2c2
 
   .subnav-list__item:hover .subnav-link
     color: $hover
@@ -439,10 +451,11 @@ body
       top: 0
       right: 0
       width: 100%
-      height: 65px
+      height: 60px
       background: white
+      z-index: -1
       opacity: 0
-      transition: width 0.2s ease-out
+      transition: opacity 0.2s ease-out
 
     .nav-wrapper
       transform: translateX(85vw)
@@ -454,7 +467,7 @@ body
       transition: opacity .2s ease, transform .3s ease-out
 
     .site-header--expanded
-      background: white
+      //background: white
       //box-shadow: 0 10px 15px -10px rgba(0,0,0,.2)
 
       & .overlay
@@ -580,6 +593,10 @@ body
 
 .nav__item-link
   @include font (white, 1.1rem, 500)
+  text-shadow: 0 0 4px #a9a9a9
+
+  &:hover
+    color: #C5C5C5
 
 .main-footer__contact
   height: 110px
@@ -592,10 +609,18 @@ body
 
 .social__item-link
   @include font (#D5D5D5, 1rem, 400)
+  text-shadow: 0 0 3px #a9a9a9
+
+  &:hover
+    color: #B5B5B5
 
 .contact__mail
   @include font (#D5D5D5, 1rem, 400)
   margin: 0
+  text-shadow: 0 0 3px #a9a9a9
+
+  &:hover
+    color: #B5B5B5
 
 .sub-footer
   height: 3.5rem
