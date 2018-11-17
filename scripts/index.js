@@ -171,11 +171,12 @@
 
   function rellaxEffect() {
     const images = document.querySelectorAll('.picture');
+    const titles = document.querySelectorAll('.title');
 
     if (bookPicture !== null) {
       bookPicture.classList.add('rellax--book');
       bookRellax = new Rellax('.rellax--book', {
-        speed: 1.7,
+        speed: 2.2,
         center: true
       });
     };
@@ -183,10 +184,16 @@
     if (images.length !== 0) {
       images.forEach(image => image.classList.add('rellax'));
       const rellax = new Rellax('.rellax', {
-        speed: 1.7,
+        speed: 2.2,
         center: true
       });
     };
+
+    titles.forEach(title => title.classList.add('rellax--title'));
+    const rellax = new Rellax('.rellax--title', {
+      speed: 0.7,
+      center: true
+    });
   };
 
   function hoverOffer () {
