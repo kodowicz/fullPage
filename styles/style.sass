@@ -14,6 +14,7 @@ $nav-link: #2C2D2E
 $gray: #505050
 $pink: #FFE4D0
 $hover: rgba(160, 60, 70, 0.85)
+$danger: rgb(231, 0, 0)
 
 // fonts
 $abril: 'Abril Fatface', cursive
@@ -118,6 +119,7 @@ $montserrat: 'Montserrat', sans-serif
 /*  general styles  */
 html
   font-size: 14px
+  scroll-behavior: smooth
 
 *
   box-sizing: border-box
@@ -127,7 +129,7 @@ body
   padding: 0
   font-family: $montserrat
   font-weight: 400
-  line-height: 1.4rem
+  line-height: 1.5rem
   color: $text
 
 @media (min-width: $large_mobile)
@@ -185,27 +187,26 @@ body
   text-align: center
 
 .anchor
+  @include font ($black, 1rem, 500)
   text-decoration: none
-  color: $black
-  font-weight: 500
 
   &::after
     content: '→'
     position: relative
     right: -10px
-    font-size: 14px
+    font-size: 1rem
     transition: right 0.2s ease-out
 
-  &:hover
+  &:hover, &:focus, &:active
     color: $hover
 
-  &:hover::after
+  &:hover::after, &:focus::after, &:active::after
     color: $hover
-    right: -17px
+    right: -16px
 
 @media (min-width: 600px)
   .anchor::after
-    font-size: 20px
+    font-size: 1rem
 
 
 
@@ -241,17 +242,24 @@ body
 .topbar__logo-icon-path
   fill: $black
 
+
 .skip-link
   @include font(transparent, 0.8rem, 400)
 
   &:focus, &:active
+    padding: 0.3rem 1.3rem
+    background: white
+    border: 1.5px solid #90bafe
+    border-radius: 50px
+    box-shadow: 5px 5px 10px rgba(0,0,0,.1)
     color: $black
+    outline: none
 
 .nav-button
   display: none
   position: fixed
-  top: 29px
-  right: 12px
+  top: 27px
+  right: 15px
   height: 28px
   width: 28px
   padding: 0
@@ -394,7 +402,7 @@ body
     background: white
 
   .topbar__logo-icon
-    max-width: 80px
+    max-width: 70px
 
   .nav-button
     display: none
@@ -419,7 +427,7 @@ body
     text-shadow: 0 0 3px #c2c2c2
 
 
-  .nav-list__item:hover .nav-link
+  .nav-list__item:hover .nav-link, .nav-link:focus
     color: $hover
 
   .subnav
@@ -437,7 +445,7 @@ body
     @include font ($nav-link, 1.1rem, 400)
     text-shadow: 0 0 3px #c2c2c2
 
-  .subnav-list__item:hover .subnav-link
+  .subnav-list__item:hover .subnav-link, .subnav-link:focus
     color: $hover
 
 
@@ -507,7 +515,9 @@ body
 
 /*  header  */
 .header
-  margin-top: 17vh
+  padding-top: 17vh
+  outline: none
+  outline-offset:
 
 .header__title
   height: 17vh
@@ -520,7 +530,7 @@ body
 
 @media (min-width: $small_tablet)
   .header
-    margin-top: 12vh
+    padding-top: 12vh
 
   .header__title
     height: auto
@@ -532,7 +542,7 @@ body
 
 @media (min-width: $tablet)
   .header
-    margin-top: 130px
+    padding-top: 130px
     display: flex
     flex-wrap: wrap
 
@@ -557,15 +567,13 @@ body
 
 @media (min-width: $desktop)
   .header
-    margin-top: 20vh
+    padding-top: 20vh
 
   .header__title
     font-size: 76px
     height: 55vh
     max-height: none
     position: relative
-
-
 
   .header__picture
     width: 70%

@@ -4,7 +4,8 @@
   const offers = document.querySelectorAll('.offer__picture');
   const picture = document.querySelector('.header__picture');
   const isDesktop = window.innerWidth >= 1200;
-  let first_value = 0.3;
+  const isTablet = window.innerWidth >= 1024;
+  let firstValue = 0.3;
   let offerRellax;
   let bookRellax;
 
@@ -40,6 +41,11 @@
       if (window.innerWidth >= 768) {
         isOpen = true;
         handleScroll();
+
+        navLinks.forEach(link => link.addEventListener('focusin', function() {
+          expandAnimation();
+          removeAria();
+        }))
       };
 
       navButton.addEventListener('keydown', handleKeydown);
@@ -47,12 +53,12 @@
     };
 
     function handleScroll () {
-      let start_scroll = window.scrollY;
+      let startScroll = window.scrollY;
 
       window.addEventListener('scroll', function () {
-        let current_scroll = window.scrollY;
+        let currentScroll = window.scrollY;
 
-        if (current_scroll > start_scroll) {
+        if (currentScroll > startScroll) {
           collapsAnimation();
           removeAria();
         } else {
@@ -60,7 +66,7 @@
           addAria();
         }
 
-        start_scroll = window.scrollY;
+        startScroll = window.scrollY;
       });
     };
 
@@ -135,7 +141,6 @@
       buttonIconOpen.setAttribute('aria-hidden', 'true');
       buttonIconClose.setAttribute('aria-hidden', 'false');
       navWrapper.setAttribute('aria-hidden', 'false');
-      navLinks.forEach(link => link.removeAttribute('tabIndex'));
     };
 
     function removeAria() {
@@ -143,7 +148,6 @@
       buttonIconOpen.setAttribute('aria-hidden', 'false');
       buttonIconClose.setAttribute('aria-hidden', 'true');
       navWrapper.setAttribute('aria-hidden', 'true');
-      navLinks.forEach(link => link.setAttribute('tabIndex', '-1'));
     };
 
     initDelay();
@@ -151,23 +155,56 @@
   };
 
   function form() {
-  /*  const submit_button = document.querySelector('.form__button');
-    const form_inputs = document.querySelectorAll('.form__input');
+    const submitButton = document.querySelector('.form__button');
+    const formInputs = document.querySelectorAll('.form__input');
+    const caution = document.querySelector('.form__caution');
+    const message = document.querySelector('.form__submited');
+    let hasValue = [];
 
-    submit_button.addEventListener('click', function(event) {
+    submitButton.addEventListener('click', function(event) {
+      hasValue = [];
       event.preventDefault();
+
+      formInputs.forEach((input) => hasValue.push(input.value));
+
+      if (hasValue.some((value) => value === "" || value === " ")) {
+        caution.style.setProperty('display', 'block');
+      } else {
+        caution.style.setProperty('display', 'none');
+        message.classList.add('form__submited--submited');
+
+        formInputs.forEach((input) => input.setAttribute('disabled', ''));
+      }
+
+      formInputs.forEach((input) => {
+        if (input.value === "" || input.value === " ") {
+          let label = input.parentNode.querySelector('.form__label');
+          label.style.setProperty('color', 'red');
+          input.classList.add('focused')
+        }
+      });
     });
 
-    form_inputs.forEach(input => input.addEventListener('change', function () {
-      if (this.value == "") {
+
+    formInputs.forEach(input => input.addEventListener('change', function () {
+      hasValue = [];
+
+      if (input.value == "" || input.value === " ") {
         this.classList.remove('focused');
       } else {
+        let label = input.parentNode.querySelector('.form__label');
+        label.style.setProperty('color', '#3399FF');
         this.classList.add('focused');
       };
-    }));*/
+
+      formInputs.forEach((input) => hasValue.push(input.value));
+
+      if (hasValue.every((value) => value !== "")) {
+        caution.style.setProperty('display', 'none');
+      }
+
+    }));
   };
-
-
 
   function rellaxEffect() {
     const images = document.querySelectorAll('.picture');
@@ -197,6 +234,16 @@
   };
 
   function hoverOffer () {
+    if (isTablet && !isDesktop) {
+      const grid = document.querySelector('.offer-grid');
+      offers.forEach((offer) => offer.classList.remove('offer__picture--hover'));
+
+      grid.addEventListener('click', function (event) {
+        if (event.target.matches('.figure__subtitle')) return;
+        offers.forEach((offer) => offer.classList.remove('offer__picture--hover'));
+      });
+    };
+
     this.classList.toggle('offer__picture--hover');
   };
 
@@ -210,23 +257,23 @@
   }
 
   function hideElements () {
-    let last_value = first_value;
+    let lastValue = firstValue;
 
     offers.forEach(element => {
       if (!element.classList.contains('offer__picture--hidden')) {
-        element.setAttribute('data-rellax-speed', last_value);
+        element.setAttribute('data-rellax-speed', lastValue);
 
-        switch (last_value) {
+        switch (lastValue) {
           case (0.3):
-          last_value = 0;
+          lastValue = 0;
           break;
 
           case (0):
-          last_value = -0.3;
+          lastValue = -0.3;
           break;
 
           case (-0.3):
-          last_value = 0.3;
+          lastValue = 0.3;
           break;
 
           default:
@@ -245,38 +292,41 @@
     });
   };
 
-  function offerFilter (rellax) {
+  function offerFilter () {
     const offers = document.querySelectorAll('.offer__picture');
     const inputs = document.querySelectorAll('.inputs__checkbox');
     const offer = document.querySelector('.offer');
     const warning = document.querySelector('.offer__warning');
+    const checkboxAll = document.querySelector('.inputs__checkbox[value=all]');
+
+    let checkedList = [];
+    let dataType;
 
     inputs.forEach((input) => input.addEventListener('click', function() {
-      const regExp = new RegExp(input.value, 'gi');
-
-      if (input.value == 'all') {
-        inputs.forEach((input) => {
-          if (input.value == 'all') return;
-          input.checked = false;
-          offers.forEach((offer) => {
-            offer.style.display = 'flex';
-          })
-        });
-      }
 
       switch (input.checked) {
         case true:
+          checkedList.push(input.value);
           offers.forEach((offer) => {
-            if (!offer.getAttribute('data-type').match(regExp)) {
+            dataType = offer.getAttribute('data-type');
+            if (!checkedList.every((check) => dataType.match(new RegExp(check)))) {
               offer.classList.add('offer__picture--hidden');
               offer.classList.remove('offer__picture');
+            } else {
+              offer.classList.remove('offer__picture--hidden');
+              offer.classList.add('offer__picture');
             };
           });
           break;
 
         case false:
+          checkedList.splice(checkedList.indexOf(input.value), 1);
           offers.forEach((offer) => {
-            if (!offer.getAttribute('data-type').match(regExp)) {
+            dataType = offer.getAttribute('data-type');
+            if (!checkedList.every((check) => dataType.match(new RegExp(check)))) {
+              offer.classList.add('offer__picture--hidden');
+              offer.classList.remove('offer__picture');
+            } else {
               offer.classList.remove('offer__picture--hidden');
               offer.classList.add('offer__picture');
             };
@@ -287,28 +337,61 @@
           break;
       }
 
+
+      if (input == checkboxAll) {
+        inputs.forEach((input) => {
+          if (input.value == 'all') return;
+          input.checked = false;
+          checkedList = [];
+
+          offers.forEach((offer) => {
+            offer.classList.remove('offer__picture--hidden');
+            offer.classList.add('offer__picture');
+          });
+        });
+      } else {
+        checkboxAll.checked = false;
+      };
+
+
       if (offer.clientHeight == 0) {
         warning.style.display = 'block';
       } else {
         warning.style.display = 'none';
-        changeBookRellax(bookRellax);
+        if (isTablet) {
+          changeBookRellax(bookRellax);
+        };
       };
 
       hideElements();
-      changeSpeed(offerRellax);
 
-      changeBookRellax(bookRellax);
+      if (isTablet) {
+        changeSpeed(offerRellax);
+        changeBookRellax(bookRellax);
+      };
     }));
   };
 
-  if (offers.length !== 0) {
-    offerFilter();
-  };
+
+  navigation();
 
   if (isDesktop) {
     rellaxEffect();
+  };
 
-    if (offers.length !== 0) {
+  if (window.location.pathname === '/contact.html') {
+    form();
+  }
+
+  if (window.location.pathname === '/assortment.html') {
+    offerFilter();
+
+    if (isTablet && !isDesktop) {
+      offers.forEach(offer => offer.addEventListener('click', hoverOffer));
+    };
+
+    if (isDesktop) {
+      rellaxEffect();
       offers.forEach(offer => offer.addEventListener('mouseenter', hoverOffer));
       offers.forEach(offer => offer.addEventListener('mouseleave', hoverOffer));
 
@@ -316,6 +399,4 @@
     };
   };
 
-  navigation();
-  form();
 })()

@@ -13,10 +13,11 @@
   font-size: 16px
   font-weight: 500
   text-align: center
+  text-shadow: 0px 0px 2px #a3a3a3
   margin-top: 0
 
 .addres__text-line
-  width: 140px
+  width: auto
   margin: 0 auto
 
 .info__days
@@ -49,8 +50,12 @@
     span
       display: block
 
-  .info__days
-    width: 180px
+@media (min-width: $large_tablet)
+  .information__text
+    width: 40%
+    justify-content: space-around
+    flex-direction: row
+    align-self: center
 
 @media (min-width: $desktop)
   .information
@@ -65,15 +70,11 @@
       display: block
 
   .information__text
-    justify-content: space-around
-    flex-direction: row
-    align-self: center
+    width: 35%
 
   .info__header
     font-size: 18px
 
-  .addres__text-line
-    width: 150px
 
 
 
@@ -88,6 +89,7 @@
 .contact__form
   margin: 10vh auto
   width: 70%
+  position: relative
 
 .form-input
   position: relative
@@ -100,8 +102,8 @@
   border-bottom: 1px solid $gray
   border-radius: 0
   width: 100%
-  font: 400 16px 'Montserrat'
-  color: $gray
+  font-family: $montserrat
+  @include font ($gray, 16px, 400)
   height: 1.5rem
   padding: 0 5px
   box-sizing: border-box
@@ -126,6 +128,39 @@
 .form__label--textarea
   bottom: 6px
 
+.form__caution
+  position: absolute
+  bottom: 50px
+  right: 0
+  @include font ($danger, 14px, 400)
+  display: none
+
+.form__submited
+  position: absolute
+  width: 100%
+  height: 0
+  background: white
+  bottom: 80px
+  left: 0
+  @include flex (center, center, column)
+  transition: height 0.3s cubic-bezier(0.19, 1, 0.22, 1)
+
+.submited-title
+  @include title (26px, center, 1.5rem)
+
+.submited-title, .submited-text
+  text-align: center
+  opacity: 0
+  transform: translateY(-3px)
+  transition: opacity 0.2s ease-out 0.3s, transform 0.2s ease-out 0.3s
+
+.form__submited--submited
+  height: 85%
+
+  .submited-title, .submited-text
+    opacity: 1
+    transform: none
+
 .form__button
   display: block
   height: 2.6rem
@@ -137,6 +172,15 @@
   border: 1px solid transparent
   border-radius: 50px
   box-shadow: 5px 5px 10px rgba(0,0,0,.1)
+  transition: transform 0.3s
+
+  &:focus, &:active
+    border: 1.5px solid #90bafe
+    outline: none
+
+  &:active
+    transform: translate(4px, 2px)
+    box-shadow: none
 
 
 @media (min-width: $small_tablet)
@@ -162,6 +206,9 @@
 
   .form-input--textarea
     width: 100%
+
+  .form__submited--submited
+    height: 100%
 
   .form__button
     margin: 0 auto

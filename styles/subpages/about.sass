@@ -22,6 +22,7 @@
 
 .bold
   font-weight: 500
+  text-shadow: 0 0 2px #a3a3a3
 
 .italic
   font-style: italic
@@ -40,6 +41,10 @@
       margin-bottom: 0
       width: 100%
 
+@media (min-width: $tablet)
+  .about__title
+    padding: 100px 0 50px
+
 @media (min-width: $desktop)
   .about
     margin-bottom: 200px
@@ -47,6 +52,7 @@
   .about__title
     height: 80vh
     max-height: 600px
+    padding: 0
 
   .about__wrapper
     margin: 200px 0

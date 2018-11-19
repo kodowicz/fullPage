@@ -1,12 +1,14 @@
 .selection
   margin-bottom: 25vh
+  outline: none
 
 .selection__title
-  margin: 20vh 0 10vh 0
+  padding: 20vh 0 10vh 0
+  padding: 20vh 0 0 0
 
 .selection__text
   width: 80%
-  margin: 30px auto
+  margin: 10vh auto 30px auto
   text-align: center
 
 .selection__inputs
@@ -41,7 +43,8 @@
     margin-bottom: 200px
 
   .selection__title
-    margin: 150px 0 60px 0
+    padding: 150px 0 60px 0
+    padding: 150px 0 0 0
 
   .selection__text
     margin: 50px auto
@@ -52,14 +55,15 @@
 
 @media (min-width: $large_tablet)
   .selection__title
-    margin: 200px 0 60px 0
+    padding: 200px 0 60px 0
+    padding: 200px 0 0 0
 
   .selection__inputs
     max-width: 650px
 
   .selection__text
     font-size: 20px
-    margin: 40px auto
+    margin: 60px auto 40px
 
 @media (min-width: $desktop)
   .selection
@@ -79,11 +83,15 @@
   height: 40vh
   max-height: 250px
   margin: 20px auto
-  display: flex
-  justify-content: space-evenly
+
+.offer__picture--hidden
+  display: none
 
 .figure
   margin: 0
+  height: 100%
+  display: flex
+  justify-content: space-evenly
 
 .figure__title
   width: 42%
@@ -138,7 +146,7 @@
     margin: 50px
     margin: 0
 
-  .offer__picture--hidden
+  //.offer__picture--hidden
     display: none
 
   .figure__image
