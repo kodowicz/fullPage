@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Rosliny project is a store based in Wroclaw saling potted plants for plant lovers and also companies">
     <title>contact | Rosliny project - indoor potted plants to your home.</title>
-    <meta name="theme-color" content="#000000">
     <link rel="icon" href="images/icon.png">
     <link rel="stylesheet" href="styles/style.min.css">
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
@@ -22,6 +21,8 @@
           </a>
         </h1>
       </div>
+
+      <a class="skip-link" href="#content" tabindex="1">skip to content</a>
 
       <div class="overlay"></div>
 
@@ -46,30 +47,30 @@
           <div class="subnav">
             <ul class="subnav-list">
               <li class="nav-list__item subnav-list__item">
-                <a class="subnav-link" href="https://www.instagram.com/projektrosliny/?hl=pl">instagram</a>
+                <a class="nav-link subnav-link" href="https://www.instagram.com/projektrosliny/?hl=pl">instagram</a>
               </li>
               <li class="nav-list__item subnav-list__item">
-                <a class="subnav-link" href="https://www.facebook.com/projektrosliny/">facebook</a>
+                <a class="nav-link subnav-link" href="https://www.facebook.com/projektrosliny/">facebook</a>
               </li>
             </ul>
 
             <ul class="subnav-list">
               <li class="nav-list__item subnav-list__item">
-                <a class="subnav-link" href="https://www.empik.com/projekt-rosliny-sienko-ola-muszkieta-weronika,p1195708326,ksiazka-p">book</a>
+                <a class="nav-link subnav-link" href="https://www.empik.com/projekt-rosliny-sienko-ola-muszkieta-weronika,p1195708326,ksiazka-p">book</a>
               </li>
             </ul>
           </div>
         </div>
 
         <button class="nav-button" aria-label="Menu collapsed" aria-expanded="false" aria-controls="menu" title="Open menu">
-          <svg aria-hidden="false" class="button-icon button-icon--open" viewBox="0 0 5.4 3.2" xmlns="http://www.w3.org/2000/svg">
+          <svg aria-hidden="false" class="button-icon button-icon--open" viewBox="-0.5 0 5.2 3" xmlns="http://www.w3.org/2000/svg">
             <g transform="translate(0,-293.82486)">
-              <rect width="5" height="0.3" x="0.1571883" y="294" ry="0"/>
-              <rect class="icon-rect" width="5" height="0.3" x="0.1571883" y="295.3" ry="0"/>
-              <rect width="5" height="0.3" x="0.1571883" y="296.6" ry="0"/>
+              <rect width="4" height="0.4" x="0.1571883" y="294" ry="0"/>
+              <rect width="4" height="0.4" x="0.1571883" y="295.2" ry="0"/>
+              <rect width="4" height="0.4" x="0.1571883" y="296.4" ry="0"/>
             </g>
           </svg>
-          <svg aria-hidden="true" class="button-icon button-icon--close" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg aria-hidden="true" class="button-icon button-icon--close" viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg">
             <path
             d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59
             6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="#201F1F"/>
@@ -81,7 +82,7 @@
 
 
     <main class="main">
-      <section class="header">
+      <section id="content" tabindex="-1" class="header">
 
           <h2 class="title header__title">
             <span class="title-line">Plants</span>
@@ -106,8 +107,8 @@
             <div class="info">
               <h3 class="info__header">where?</h3>
               <div class="info__address">
-                <div class="addres__text-line">ul. Kluczborska 3</div>
-                <div class="addres__text-line">52-007, Wrocław</div>
+                <div class="addres__text-line" lang="pl">ul. Świętokrzycka 40b</div>
+                <div class="addres__text-line"lang="pl">53-110, Wrocław</div>
                 <div class="addres__text-line">Poland</div>
               </div>
             </div>
@@ -164,6 +165,14 @@
             <textarea class="form__input form__input--textarea" rows="4" cols="40" id="message" aria-label="message" name="contact"></textarea>
             <label class="form__label form__label--textarea" for="message">how can we help you?</label>
           </div>
+
+          <p class="form__caution">please fill all sections</p>
+
+          <div class="form__submited">
+            <h3 class="submited-title">Thank you!</h3>
+            <p class="submited-text">The message has been send. We will response as possibly fast as we can.</p>
+          </div>
+
           <button class="form__button" type="submit" name="message">submit</button>
         </form>
       </section>
