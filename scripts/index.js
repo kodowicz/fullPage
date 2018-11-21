@@ -113,6 +113,7 @@
     function expandAnimation () {
       if (isOpen) return;
       isOpen = true;
+
       header.classList.add('site-header--expanded');
 
       header.addEventListener('transitionend', function() {
@@ -120,16 +121,28 @@
           navListItem.forEach(li => li.classList.add('nav-list__item--expanded'));
         } else {
           header.classList.remove('site-header--expanded');
-        }
+        };
       }, {once: true});
+
     };
 
+    function isHidden(el) {
+      const style = window.getComputedStyle(el);
+      return style.opacity == 0;
+    }
+
     function collapsAnimation () {
+      const lastListItem = navListItem[navListItem.length - 1];
       if (!isOpen) return;
       isOpen = false;
+
+      if (isHidden(lastListItem)) {
+        header.classList.remove("site-header--expanded");
+      }
+
       navListItem.forEach(li => li.classList.remove('nav-list__item--expanded'));
 
-      navListItem[navListItem.length-1].addEventListener('transitionend', function() {
+      lastListItem.addEventListener('transitionend', function() {
         if (!isOpen) {
           header.classList.remove('site-header--expanded');
         }
@@ -226,9 +239,11 @@
       });
     };
 
+    if (window.location.pathname === '/assortment.html') return;
+
     titles.forEach(title => title.classList.add('rellax--title'));
     const rellax = new Rellax('.rellax--title', {
-      speed: 0.7,
+      speed: -0.7,
       center: true
     });
   };
@@ -381,7 +396,7 @@
 
   if (window.location.pathname === '/contact.html') {
     form();
-  }
+  };
 
   if (window.location.pathname === '/assortment.html') {
     offerFilter();
@@ -391,7 +406,6 @@
     };
 
     if (isDesktop) {
-      rellaxEffect();
       offers.forEach(offer => offer.addEventListener('mouseenter', hoverOffer));
       offers.forEach(offer => offer.addEventListener('mouseleave', hoverOffer));
 
