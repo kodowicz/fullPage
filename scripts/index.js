@@ -239,7 +239,7 @@
       });
     };
 
-    if (window.location.pathname === '/assortment.html') return;
+    if (window.location.pathname === '/plant-shop/assortment.html') return;
 
     titles.forEach(title => title.classList.add('rellax--title'));
     const rellax = new Rellax('.rellax--title', {
@@ -394,11 +394,11 @@
     rellaxEffect();
   };
 
-  if (window.location.pathname === '/contact.html') {
+  if (window.location.pathname === '/plant-shop/contact.html') {
     form();
   };
 
-  if (window.location.pathname === '/assortment.html') {
+  if (window.location.pathname === '/plant-shop/assortment.html') {
     offerFilter();
 
     if (isTablet && !isDesktop) {
