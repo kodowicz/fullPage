@@ -2,14 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Rosliny project is a store based in Wroclaw saling potted plants for plant lovers and also companies">
-    <title>contact | Rosliny project - indoor potted plants to your home.</title>
-    <link rel="icon" href="../images/icon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="//fonts.googleapis.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Montserrat:400,500" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,800" rel="stylesheet">
+    <link rel="icon" href="../images/icon.png">
+    <link rel="canonical" href="https://kodowicz.github.io/plant-shop/subpages/contact.html">
+
+    <title>Contact | Rośliny - indoor potted plants to your home.</title>
+    <meta name="description" content="Rośliny is a store based in Wrocław saling potted plants for plant lovers and also companies">
+    <meta property="og:title" content="Rośliny - indoor potted plants to your home.">
+    <meta property="og:description" content="Rośliny is a store based in Wrocław saling potted plants for plant lovers and also companies">
+    <meta property="og:url" content="https://kodowicz.github.io/plant-shop/subpages/contact.html">
+    <meta property="og:image" content="https://kodowicz.github.io/plant-shop/images/icon.jpg">
+    <meta property="og:image:secure_url" content="https://kodowicz.github.io/plant-shop/images/icon.jpg">
+    <meta property="og:image:width" content="699">
+    <meta property="og:image:height" content="699">
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Rośliny">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://kodowicz.github.io/plant-shop/images/icon.png">
+    <meta name="twitter:site" content="@ChromiumDev">
   </head>
 
   <body>
@@ -133,7 +148,7 @@
           </div>
 
           <div class="information__picture picture">
-            <img class="image" src="../images/contact.jpg" alt="Store: interior room">
+            <img class="image" src="../images/contact.jpg" alt="Store: interior room brimful of plants">
           </div>
         </div>
       </section>
@@ -144,29 +159,29 @@
           <span class="line-title">Let's talk!</span>
         </h2>
 
-        <form class="contact__form">
+        <form role="form" class="contact__form">
           <div class="form-input">
-            <input class="form__input" type="text" id="firstname" aria-label="firstname" name="contact">
-            <label class="form__label" for="firstname">firstname</label>
+            <input class="form__input" type="text" id="firstname" aria-labelledby="firstname label" name="contact" required aria-required="true">
+            <label class="form__label" id="firstname label" for="firstname">firstname</label>
           </div>
           <div class="form-input">
-            <input class="form__input" type="text" id="lastname" aria-label="lastname" name="contact">
-            <label class="form__label" for="lastname">lastname</label>
+            <input class="form__input" type="text" id="lastname" aria-labelledby="lastname label" name="contact" required aria-required="true">
+            <label class="form__label" id="lastname label" for="lastname">lastname</label>
           </div>
           <div class="form-input">
-            <input class="form__input" type="email" id="email" aria-label="email" name="contact">
-            <label class="form__label" for="email">email</label>
+            <input class="form__input" type="email" id="email" aria-labelledby="email label" name="contact" required aria-required="true">
+            <label class="form__label" id="email label" for="email">email</label>
           </div>
           <div class="form-input">
-            <input class="form__input" type="text" id="subject" aria-label="subject" name="contact">
-            <label class="form__label" for="subject">subject</label>
+            <input class="form__input" type="text" id="subject" aria-labelledby="subject label" name="contact" required aria-required="true">
+            <label class="form__label" id="subject label" for="subject">subject</label>
           </div>
           <div class="form-input form-input--textarea">
-            <textarea class="form__input form__input--textarea" rows="4" cols="40" id="message" aria-label="message" name="contact"></textarea>
-            <label class="form__label form__label--textarea" for="message">how can we help you?</label>
+            <textarea class="form__input form__input--textarea" rows="4" cols="40" id="message" aria-labelledby="message label" name="contact" required aria-required="true"></textarea>
+            <label class="form__label form__label--textarea" id="message label" for="message">how can we help you?</label>
           </div>
 
-          <p class="form__caution">please fill all sections</p>
+          <p class="form__caution">please fill up all sections</p>
 
           <div class="form__submited">
             <h3 class="submited-title">Thank you!</h3>

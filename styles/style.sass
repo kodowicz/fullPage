@@ -13,7 +13,7 @@ $text: #333333
 $nav-link: #2C2D2E
 $gray: #505050
 $pink: #FFE4D0
-$hover: rgba(160, 60, 70, 0.85)
+$hover: #505050
 $danger: rgb(231, 0, 0)
 
 // fonts
@@ -302,6 +302,25 @@ body
 
 .nav-link
   @include font (black, 0.9rem, 500)
+  // display: inline-block
+  // position: relative
+  //
+  // &::after
+  // content: ''
+  // position: absolute
+  // width: 100%
+  // height: 2px
+  // bottom: 0
+  // left: 0
+  // transform: scaleX(0)
+  // background-color: black
+  // transform-origin: bottom right
+  // transition: transform 0.25s ease-out
+  //
+  //
+  // &:hover::after
+  // transform: scaleX(1)
+  // transform-origin: bottom left
 
 
 
@@ -351,10 +370,9 @@ body
 
     .nav-link
       @include font (black, 1.3rem, 500)
-      text-shadow: 0 0 3px #c2c2c2
       transition: color 0.3s ease-out
 
-    .nav-list__item:hover .nav-link
+    .nav-list__item:hover .nav-link::after
       color: $hover
 
     .subnav
@@ -377,7 +395,6 @@ body
 
     .subnav-link
       @include font ($nav-link, 1rem, 500)
-      text-shadow: 0 0 3px #c2c2c2
       transition: color 0.3s ease-out
 
     .subnav-list__item:hover .subnav-link
@@ -425,7 +442,6 @@ body
 
   .nav-link
     @include font ($black, 1.1rem, 500)
-    text-shadow: 0 0 3px #c2c2c2
 
 
   .nav-list__item:hover .nav-link, .nav-link:focus
@@ -444,7 +460,6 @@ body
 
   .subnav-link
     @include font ($nav-link, 1.1rem, 400)
-    text-shadow: 0 0 3px #c2c2c2
 
   .subnav-list__item:hover .subnav-link, .subnav-link:focus
     color: $hover
@@ -602,7 +617,6 @@ body
 
 .nav__item-link
   @include font (white, 1.1rem, 500)
-  text-shadow: 0 0 4px #a9a9a9
 
   &:hover
     color: #C5C5C5
@@ -618,7 +632,6 @@ body
 
 .social__item-link
   @include font (#D5D5D5, 1rem, 400)
-  text-shadow: 0 0 3px #a9a9a9
 
   &:hover
     color: #B5B5B5
@@ -626,7 +639,6 @@ body
 .contact__mail
   @include font (#D5D5D5, 1rem, 400)
   margin: 0
-  text-shadow: 0 0 3px #a9a9a9
 
   &:hover
     color: #B5B5B5
